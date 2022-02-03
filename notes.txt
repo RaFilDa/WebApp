@@ -1,15 +1,8 @@
--reporty, config - chyby, dokončené zálohování - čas, NázevKlienta, MAC, TypReportu, Log
+-reporty, config - chyby, dokončené zálohování - čas, Klient, Config, MAC, TypReportu, Log - implemmented
 -ohlašování klienta, třeba 1 hodina
 -záloha zmeškané nejnovější zálohy
 -vhimsical
 
 
 
-
--computer lastSeen datum connected //
--source N:1 //
--local N:1 //
--Path > FTPConf //
--Path > NetConf //
 -zobecnit destination - na zamyšlenou
--Report > CompConf, datum chybí //
