@@ -7,7 +7,7 @@ go
 use RaFilDa
 go
 
-create table Computers(ID int identity, Name varchar(50), Groups int null, MAC char(17), LastSeen datetime)
+create table Computers(ID int identity, Name varchar(50), MAC char(17), LastSeen datetime)
 create table Groups(ID int identity, Name varchar(50))
 create table Config(ID int identity, Name varchar(50), UserID int, RetentionSize int,
 FrequencyOfBackup varchar(25), TimeZone varchar(50), PackageSize int null, BackupType int, FileType bit)
@@ -16,11 +16,11 @@ create table FTP(ID int identity, IP varchar(15), Username varchar(50), Password
 create table Local(ID int identity, ConfigID int, Path varchar(250))
 create table Net(ID int identity, Username varchar(50), Password nvarchar(50))
 create table CompGroup(ID int identity, CompID int, GroupID int)
-create table CompConf(ID int identity, ConfigID int, CompID int, New bit default 1, Updated bit default 0)
+create table CompConf(ID int identity, ConfigID int, CompID int, Updated bit default 1)
 create table FTPConf(ID int identity, ConfigID int, FTPID int, Path varchar(250))
 create table NetConf(ID int identity, ConfigID int, NetID int, Path varchar(300))
 create table Users(ID int identity, Username varchar(50), Password nvarchar(50), Email varchar(100))
-create table Reports(ID int identity, CompID int, ConfigID int, Date datetime, Type varchar(5), IsError bit, Message varchar(500))
+create table Reports(ID int identity, CompConfID int, Date datetime, Type varchar(5), IsError bit, Message varchar(500))
 
 alter table Computers add constraint Pk_Computers_ID primary key(ID)
 alter table Groups add constraint Pk_Groups_ID primary key(ID)
@@ -44,11 +44,14 @@ alter table FTPConf add constraint Fk_FTPConf_FTPID_FTP_ID foreign key(FTPID) re
 alter table NetConf add constraint Fk_NetConf_NetID_Net_ID foreign key(NetID) references Net(ID)
 alter table Local add constraint Fk_Local_ConfigID_Config_ID foreign key(ConfigID) references Config(ID)
 alter table Source add constraint Fk_Source_ConfigID_Config_ID foreign key(ConfigID) references Config(ID)
+alter table Reports add constraint Fk_Reports_CompConfID_CompConf_ID foreign key(CompConfID) references CompConf(ID)
+
 
 alter table CompGroup add constraint Fk_CompGroup_CompID_Computers_ID foreign key(CompID) references Computers(ID)
 alter table CompConf add constraint Fk_CompConf_ConfigID_Config_ID foreign key(ConfigID) references Config(ID)
 alter table FTPConf add constraint Fk_FTPConf_ConfigID_Config_ID foreign key(ConfigID) references Config(ID)
 alter table NetConf add constraint Fk_NetConf_ConfigID_Config_ID foreign key(ConfigID) references Config(ID)
+
 
 insert into Users values('admin','admin','admin@admin.com')
 
