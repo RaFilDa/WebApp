@@ -7,7 +7,7 @@ go
 use RaFilDa
 go
 
-create table Computers(ID int identity, Name varchar(50), MAC char(17), LastSeen datetime)
+create table Computers(ID int identity, Name varchar(50), MAC char(17), IP varchar(16), LastSeen datetime)
 create table Groups(ID int identity, Name varchar(50))
 create table Config(ID int identity, Name varchar(50), UserID int, RetentionSize int,
 FrequencyOfBackup varchar(25), TimeZone varchar(50), PackageSize int null, BackupType int, FileType bit)

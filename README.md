@@ -1,2 +1,2 @@
-# Server
-Server app
+# Database
+Database scripts and diagrams.
