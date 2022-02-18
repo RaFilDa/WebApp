@@ -12,11 +12,17 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
-
+import {RouterModule} from "@angular/router";
+import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
+import { LoginscreenComponent } from './loginscreen/loginscreen.component';
+import { ClientsContentComponent } from './clients-content/clients-content.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MyDashboardComponent,
+    LoginscreenComponent,
+    ClientsContentComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +35,12 @@ import {MatIconModule} from "@angular/material/icon";
     MatProgressSpinnerModule,
     MatButtonModule,
     MatCardModule,
-    MatIconModule
+    MatIconModule,
+    RouterModule.forRoot([
+      {path: '', component: LoginscreenComponent},
+      {path: 'dashboard', component: MyDashboardComponent},
+      {path: 'dashboard/clients', component: ClientsContentComponent},
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
