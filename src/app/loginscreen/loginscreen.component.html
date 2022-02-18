@@ -10,5 +10,5 @@
       <input matInput type="password">
     </mat-form-field>
   </mat-card-content>
-  <a mat-raised-button [routerLink]="['/dashboard']" color="warn" style="width: 40%; margin: 0 auto">Sign in</a>
+  <button mat-raised-button (click)="submit()" color="warn" style="width: 40%; margin: 0 auto">Sign in</button>
 </mat-card>
