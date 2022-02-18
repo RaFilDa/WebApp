@@ -1,0 +1,29 @@
+
+<div class="top_items_login">
+  <img src="\assets\RaFilDa-logos_black.png" class="image_login"
+  width="300" 
+  height="300" />
+
+  <div fxLayoutAlign="end" class="slider_login">
+    <mat-icon color="Black">brightness_5</mat-icon>
+    <mat-slide-toggle [formControl]="toggleControl" color="primary"></mat-slide-toggle>
+    <mat-icon color="Black">bedtime</mat-icon>
+  </div>
+</div>
+
+<div fxLayoutAlign="center" class="login_div">
+  <mat-card fxFlex="25">
+    <mat-toolbar  color="primary" lightmode>Login</mat-toolbar>
+    <form fxLayoutAlign="strech" fxLayout="column">
+      <mat-form-field fxFlexOffset="10px">
+        <input matInput placeholder="Username">
+      </mat-form-field>
+
+      <mat-form-field>
+        <input type="password" matInput placeholder="Password">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" lightmode>Sign In</button>
+    </form>
+  </mat-card>
+</div>
