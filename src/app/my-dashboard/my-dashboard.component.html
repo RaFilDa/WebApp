@@ -1,11 +1,22 @@
 <title>Dashboard</title>
-<div class="dashboard-nav">
-  <a mat-raised-button routerLink="" color="accent">Back</a>
-  <a mat-raised-button routerLink="./clients" color="accent">Clients</a>
-  <a mat-raised-button routerLink="" color="accent">Configs</a>
-  <a mat-raised-button routerLink="" color="accent">Reports</a>
-</div>
-<div class="dashboard-content">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" opened [fixedInViewport]="true">
+    <p><a mat-raised-button (click)="goBack()" color="accent">Back</a></p>
+    <p><a mat-raised-button (click)="showClients()" color="accent">Clients</a></p>
+    <p><a mat-raised-button (click)="showConfigs()" color="accent">Configs</a></p>
+    <p><a mat-raised-button (click)="showReports()" color="accent">Reports</a></p>
+  </mat-sidenav>
 
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<!--<mat-card class="dashboard-nav">-->
+<!--    <a mat-raised-button (click)="goBack()" color="accent">Back</a>-->
+<!--    <a mat-raised-button (click)="showClients()" color="accent">Clients</a>-->
+<!--    <a mat-raised-button (click)="showConfigs()" color="accent">Configs</a>-->
+<!--    <a mat-raised-button (click)="showReports()" color="accent">Reports</a>-->
+<!--</mat-card>-->
+<!--<mat-divider></mat-divider>-->
+<!--<router-outlet></router-outlet>-->
