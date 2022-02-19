@@ -21,12 +21,22 @@ import { FlexModule } from "@angular/flex-layout";
 import { MatListModule } from "@angular/material/list";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatGridListModule } from "@angular/material/grid-list";
+import { GroupsContentComponent } from './groups-content/groups-content.component';
+import { SettingsContentComponent } from './settings-content/settings-content.component';
+import { SettingsGeneralContentComponent } from './settings-general-content/settings-general-content.component';
+import { SettingsLogsContentComponent } from './settings-logs-content/settings-logs-content.component';
+import { SettingsUsersContentComponent } from './settings-users-content/settings-users-content.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     RoutingComponents,
+    GroupsContentComponent,
+    SettingsContentComponent,
+    SettingsGeneralContentComponent,
+    SettingsLogsContentComponent,
+    SettingsUsersContentComponent,
   ],
     imports: [
         BrowserModule,

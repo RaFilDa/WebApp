@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsContentComponent implements OnInit {
 
+  public iterator = Array(50).fill(0)
+
   constructor() { }
 
   ngOnInit(): void {

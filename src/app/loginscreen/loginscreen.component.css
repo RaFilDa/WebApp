@@ -5,10 +5,9 @@
 .image_login {
   display: flex;
   position: relative;
-  top: -30px;
-  left: -55px;
+  top: 10px;
 }
 
 .login_card {
-  box-shadow: 3px 3px 4px black;
+  box-shadow: 4px 4px 20px darkgray;
 }

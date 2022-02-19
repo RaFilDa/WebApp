@@ -5,6 +5,7 @@
   position: -webkit-sticky;
   top: 0;
   z-index: 1000;
+  border: darkgray solid;
 }
 
 .toolbar-components {

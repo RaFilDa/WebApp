@@ -25,4 +25,10 @@ export class MyDashboardComponent implements OnInit {
   showReports() {
     this.router.navigate(['reports'], {relativeTo: this.route})
   }
+  showGroups() {
+    this.router.navigate(['groups'], {relativeTo: this.route})
+  }
+  showSettings() {
+    this.router.navigate(['settings'], {relativeTo: this.route})
+  }
 }

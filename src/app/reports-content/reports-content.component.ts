@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {newArray} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-reports-content',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reports-content.component.css']
 })
 export class ReportsContentComponent implements OnInit {
+
+  public iterator = Array(100).fill(0);
 
   constructor() { }
 
