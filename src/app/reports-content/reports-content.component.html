@@ -1,1 +1,37 @@
-<p>reports-content works!</p>
+<mat-toolbar class="toolbar">
+  <mat-form-field class="toolbar-components" fxFlexOffset="15px">
+    <input matInput type="text" placeholder="Search">
+  </mat-form-field>
+
+  <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="primary">Error Only</mat-slide-toggle>
+
+  <mat-form-field class="toolbar-components" fxFlexOffset="20px">
+    <mat-label>Error Type</mat-label>
+    <mat-select>
+      <mat-option>None</mat-option>
+      <mat-option value="FTP">FTP</mat-option>
+      <mat-option value="Local">Local</mat-option>
+      <mat-option value="Remote Folder">Remote Folder</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</mat-toolbar>
+
+<mat-card>
+  <mat-list style="margin-top: 40px">
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item>
+      <span style="color: green">6.2.2022|16:03:46|PC-104|MAC 14:A4:4V:13:A7:F5|Backup-LOCAL|SUCCESS</span>
+      <button mat-icon-button color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button>
+    </mat-list-item>
+
+    <mat-divider></mat-divider>
+
+    <mat-list-item><span style="color: red">6.2.2022|16:03:46|PC-104|MAC 14:A4:4V:13:A7:F5|Backup-FTP|ERROR</span></mat-list-item>
+
+    <mat-divider></mat-divider>
+  </mat-list>
+</mat-card>
+

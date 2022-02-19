@@ -14,6 +14,6 @@ export class LoginscreenComponent implements OnInit {
   }
 
   submit() {
-    this.router.navigate(['/dashboard'])
+    this.router.navigate(['/dashboard/reports'])
   }
 }

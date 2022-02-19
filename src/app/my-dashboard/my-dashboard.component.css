@@ -5,6 +5,26 @@
   width: 10%;
 }
 
-.dashboard-content {
-  display: inline;
+.img_dashboard {
+  display: flex;
+  width: 100%;
+}
+
+.menu_button {
+  margin-top: 15px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+mat-sidenav {
+  width: 200px;
+  text-align: center;
+  padding: 10px;
+  background: White;
+}
+
+mat-divider {
+  margin-top: 10px;
+  background-color: whitesmoke;
 }

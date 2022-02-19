@@ -1,14 +1,27 @@
 <title>Dashboard</title>
-<mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" opened [fixedInViewport]="true">
-    <p><a mat-raised-button (click)="goBack()" color="accent">Back</a></p>
-    <p><a mat-raised-button (click)="showClients()" color="accent">Clients</a></p>
-    <p><a mat-raised-button (click)="showConfigs()" color="accent">Configs</a></p>
-    <p><a mat-raised-button (click)="showReports()" color="accent">Reports</a></p>
+
+<mat-sidenav-container class="dashboard_sidenav">
+  <mat-sidenav mode="side" opened [fixedInViewport]="true">
+    <img src="\assets\Logo.png" class="img_dashboard"/>
+
+    <button fxLayoutAlign="center" mat-raised-button (click)="goBack()" color="primary" class="menu_button">Back</button>
+
+    <button fxLayoutAlign="center" mat-raised-button (click)="showClients()" color="primary" class="menu_button">Clients</button>
+
+    <button fxLayoutAlign="center" mat-raised-button (click)="showConfigs()" color="primary" class="menu_button">Configs</button>
+
+    <button fxLayoutAlign="center" mat-raised-button (click)="showReports()" color="primary" class="menu_button">Reports</button>
+
+    <mat-divider></mat-divider>
+
+    <button fxLayoutAlign="center" mat-raised-button color="primary" class="menu_button">Settings</button>
+
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <div class="dashboard-content">
+      <router-outlet></router-outlet>
+    </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
 

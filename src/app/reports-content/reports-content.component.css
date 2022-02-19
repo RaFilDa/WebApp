@@ -1,0 +1,14 @@
+.toolbar {
+  background-color: white;
+  display: flex;
+  position: fixed;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.toolbar-components {
+  font-size: medium;
+  margin-top: 10px;
+  font-weight: normal;
+}

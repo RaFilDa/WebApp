@@ -1,14 +1,18 @@
 <img src="\assets\Logo.png" class="image_login" width="300" height="300" />
-<mat-card class="login_card">
-  <mat-card-content style="text-align: center;">
-    <mat-form-field color="primary">
-      <mat-label>Username</mat-label>
-      <input matInput placeholder="admin">
-    </mat-form-field>
-    <mat-form-field color="primary">
-      <mat-label>Password</mat-label>
-      <input matInput type="password">
-    </mat-form-field>
-  </mat-card-content>
-  <button mat-raised-button (click)="submit()" color="warn" style="width: 40%; margin: 0 auto">Sign in</button>
-</mat-card>
+
+<div fxLayoutAlign="center">
+  <mat-card fxFlex="40vh" class="login_card">
+    <mat-toolbar color="primary">Login</mat-toolbar>
+      <form fxLayoutAlign="stretch" fxLayout="column">
+        <mat-form-field fxFlexOffset="10px">
+          <input placeholder="Username" matInput>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input type="password" placeholder="Password" matInput>
+        </mat-form-field>
+
+        <button (click)="submit()" mat-raised-button color="primary">Sign in</button>
+      </form>
+  </mat-card>
+</div>
