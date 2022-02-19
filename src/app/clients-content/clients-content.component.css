@@ -1,2 +1,31 @@
+.toolbar {
+  background-color: white;
+  display: flex;
+  position: fixed;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+}
 
+.toolbar-components {
+  font-size: medium;
+  margin-top: 10px;
+  font-weight: normal;
+}
 
+.block_user {
+  text-align: center;
+  margin-top: 20px;
+  background-color: white;
+  border: darkgray solid;
+  height: 150px;
+  width: 150px;
+}
+
+.number_user {
+  background-color: mediumpurple;
+  border: mediumpurple;
+  border-radius: 40px;
+  height: 80px;
+  width: 80px;
+}

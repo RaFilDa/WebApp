@@ -20,6 +20,7 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { FlexModule } from "@angular/flex-layout";
 import { MatListModule } from "@angular/material/list";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
+import { MatGridListModule } from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -27,26 +28,27 @@ import { MatSlideToggleModule } from "@angular/material/slide-toggle";
     AppComponent,
     RoutingComponents,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatSliderModule,
-    MatProgressSpinnerModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    AppRoutingModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    FlexModule,
-    MatListModule,
-    MatSlideToggleModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatSliderModule,
+        MatProgressSpinnerModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        AppRoutingModule,
+        MatDividerModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        FlexModule,
+        MatListModule,
+        MatSlideToggleModule,
+        MatGridListModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
