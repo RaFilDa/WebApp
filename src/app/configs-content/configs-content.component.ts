@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigsContentComponent implements OnInit {
 
+  public configs: string[] = [
+    'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local',
+    'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local',
+    'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local',
+    'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local',
+    'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local'
+   ];
+
   constructor() { }
 
   ngOnInit(): void {
