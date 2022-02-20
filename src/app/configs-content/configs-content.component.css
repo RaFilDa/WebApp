@@ -10,7 +10,7 @@
     right: 75px;
   }
 
-  .toolbar {
+.toolbar {
     background-color: white;
     display: flex;
     position: fixed;
@@ -21,7 +21,7 @@
     width: calc(100% - 200px);
   }
 
-  .toolbar-components {
+.toolbar-components {
     font-size: medium;
     margin-top: 10px;
     font-weight: normal;

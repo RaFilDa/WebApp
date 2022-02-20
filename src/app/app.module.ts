@@ -26,7 +26,9 @@ import { SettingsContentComponent } from './settings-content/settings-content.co
 import { SettingsGeneralContentComponent } from './settings-general-content/settings-general-content.component';
 import { SettingsLogsContentComponent } from './settings-logs-content/settings-logs-content.component';
 import { SettingsUsersContentComponent } from './settings-users-content/settings-users-content.component';
-import {MatTableModule} from "@angular/material/table";
+import { MatTableModule } from "@angular/material/table";
+import { ReportsPopupComponent } from "./_popups/reports-popup/reports-popup.component";
+import { MatDialogModule } from "@angular/material/dialog";
 
 
 @NgModule({
@@ -38,29 +40,34 @@ import {MatTableModule} from "@angular/material/table";
     SettingsGeneralContentComponent,
     SettingsLogsContentComponent,
     SettingsUsersContentComponent,
+    ReportsPopupComponent,
   ],
-    imports: [
-        BrowserModule,
-        BrowserAnimationsModule,
-        MatFormFieldModule,
-        MatSelectModule,
-        ReactiveFormsModule,
-        MatInputModule,
-        MatSliderModule,
-        MatProgressSpinnerModule,
-        MatButtonModule,
-        MatCardModule,
-        MatIconModule,
-        AppRoutingModule,
-        MatDividerModule,
-        MatSidenavModule,
-        MatToolbarModule,
-        FlexModule,
-        MatListModule,
-        MatSlideToggleModule,
-        MatGridListModule,
-        MatTableModule
-    ],
+  entryComponents: [
+    ReportsPopupComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatSliderModule,
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    AppRoutingModule,
+    MatDividerModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    FlexModule,
+    MatListModule,
+    MatSlideToggleModule,
+    MatGridListModule,
+    MatTableModule,
+    MatDialogModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -50,5 +50,5 @@ export const RoutingComponents = [
   ReportsContentComponent,
   GroupsContentComponent,
   SettingsContentComponent,
-  ConfigsContentComponent
+  ConfigsContentComponent,
 ]
