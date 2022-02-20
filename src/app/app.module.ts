@@ -26,6 +26,7 @@ import { SettingsContentComponent } from './settings-content/settings-content.co
 import { SettingsGeneralContentComponent } from './settings-general-content/settings-general-content.component';
 import { SettingsLogsContentComponent } from './settings-logs-content/settings-logs-content.component';
 import { SettingsUsersContentComponent } from './settings-users-content/settings-users-content.component';
+import {MatTableModule} from "@angular/material/table";
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { SettingsUsersContentComponent } from './settings-users-content/settings
         FlexModule,
         MatListModule,
         MatSlideToggleModule,
-        MatGridListModule
+        MatGridListModule,
+        MatTableModule
     ],
   providers: [],
   bootstrap: [AppComponent]
