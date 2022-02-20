@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {newArray} from "@angular/compiler/src/util";
 
 @Component({
   selector: 'app-reports-content',

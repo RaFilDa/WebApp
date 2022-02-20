@@ -9,12 +9,11 @@
     <mat-label>Error Type</mat-label>
     <mat-select>
       <mat-option>None</mat-option>
-      <mat-option>FTP</mat-option>
-      <mat-option>Local</mat-option>
-      <mat-option>Remote Folder</mat-option>
+      <mat-option value="FTP">FTP</mat-option>
+      <mat-option value="Local">Local</mat-option>
+      <mat-option value="Remote Folder">Remote Folder</mat-option>
     </mat-select>
   </mat-form-field>
-
 </mat-toolbar>
 
 <mat-card>
@@ -22,7 +21,7 @@
       <mat-list-item *ngFor="let item of iterator; even as e; index as i">
         <div fxLayout="row" fxLayoutAlign="space-between center">
           <span [style]="e ? 'color: green' : 'color: red'">6.2.2022|16:03:46|PC-{{i+1}}|MAC 14:A4:4V:13:A7:F5|Backup-LOCAL|{{e ? 'SUCCESS' : 'ERROR'}}</span>
-          <button mat-icon-button class="arrow" color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button>
+          <button mat-flat-button class="arrowButton" color="primary"><mat-icon class="arrow">keyboard_arrow_right</mat-icon></button>
         </div>
       </mat-list-item>
   </mat-list>
