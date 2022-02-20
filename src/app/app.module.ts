@@ -27,6 +27,7 @@ import { SettingsGeneralContentComponent } from './settings-general-content/sett
 import { SettingsLogsContentComponent } from './settings-logs-content/settings-logs-content.component';
 import { SettingsUsersContentComponent } from './settings-users-content/settings-users-content.component';
 import {MatTableModule} from "@angular/material/table";
+import { ReportsPopupComponent } from './_popups/reports-popup/reports-popup.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import {MatTableModule} from "@angular/material/table";
     SettingsGeneralContentComponent,
     SettingsLogsContentComponent,
     SettingsUsersContentComponent,
+    ReportsPopupComponent,
   ],
     imports: [
         BrowserModule,

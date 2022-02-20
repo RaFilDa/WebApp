@@ -1,4 +1,5 @@
 .toolbar {
+  width: calc(100% - 200px);
   background-color: white;
   display: flex;
   position: fixed;
