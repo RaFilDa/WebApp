@@ -1,17 +1,17 @@
 <mat-toolbar class="toolbar">
-  <mat-form-field class="toolbar-components" fxFlexOffset="15px">
+  <mat-form-field class="toolbar-components" fxFlexOffset="15px" color="primary">
     <input matInput type="text" placeholder="Search">
   </mat-form-field>
 
   <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="primary">Error Only</mat-slide-toggle>
 
-  <mat-form-field class="toolbar-components" fxFlexOffset="20px">
+  <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
     <mat-label>Error Type</mat-label>
     <mat-select>
       <mat-option>None</mat-option>
-      <mat-option>FTP</mat-option>
-      <mat-option>Local</mat-option>
-      <mat-option>Remote Folder</mat-option>
+      <mat-option value="FTP">FTP</mat-option>
+      <mat-option value="Local">Local</mat-option>
+      <mat-option value="Remote Folder">Remote Folder</mat-option>
     </mat-select>
   </mat-form-field>
 
@@ -19,11 +19,15 @@
 
 <mat-card>
   <mat-list style="margin-top: 40px">
-      <mat-list-item *ngFor="let item of iterator; even as e; index as i">
+      <mat-list-item style="height: 60px" *ngFor="let item of iterator; even as e; index as i">
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <span [style]="e ? 'color: green' : 'color: red'">6.2.2022|16:03:46|PC-{{i+1}}|MAC 14:A4:4V:13:A7:F5|Backup-LOCAL|{{e ? 'SUCCESS' : 'ERROR'}}</span>
-          <button mat-icon-button class="arrow" color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button>
+          <span style="font-size: large" [style]="e ? 'color: green' : 'color: red'">6.2.2022|16:03:46|PC-{{i+1}}|MAC 14:A4:4V:13:A7:F5|Backup-LOCAL|{{e ? 'SUCCESS' : 'ERROR'}}</span>
+          <!-- <button mat-icon-button class="arrow" color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button> -->
+          <button mat-mini-fab class="arrow" color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button>
         </div>
+
+        <mat-divider></mat-divider>
+
       </mat-list-item>
   </mat-list>
 </mat-card>

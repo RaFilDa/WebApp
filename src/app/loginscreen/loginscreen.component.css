@@ -3,8 +3,7 @@
 }
 
 .image_login {
-  display: flex;
-  position: relative;
+  position: fixed;
   top: 10px;
 }
 

@@ -1,0 +1,16 @@
+.table_users {
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  border: darkgray solid;
+}
+
+.mat-column-name {
+  font-size: large;
+  width: calc(100% / 8);
+  border-right: darkgray solid;
+}
+
+.mat-column-email {
+  font-size: large;
+  padding-left: 20px;
+}
