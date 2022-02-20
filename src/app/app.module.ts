@@ -26,8 +26,7 @@ import { SettingsContentComponent } from './settings-content/settings-content.co
 import { SettingsGeneralContentComponent } from './settings-general-content/settings-general-content.component';
 import { SettingsLogsContentComponent } from './settings-logs-content/settings-logs-content.component';
 import { SettingsUsersContentComponent } from './settings-users-content/settings-users-content.component';
-import {MatTableModule} from "@angular/material/table";
-import { ReportsPopupComponent } from './_popups/reports-popup/reports-popup.component';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +37,6 @@ import { ReportsPopupComponent } from './_popups/reports-popup/reports-popup.com
     SettingsGeneralContentComponent,
     SettingsLogsContentComponent,
     SettingsUsersContentComponent,
-    ReportsPopupComponent,
   ],
     imports: [
         BrowserModule,
@@ -59,8 +57,7 @@ import { ReportsPopupComponent } from './_popups/reports-popup/reports-popup.com
         FlexModule,
         MatListModule,
         MatSlideToggleModule,
-        MatGridListModule,
-        MatTableModule
+        MatGridListModule
     ],
   providers: [],
   bootstrap: [AppComponent]
