@@ -1,1 +1,16 @@
-<p>groups-content works!</p>
+<mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="space-between center">
+    <mat-form-field class="toolbar-components" fxFlexOffset="15px">
+      <input matInput type="text" placeholder="Search">
+    </mat-form-field>
+    <button mat-raised-button color="primary">NEW GROUP</button>
+</mat-toolbar>
+
+<mat-card>
+    <mat-list style="margin-top: 50px">
+        <mat-list-item style="font-size: large" *ngFor="let item of groups">{{ item }}
+          <div fxLayout="row" fxLayoutAlign="space-between center">
+            <button mat-mini-fab class="arrow" color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button>
+          </div>
+        </mat-list-item>
+    </mat-list>
+  </mat-card>

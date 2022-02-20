@@ -7,9 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GroupsContentComponent implements OnInit {
 
+  public groups: string[] = [
+  'Users', 'Administrators', 'Management',
+  'Users', 'Administrators', 'Management',
+  'Users', 'Administrators', 'Management',
+  'Users', 'Administrators', 'Management',
+  'Users', 'Administrators', 'Management',
+  'Users', 'Administrators', 'Management',
+  'Users', 'Administrators', 'Management', 
+  ];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
 }
+
