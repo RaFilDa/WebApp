@@ -18,7 +18,7 @@
 
 <mat-grid-list style="margin-top: 60px" cols="{{colCalc()}}" rowHeight="1:1">
   <mat-grid-tile *ngFor="let item of iterator; index as counter">
-    <div class="block_user" fxLayout="column" fxLayoutAlign="space-around center">
+    <div (click)="openDialog()" class="block_user" fxLayout="column" fxLayoutAlign="space-around center">
       <div style="margin-top: 10px" class="number_user" fxLayout="column" fxLayoutAlign="center center">
         <div style="color: black; font-size: xx-large">{{ counter + 1 }}</div>
       </div>

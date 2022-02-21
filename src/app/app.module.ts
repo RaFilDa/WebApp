@@ -29,7 +29,9 @@ import { SettingsUsersContentComponent } from './settings-users-content/settings
 import { MatTableModule } from "@angular/material/table";
 import { ReportsPopupComponent } from "./_popups/reports-popup/reports-popup.component";
 import { MatDialogModule } from "@angular/material/dialog";
-
+import { ClientsPopupComponent } from './_popups/clients-popup/clients-popup.component';
+import { MatExpansionModule } from "@angular/material/expansion";
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { MatDialogModule } from "@angular/material/dialog";
     SettingsLogsContentComponent,
     SettingsUsersContentComponent,
     ReportsPopupComponent,
+    ClientsPopupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,
@@ -67,6 +70,8 @@ import { MatDialogModule } from "@angular/material/dialog";
     MatGridListModule,
     MatTableModule,
     MatDialogModule,
+    MatExpansionModule,
+    MatCheckboxModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,43 @@
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button mat-flat-button class="smallButton_popup" color="primary" mat-dialog-close><mat-icon class="small_popup">clear</mat-icon></button>
+</div>
+
+<div fxFill fxLayout="column" fxLayoutAlign="start start">
+  <p mat-dialog-title>Client Info</p>
+  <p>Name: PC-1</p>
+  <p>Last Login: 6.2.2022 16:36:21</p>
+  <p>Timezone: CET (+0)</p>
+  <p>Country: CZECH REPUBLIC</p>
+  <p>IP Address: 194.224.27.72</p>
+  <p>MAC 14:A4:4F:13:A7:F5</p>
+  <p>Groups: Management: Users</p>
+  <p>Configurations: 1-FTP/LOCAL</p>
+
+  <div>
+    <button mat-raised-button color="primary" style="margin-right: 20px" (click)="togglePanelConfigs()">Manage Configurations</button>
+    <button mat-raised-button color="primary" (click)="togglePanelGroups()">Add to Group</button>
+  </div>
+
+  <mat-dialog-content>
+    <mat-expansion-panel style="margin-top: 10px;" [expanded]="panelOpenStateConfigs">
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <b>Name: PC-1</b>
+        <mat-checkbox color="primary">FTP/Local</mat-checkbox>
+        <mat-checkbox color="primary">Local</mat-checkbox>
+        <mat-checkbox color="primary">Rem. Folder</mat-checkbox>
+        <mat-checkbox color="primary">Local/Rem.Folder/Local</mat-checkbox>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel [expanded]="panelOpenStateGroups">
+      <div fxLayout="column" fxLayoutAlign="start start">
+        <b>Name: PC-1</b>
+        <mat-checkbox color="primary">Users</mat-checkbox>
+        <mat-checkbox color="primary">Administrators</mat-checkbox>
+        <mat-checkbox color="primary">Management</mat-checkbox>
+        <button mat-raised-button color="primary">Save</button>
+      </div>
+    </mat-expansion-panel>
+  </mat-dialog-content>
+</div>

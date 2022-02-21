@@ -9,7 +9,7 @@ import {ReportsPopupComponent} from "../_popups/reports-popup/reports-popup.comp
 })
 export class ReportsContentComponent implements OnInit {
 
-  public iterator = Array(100).fill(0);
+  public iterator = Array(20).fill(0);
 
   constructor(public dialog: MatDialog) {}
 

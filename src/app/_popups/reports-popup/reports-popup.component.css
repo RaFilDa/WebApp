@@ -1,18 +1,1 @@
-mat-icon.small {
-  position: relative;
-  bottom: 3px;
-  right: 12px;
-  z-index: 30;
-}
 
-button.smallButton {
-  position: relative;
-  bottom: 8px;
-  right: -11px;
-  z-index: 20;
-
-  width: 25px;
-  height: 30px;
-  min-height: unset;
-  min-width: unset;
-}

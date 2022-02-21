@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Platform} from "@angular/cdk/platform";
+import {MatDialog} from "@angular/material/dialog";
+import {ClientsPopupComponent} from "../_popups/clients-popup/clients-popup.component";
 
 @Component({
   selector: 'app-clients-content',
@@ -10,7 +11,11 @@ export class ClientsContentComponent implements OnInit {
 
   public iterator = Array(50).fill(0)
 
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
+
+  openDialog() {
+    this.dialog.open(ClientsPopupComponent);
+  }
 
   colCalc(): number {
     return (window.innerWidth - 200) / 190
