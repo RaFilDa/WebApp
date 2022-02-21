@@ -4,8 +4,6 @@
   <mat-sidenav mode="side" opened [fixedInViewport]="true">
     <img src="\assets\Logo.png" class="img_dashboard"/>
 
-    <button fxLayoutAlign="center" mat-raised-button (click)="goBack()" color="warn" class="menu_button">Sign Out</button>
-
     <button fxLayoutAlign="center" mat-raised-button (click)="showConfigs()" color="primary" class="menu_button">Configs</button>
 
     <button fxLayoutAlign="center" mat-raised-button (click)="showClients()" color="primary" class="menu_button">Clients</button>
@@ -17,6 +15,8 @@
     <mat-divider></mat-divider>
 
     <button fxLayoutAlign="center" mat-raised-button (click)="showSettings()" color="primary" class="menu_button">Settings</button>
+
+    <button fxLayoutAlign="center" mat-raised-button (click)="goBack()" color="warn" class="menu_button">Sign Out</button>
 
   </mat-sidenav>
 

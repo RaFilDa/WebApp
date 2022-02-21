@@ -1,3 +1,34 @@
-<div style="width: {{widthCalc()}}px;">
+<div style="width: {{widthCalc()}}px; height: {{heightCalc()}}px;">
+  <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="left center">
 
+    <mat-form-field class="toolbar-components" fxFlexOffset="15px">
+      <input matInput type="text" placeholder="Search">
+    </mat-form-field>
+
+    <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
+      <mat-label>Intensity</mat-label>
+      <mat-select>
+        <mat-option value="Full">Full</mat-option>
+        <mat-option value="Differencial">Differencial</mat-option>
+        <mat-option value="Addition">Addition</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
+      <mat-label>Retention</mat-label>
+      <input matInput maxlength="4" placeholder="5">
+    </mat-form-field>
+
+    <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
+      <mat-label>Backup Type</mat-label>
+      <mat-select>
+        <mat-option value="Plain Text">Plain Text</mat-option>
+        <mat-option value="Archive">Archive</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <span class="spacing"></span>
+    <button mat-flat-button class="popupButton" color="primary"><mat-icon class="small">close</mat-icon></button>
+
+  </mat-toolbar>
 </div>
