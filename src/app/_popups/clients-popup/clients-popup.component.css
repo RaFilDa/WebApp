@@ -1,4 +1,7 @@
+mat-dialog-content {
+  width: 100%;
+}
+
 mat-expansion-panel {
   background-color: whitesmoke;
-  width: 100%;
 }

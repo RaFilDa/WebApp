@@ -32,6 +32,7 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { ClientsPopupComponent } from './_popups/clients-popup/clients-popup.component';
 import { MatExpansionModule } from "@angular/material/expansion";
 import {MatCheckboxModule} from "@angular/material/checkbox";
+import { ConfigCreatePopupComponent } from './_popups/config-create-popup/config-create-popup.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     SettingsUsersContentComponent,
     ReportsPopupComponent,
     ClientsPopupComponent,
+    ConfigCreatePopupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,

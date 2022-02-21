@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayoutAlign="end center">
-  <button mat-flat-button class="smallButton_popup" color="primary" mat-dialog-close><mat-icon class="small_popup">clear</mat-icon></button>
+  <button mat-flat-button class="smallButton_popup" color="primary" mat-dialog-close=""><mat-icon class="small_popup">clear</mat-icon></button>
 </div>
 
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
@@ -19,9 +19,9 @@
   </div>
 
   <mat-dialog-content>
-    <mat-expansion-panel style="margin-top: 10px;" [expanded]="panelOpenStateConfigs">
+    <mat-expansion-panel style="margin-top: 10px" [expanded]="panelOpenStateConfigs">
       <div fxLayout="column" fxLayoutAlign="start start">
-        <b>Name: PC-1</b>
+        <b>Configurations:</b>
         <mat-checkbox color="primary">FTP/Local</mat-checkbox>
         <mat-checkbox color="primary">Local</mat-checkbox>
         <mat-checkbox color="primary">Rem. Folder</mat-checkbox>
@@ -32,7 +32,7 @@
 
     <mat-expansion-panel [expanded]="panelOpenStateGroups">
       <div fxLayout="column" fxLayoutAlign="start start">
-        <b>Name: PC-1</b>
+        <b>Groups:</b>
         <mat-checkbox color="primary">Users</mat-checkbox>
         <mat-checkbox color="primary">Administrators</mat-checkbox>
         <mat-checkbox color="primary">Management</mat-checkbox>
