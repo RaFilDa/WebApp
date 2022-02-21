@@ -1,5 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
-import {MatAccordion} from "@angular/material/expansion";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-clients-popup',
@@ -7,13 +6,25 @@ import {MatAccordion} from "@angular/material/expansion";
   styleUrls: ['./clients-popup.component.css']
 })
 
-export class ClientsPopupComponent {
+export class ClientsPopupComponent implements OnInit{
+
+  renderButton: boolean = false;
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
+  async ngOnInit() {
+    await this.delay(1);
+    this.renderButton = true;
+  }
+
 
   panelOpenStateConfigs: boolean = false;
   panelOpenStateGroups: boolean = false;
 
   togglePanelConfigs() {
-    if(this.panelOpenStateGroups = true)
+    if(this.panelOpenStateGroups)
     {
       this.panelOpenStateGroups = !this.panelOpenStateGroups
     }
@@ -21,7 +32,7 @@ export class ClientsPopupComponent {
   }
 
   togglePanelGroups() {
-    if(this.panelOpenStateConfigs = true)
+    if(this.panelOpenStateConfigs)
     {
       this.panelOpenStateConfigs = !this.panelOpenStateConfigs
     }
