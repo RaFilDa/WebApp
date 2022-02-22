@@ -72,8 +72,31 @@
       </mat-card>
     </div>
 
-    <div *ngIf="typeOfTiming.value=='CRON'">
-      <p CRONOŠ></p>
+    <div *ngIf="typeOfTiming.value=='CRON'" fxLayout="row" fxLayoutAlign="space-evenly stretch">
+      <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <input matInput style="width: 20%; height: 25%; border: darkgray solid" type="number">
+        <p>Minute</p>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <input matInput style="width: 20%; height: 25%; border: darkgray solid" type="number">
+        <p>Hour</p>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <input matInput style="width: 20%; height: 25%; border: darkgray solid" type="number">
+        <p>Day (Month)</p>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <input matInput style="width: 20%; height: 25%; border: darkgray solid" type="number">
+        <p>Month</p>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="space-evenly center">
+        <input matInput style="width: 20%; height: 25%; border: darkgray solid" type="number">
+        <p>Day (Week)</p>
+      </div>
     </div>
   </mat-card>
 </div>
