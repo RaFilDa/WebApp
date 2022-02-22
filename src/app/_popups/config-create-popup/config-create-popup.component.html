@@ -67,13 +67,17 @@
     </div>
 
     <div *ngIf="typeOfTiming.value=='Day in Month'">
-      <mat-card>
-        <mat-calendar></mat-calendar>
+      <mat-card style="width: 400px">
+        <mat-grid-list cols="7" rowHeight="1:1">
+          <mat-grid-tile *ngFor="let day of days; index as i">
+            <button mat-mini-fab [color]="isToggled(i) ? 'primary' : 'accent'" (click)="toggleButton(i)">{{i+1}}</button>
+          </mat-grid-tile>
+        </mat-grid-list>
       </mat-card>
     </div>
 
     <div *ngIf="typeOfTiming.value=='CRON'">
-      <p CRONOŠ></p>
+      <p>CRONOŠ</p>
     </div>
   </mat-card>
 </div>
