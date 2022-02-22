@@ -8,25 +8,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigCreatePopupComponent implements OnInit {
 
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
+  }
+
   constructor() { }
 
   ngOnInit(): void {
   }
   public selectedDays: number[] = [];
   public days: boolean[] = Array(31).fill(false);
-  public typeOfBackup : string = 'Full';
+  public temp: boolean[] = Array(31).fill(false);
 
   isToggled(index: number) {
-    return this.days[index];
+    return this.temp[index];
   }
 
   toggleButton(index: number) {
-    this.days[index] = !this.days[index];
-    if(this.days[index])
+    this.temp[index] = !this.temp[index];
+    if(this.temp[index])
       this.selectedDays.push(index+1);
     else
-      this.selectedDays.splice(this.selectedDays.indexOf(index+1),1)
-    console.log(this.selectedDays);
+      this.selectedDays.splice(this.selectedDays.indexOf(index+1),1);
+    console.log(this.selectedDays)
   }
 
   widthCalc(): number {
