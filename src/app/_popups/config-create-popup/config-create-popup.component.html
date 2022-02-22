@@ -14,12 +14,12 @@
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field [style.width.%]="10" class="toolbar-components" fxFlexOffset="20px" color="primary">
+    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Retention</mat-label>
       <input matInput type="number" min="1" max="30" [defaultValue]="3">
     </mat-form-field>
 
-    <mat-form-field [style.width.%]="10" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="typeOfBackup.value!=='Full'">
+    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="typeOfBackup.value!=='Full'">
       <mat-label>Packages</mat-label>
       <input matInput type="number" min="1" max="30" [defaultValue]="3">
     </mat-form-field>
@@ -52,7 +52,9 @@
       </mat-form-field>
 
       <mat-form-field class="timing-components">
-        <input matInput placeholder="Timezone" [defaultValue]="'CET(+0)'">
+        <mat-select value="UTC(+0)" placeholder="Timezone">
+          <mat-option *ngFor="let timezone of Timezones" [value]="timezone">{{timezone}}</mat-option>
+        </mat-select>
       </mat-form-field>
     </div>
 
@@ -67,7 +69,7 @@
     </div>
 
     <div *ngIf="typeOfTiming.value=='Day in Month'">
-      <mat-card style="width: 400px">
+      <mat-card style="width: 400px; background-color: whitesmoke">
         <mat-grid-list cols="7" rowHeight="1:1">
           <mat-grid-tile *ngFor="let day of days; index as i">
             <button mat-mini-fab [color]="isToggled(i) ? 'primary' : 'accent'" (click)="toggleButton(i)">{{i+1}}</button>
@@ -82,27 +84,27 @@
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput style="width: 20%; height: 25%; border: darkgray solid; text-align: center">
+        <input matInput type="number" class="cron_styling">
         <p>Minute</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput style="width: 20%; height: 25%; border: darkgray solid; text-align: center">
+        <input matInput type="number" class="cron_styling">
         <p>Hour</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput style="width: 20%; height: 25%; border: darkgray solid; text-align: center">
+        <input matInput type="number" class="cron_styling">
         <p>Day (Month)</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput style="width: 20%; height: 25%; border: darkgray solid; text-align: center">
+        <input matInput type="number" class="cron_styling">
         <p>Month</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput style="width: 20%; height: 25%; border: darkgray solid; text-align: center">
+        <input matInput type="number" class="cron_styling">
         <p>Day (Week)</p>
       </div>
     </div>

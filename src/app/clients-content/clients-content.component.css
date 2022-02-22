@@ -23,6 +23,7 @@
   border: darkgray solid;
   height: 150px;
   width: 150px;
+  box-shadow: 4px 4px 10px darkgray;
 }
 
 .number_user {
