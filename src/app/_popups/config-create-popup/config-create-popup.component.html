@@ -7,7 +7,7 @@
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Intensity</mat-label>
-      <mat-select #typeOfBackup>
+      <mat-select #typeOfBackup value="Full">
         <mat-option value="Full">Full</mat-option>
         <mat-option value="Differential">Differential</mat-option>
         <mat-option value="Incremental">Incremental</mat-option>
@@ -19,7 +19,7 @@
       <input matInput type="number" min="1" max="30" [defaultValue]="3">
     </mat-form-field>
 
-    <mat-form-field [style.width.%]="10" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="typeOfBackup.value=='Full'">
+    <mat-form-field [style.width.%]="10" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="typeOfBackup.value!=='Full'">
       <mat-label>Packages</mat-label>
       <input matInput type="number" min="1" max="30" [defaultValue]="3">
     </mat-form-field>
@@ -35,4 +35,45 @@
     <span class="spacing"></span>
       <button mat-flat-button class="popupButton" color="primary" mat-dialog-close=""><mat-icon class="small">close</mat-icon></button>
   </mat-toolbar>
+
+  <mat-card style="margin-top: 10px; background-color: whitesmoke;" fxLayout="row" fxLayoutAlign="start stretch">
+    <div fxLayout="column" fxLayoutAlign="start start">
+      <mat-form-field class="timing-components">
+        <mat-select #typeOfTiming value="Daily">
+          <mat-option value="Daily">Daily</mat-option>
+          <mat-option value="Weekdays">Weekdays</mat-option>
+          <mat-option value="Day in Month">Day in Month</mat-option>
+          <mat-option value="CRON">CRON</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field class="timing-components" *ngIf="typeOfTiming.value!=='CRON'">
+        <input matInput type="time">
+      </mat-form-field>
+
+      <mat-form-field class="timing-components">
+        <input matInput placeholder="Timezone" [defaultValue]="'CET(+0)'">
+      </mat-form-field>
+    </div>
+
+    <div fxLayout="column" fxLayoutAlign="start start" *ngIf="typeOfTiming.value=='Weekdays'">
+      <mat-checkbox color="primary">Monday</mat-checkbox>
+      <mat-checkbox color="primary">Tuesday</mat-checkbox>
+      <mat-checkbox color="primary">Wednesday</mat-checkbox>
+      <mat-checkbox color="primary">Thursday</mat-checkbox>
+      <mat-checkbox color="primary">Friday</mat-checkbox>
+      <mat-checkbox color="primary">Saturday</mat-checkbox>
+      <mat-checkbox color="primary">Sunday</mat-checkbox>
+    </div>
+
+    <div *ngIf="typeOfTiming.value=='Day in Month'">
+      <mat-card>
+        <mat-calendar></mat-calendar>
+      </mat-card>
+    </div>
+
+    <div *ngIf="typeOfTiming.value=='CRON'">
+      <p CRONOŠ></p>
+    </div>
+  </mat-card>
 </div>

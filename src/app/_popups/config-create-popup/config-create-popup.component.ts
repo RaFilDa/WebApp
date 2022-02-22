@@ -13,6 +13,8 @@ export class ConfigCreatePopupComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  public typeOfBackup : string = 'Full';
+
   widthCalc(): number {
     return (window.innerWidth - (window.innerWidth / 3))
   }
@@ -20,6 +22,5 @@ export class ConfigCreatePopupComponent implements OnInit {
   heightCalc(): number {
     return (window.innerHeight - (window.innerHeight / 5))
   }
-
 
 }

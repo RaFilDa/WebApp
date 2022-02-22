@@ -7,8 +7,15 @@
 }
 
 .toolbar-components {
-  font-size: medium;
-  //margin-top: 5px;
+  font-size: small;
+  margin-top: 5px;
+  font-weight: normal;
+}
+
+.timing-components {
+  font-size: small;
+  margin-top: 5px;
+  margin-right: 20px;
   font-weight: normal;
 }
 

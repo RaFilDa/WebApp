@@ -33,6 +33,7 @@ import { ClientsPopupComponent } from './_popups/clients-popup/clients-popup.com
 import { MatExpansionModule } from "@angular/material/expansion";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import { ConfigCreatePopupComponent } from './_popups/config-create-popup/config-create-popup.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 @NgModule({
   declarations: [
@@ -74,6 +75,7 @@ import { ConfigCreatePopupComponent } from './_popups/config-create-popup/config
     MatDialogModule,
     MatExpansionModule,
     MatCheckboxModule,
+    MatDatepickerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
