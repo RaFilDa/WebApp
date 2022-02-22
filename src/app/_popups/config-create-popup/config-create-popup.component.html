@@ -1,22 +1,27 @@
 <div style="width: {{widthCalc()}}px; height: {{heightCalc()}}px;">
-  <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="left center">
+  <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="left space-evenly center">
 
-    <mat-form-field class="toolbar-components" fxFlexOffset="15px">
-      <input matInput type="text" placeholder="Search">
+    <mat-form-field class="toolbar-components">
+      <input matInput type="text" placeholder="Search" style="width: 20%">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Intensity</mat-label>
-      <mat-select>
+      <mat-select #typeOfBackup>
         <mat-option value="Full">Full</mat-option>
-        <mat-option value="Differencial">Differencial</mat-option>
-        <mat-option value="Addition">Addition</mat-option>
+        <mat-option value="Differential">Differential</mat-option>
+        <mat-option value="Incremental">Incremental</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
+    <mat-form-field [style.width.%]="10" class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Retention</mat-label>
-      <input matInput>
+      <input matInput type="number" min="1" max="30" [defaultValue]="3">
+    </mat-form-field>
+
+    <mat-form-field [style.width.%]="10" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="typeOfBackup.value=='Full'">
+      <mat-label>Packages</mat-label>
+      <input matInput type="number" min="1" max="30" [defaultValue]="3">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
