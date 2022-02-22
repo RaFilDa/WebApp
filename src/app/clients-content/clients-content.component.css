@@ -16,6 +16,7 @@
 }
 
 .block_user {
+  cursor: pointer;
   text-align: center;
   margin-top: 20px;
   background-color: white;

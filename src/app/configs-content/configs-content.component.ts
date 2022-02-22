@@ -23,7 +23,7 @@ export class ConfigsContentComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(ConfigCreatePopupComponent);
+    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false});
   }
 
 }
