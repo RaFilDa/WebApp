@@ -2,15 +2,14 @@
     <mat-form-field class="toolbar-components" fxFlexOffset="15px">
       <input matInput type="text" placeholder="Search">
     </mat-form-field>
-    <button mat-raised-button color="primary">New Group</button>
+    <button mat-raised-button color="primary" (click)="openDialogConfig()">New Group</button>
 </mat-toolbar>
 
 <mat-card>
     <mat-list style="margin-top: 40px">
         <mat-list-item *ngFor="let item of groups">{{ item }}
           <div fxLayout="row" fxLayoutAlign="space-between center">
-            <!-- <button mat-mini-fab class="arrow" color="primary"><mat-icon>keyboard_arrow_right</mat-icon></button> -->
-            <button mat-flat-button class="smallButton" color="primary"><mat-icon class="small">keyboard_arrow_right</mat-icon></button>
+            <button mat-flat-button class="smallButton" color="primary" (click)="openDialogEdit()"><mat-icon class="small">keyboard_arrow_right</mat-icon></button>
             <mat-divider></mat-divider>
           </div>
         </mat-list-item>

@@ -116,7 +116,7 @@
     FTP-IP:192.168.0.1
     <button mat-flat-button class="popupButton" color="primary" (click)="openConfig()"><mat-icon class="small">settings</mat-icon></button>
   </mat-card>
-  <mat-expansion-panel style="margin-top: 10px" [expanded]="panelOpenStateConfig">
+  <mat-expansion-panel style="margin-top: 10px" [expanded]="panelOpenStateConfig" *ngIf="renderButton">
     <div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-between center">
       <div style="width: 80%" fxLayout="row" fxLayoutAlign="start center">
         <mat-form-field style="width: 20%">

@@ -35,6 +35,8 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { ConfigCreatePopupComponent } from './_popups/config-create-popup/config-create-popup.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRippleModule} from "@angular/material/core";
+import { GroupCreatePopupComponent } from './_popups/group-create-popup/group-create-popup.component';
+import { EditClientsPopupComponent } from './_popups/edit-clients-popup/edit-clients-popup.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +50,8 @@ import {MatRippleModule} from "@angular/material/core";
     ReportsPopupComponent,
     ClientsPopupComponent,
     ConfigCreatePopupComponent,
+    GroupCreatePopupComponent,
+    EditClientsPopupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,

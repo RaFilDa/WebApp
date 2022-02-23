@@ -12,9 +12,13 @@ export class ConfigCreatePopupComponent implements OnInit {
     return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
+  renderButton: boolean = false;
+
   constructor() { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    await this.delay(1);
+    this.renderButton = true;
   }
   public selectedDays: number[] = [];
   public days: boolean[] = Array(31).fill(false);
