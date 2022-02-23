@@ -9,7 +9,27 @@ export class EditClientsPopupComponent implements OnInit {
 
   constructor() { }
 
+  public EditOn : boolean = false;
+
+  public iterator = Array(50).fill(0)
+
   ngOnInit(): void {
+  }
+
+  widthCalc(): number {
+    return (window.innerWidth - (window.innerWidth / 2))
+  }
+
+  heightCalc(): number {
+    return (window.innerHeight - (window.innerHeight / 3))
+  }
+
+  switchToEdit() {
+    this.EditOn = !this.EditOn;
+  }
+
+  colCalc(): number {
+    return (7)
   }
 
 }
