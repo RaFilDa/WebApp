@@ -68,14 +68,12 @@
       <mat-checkbox color="primary">Sunday</mat-checkbox>
     </div>
 
-    <div *ngIf="typeOfTiming.value=='Day in Month'">
-      <mat-card style="width: 400px; background-color: whitesmoke;">
+    <div *ngIf="typeOfTiming.value=='Day in Month'" style="width: 350px;">
         <mat-grid-list cols="7" rowHeight="1:1">
           <mat-grid-tile *ngFor="let day of days; index as i">
-            <button mat-mini-fab [color]="isToggled(i) ? 'primary' : 'accent'" (click)="toggleButton(i)">{{i+1}}</button>
-          </mat-grid-tile>W
+            <button mat-mini-fab class="mat-elevation-z1" [color]="isToggled(i) ? 'primary' : 'accent'" (click)="toggleButton(i)">{{i+1}}</button>
+          </mat-grid-tile>
         </mat-grid-list>
-      </mat-card>
     </div>
 
     <div *ngIf="typeOfTiming.value=='CRON'" fxLayout="row" fxLayoutAlign="space-evenly stretch" >
