@@ -69,11 +69,11 @@
     </div>
 
     <div *ngIf="typeOfTiming.value=='Day in Month'">
-      <mat-card style="width: 400px; background-color: whitesmoke">
+      <mat-card style="width: 400px; background-color: whitesmoke;">
         <mat-grid-list cols="7" rowHeight="1:1">
           <mat-grid-tile *ngFor="let day of days; index as i">
             <button mat-mini-fab [color]="isToggled(i) ? 'primary' : 'accent'" (click)="toggleButton(i)">{{i+1}}</button>
-          </mat-grid-tile>
+          </mat-grid-tile>W
         </mat-grid-list>
       </mat-card>
     </div>
@@ -84,27 +84,27 @@
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput type="number" class="cron_styling">
+        <input matInput maxlength="2" [defaultValue]="'*'" type="text" class="cron_styling">
         <p>Minute</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput type="number" class="cron_styling">
+        <input matInput maxlength="2" [defaultValue]="'*'" type="text" class="cron_styling">
         <p>Hour</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput type="number" class="cron_styling">
+        <input matInput maxlength="2" [defaultValue]="'*'" type="text" class="cron_styling">
         <p>Day (Month)</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput type="number" class="cron_styling">
+        <input matInput maxlength="2" [defaultValue]="'*'" type="text" class="cron_styling">
         <p>Month</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput type="number" class="cron_styling">
+        <input matInput maxlength="2" [defaultValue]="'*'" type="text" class="cron_styling">
         <p>Day (Week)</p>
       </div>
     </div>
