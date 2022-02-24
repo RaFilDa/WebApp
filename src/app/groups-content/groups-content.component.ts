@@ -26,8 +26,8 @@ export class GroupsContentComponent implements OnInit {
     this.dialogConfig.open(GroupCreatePopupComponent, {autoFocus: false});
   }
 
-  openDialogEdit() {
-    this.dialogEdit.open(EditClientsPopupComponent, {autoFocus: false});
+  openDialogEdit(name: string) {
+    this.dialogEdit.open(EditClientsPopupComponent, {autoFocus: false, data: name});
   }
 
 }
