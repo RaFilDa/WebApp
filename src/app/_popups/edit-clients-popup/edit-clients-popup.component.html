@@ -17,9 +17,22 @@
   </div>
 
   <div *ngIf="EditOn" class="main_divs">
-    true
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <b style="font-size: large" >Group: Administrators</b>
+      <button mat-flat-button class="smallButton_popup" color="primary" style="margin-top: 15px;" mat-dialog-close=""><mat-icon class="small_popup">close</mat-icon></button>
+    </div>
+
+    <div class="user_card">
+      <mat-grid-list cols="{{colCalc()}}" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let item of editIterator; index as counter">
+          <div [class]="counter > 49 ? 'user_circle_inactive' : 'user_circle'" mat-ripple style="cursor:pointer;" fxLayout="row" fxLayoutAlign="center center">
+            <div style="font-size: x-large">{{ counter + 1 }}</div>
+          </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
   </div>
 
-
-  <button style="margin-top: 10px" mat-raised-button color="primary" (click)="switchToEdit()">Edit</button>
+  <button *ngIf="!EditOn" style="margin-top: -20px" mat-raised-button color="primary" (click)="switchToEdit()">Edit</button>
+  <button *ngIf="EditOn" style="margin-top: -20px" mat-raised-button color="primary" (click)="switchToEdit()">Save</button>
 </div>

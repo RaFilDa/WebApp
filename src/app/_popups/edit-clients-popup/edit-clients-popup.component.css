@@ -4,8 +4,9 @@
 }
 
 .user_card {
-  height: 90%;
+  height: 80%;
   width: 100%;
+  overflow: auto;
 }
 
 .user_circle {
@@ -14,4 +15,28 @@
   border-radius: 30px;
   background-color: mediumpurple;
   border-color: mediumpurple;
+}
+
+.user_circle_inactive {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: gray;
+  border-color: gray;
+}
+
+.user_circle_inactive {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: gray;
+  border-color: orangered;
+}
+
+.user_circle_inactive {
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: gray;
+  border-color: lightgreen;
 }

@@ -13,6 +13,8 @@ export class EditClientsPopupComponent implements OnInit {
 
   public iterator = Array(50).fill(0)
 
+  public editIterator = Array(100).fill(0)
+
   ngOnInit(): void {
   }
 
@@ -33,3 +35,5 @@ export class EditClientsPopupComponent implements OnInit {
   }
 
 }
+
+

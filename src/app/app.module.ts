@@ -37,6 +37,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRippleModule} from "@angular/material/core";
 import { GroupCreatePopupComponent } from './_popups/group-create-popup/group-create-popup.component';
 import { EditClientsPopupComponent } from './_popups/edit-clients-popup/edit-clients-popup.component';
+import {ScrollingModule} from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -56,33 +57,34 @@ import { EditClientsPopupComponent } from './_popups/edit-clients-popup/edit-cli
   entryComponents: [
     ReportsPopupComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatSelectModule,
-    ReactiveFormsModule,
-    MatInputModule,
-    MatSliderModule,
-    MatProgressSpinnerModule,
-    MatButtonModule,
-    MatCardModule,
-    MatIconModule,
-    AppRoutingModule,
-    MatDividerModule,
-    MatSidenavModule,
-    MatToolbarModule,
-    FlexModule,
-    MatListModule,
-    MatSlideToggleModule,
-    MatGridListModule,
-    MatTableModule,
-    MatDialogModule,
-    MatExpansionModule,
-    MatCheckboxModule,
-    MatDatepickerModule,
-    MatRippleModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatFormFieldModule,
+        MatSelectModule,
+        ReactiveFormsModule,
+        MatInputModule,
+        MatSliderModule,
+        MatProgressSpinnerModule,
+        MatButtonModule,
+        MatCardModule,
+        MatIconModule,
+        AppRoutingModule,
+        MatDividerModule,
+        MatSidenavModule,
+        MatToolbarModule,
+        FlexModule,
+        MatListModule,
+        MatSlideToggleModule,
+        MatGridListModule,
+        MatTableModule,
+        MatDialogModule,
+        MatExpansionModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatRippleModule,
+        ScrollingModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
