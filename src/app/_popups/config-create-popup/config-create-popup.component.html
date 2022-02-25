@@ -2,7 +2,7 @@
   <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="left space-evenly center">
 
     <mat-form-field class="toolbar-components">
-      <input matInput type="text" placeholder="Name" style="width: 20%">
+      <input matInput type="text" placeholder="Name">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
@@ -127,13 +127,13 @@
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="text" placeholder="IP" style="width: 20%;"></mat-form-field>
+        <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="text" placeholder="IP"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="text" placeholder="Login" style="width: 20%;"></mat-form-field>
+        <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="text" placeholder="Login"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="password" placeholder="Password" style="width: 20%;"></mat-form-field>
+        <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="password" placeholder="Password"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value!='FTP'" style="margin-left: 10px"><input matInput type="password" placeholder="Destination" style="width: 20%;"></mat-form-field>
+        <mat-form-field *ngIf="typeOfConfig.value!='FTP'" style="margin-left: 10px"><input matInput type="password" placeholder="Destination"></mat-form-field>
       </div>
       <button fxFlexAlign="end center" mat-raised-button color="primary" (click)="openConfig()">Save</button>
     </div>
