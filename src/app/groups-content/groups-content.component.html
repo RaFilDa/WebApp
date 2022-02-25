@@ -10,6 +10,7 @@
         <mat-list-item *ngFor="let item of groups">{{ item }}
           <div fxLayout="row" fxLayoutAlign="space-between center">
             <button mat-flat-button class="smallButton" color="primary" (click)="openDialogEdit(item)"><mat-icon class="small">keyboard_arrow_right</mat-icon></button>
+            <button mat-flat-button class="smallButtonOffset" color="primary" (click)="openDialogConfig()"><mat-icon class="small">settings</mat-icon></button>
             <mat-divider></mat-divider>
           </div>
         </mat-list-item>
