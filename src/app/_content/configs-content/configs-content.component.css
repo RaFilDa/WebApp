@@ -1,0 +1,28 @@
+.arrow {
+    position: absolute;
+    bottom: 4px;
+    right: 0;
+  }
+
+.adduser {
+    position: absolute;
+    bottom: 4px;
+    right: 75px;
+  }
+
+.toolbar {
+    background-color: white;
+    display: flex;
+    position: fixed;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    border: darkgray solid;
+    width: calc(100% - 200px);
+  }
+
+.toolbar-components {
+    font-size: medium;
+    margin-top: 10px;
+    font-weight: normal;
+  }

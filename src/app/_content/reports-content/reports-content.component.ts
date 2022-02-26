@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import {ReportsPopupComponent} from "../_popups/reports-popup/reports-popup.component";
+import {ReportsPopupComponent} from "../../_popups/reports-popup/reports-popup.component";
 
 @Component({
   selector: 'app-reports-content',

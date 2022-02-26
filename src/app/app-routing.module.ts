@@ -3,14 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { LoginscreenComponent } from './loginscreen/loginscreen.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ClientsContentComponent } from './clients-content/clients-content.component';
-import { ConfigsContentComponent } from "./configs-content/configs-content.component";
-import { ReportsContentComponent } from "./reports-content/reports-content.component";
-import { GroupsContentComponent } from "./groups-content/groups-content.component";
-import { SettingsContentComponent } from "./settings-content/settings-content.component";
-import { SettingsGeneralContentComponent } from "./settings-general-content/settings-general-content.component";
-import { SettingsLogsContentComponent } from "./settings-logs-content/settings-logs-content.component";
-import { SettingsUsersContentComponent } from "./settings-users-content/settings-users-content.component";
+import { ClientsContentComponent } from './_content/clients-content/clients-content.component';
+import { ConfigsContentComponent } from "./_content/configs-content/configs-content.component";
+import { ReportsContentComponent } from "./_content/reports-content/reports-content.component";
+import { GroupsContentComponent } from "./_content/groups-content/groups-content.component";
+import { SettingsContentComponent } from "./_content/settings-content/settings-content.component";
+import { SettingsGeneralContentComponent } from "./_content/settings-content/settings-general-content/settings-general-content.component";
+import { SettingsLogsContentComponent } from "./_content/settings-content/settings-logs-content/settings-logs-content.component";
+import { SettingsUsersContentComponent } from "./_content/settings-content/settings-users-content/settings-users-content.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch:'full'},

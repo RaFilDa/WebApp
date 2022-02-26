@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {ClientsPopupComponent} from "../_popups/clients-popup/clients-popup.component";
+import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.component";
 
 @Component({
   selector: 'app-clients-content',

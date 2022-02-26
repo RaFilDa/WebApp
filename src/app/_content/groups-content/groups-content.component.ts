@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {GroupCreatePopupComponent} from "../_popups/group-create-popup/group-create-popup.component";
-import {EditClientsPopupComponent} from "../_popups/edit-clients-popup/edit-clients-popup.component";
+import {GroupCreatePopupComponent} from "../../_popups/group-create-popup/group-create-popup.component";
+import {EditClientsPopupComponent} from "../../_popups/edit-clients-popup/edit-clients-popup.component";
 
 @Component({
   selector: 'app-groups-content',
