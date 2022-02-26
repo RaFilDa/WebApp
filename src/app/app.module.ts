@@ -38,6 +38,7 @@ import {MatRippleModule} from "@angular/material/core";
 import { GroupCreatePopupComponent } from './_popups/group-create-popup/group-create-popup.component';
 import { EditClientsPopupComponent } from './_popups/edit-clients-popup/edit-clients-popup.component';
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import { AddUserPopupComponent } from './_popups/add-user-popup/add-user-popup.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
     ConfigCreatePopupComponent,
     GroupCreatePopupComponent,
     EditClientsPopupComponent,
+    AddUserPopupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,
