@@ -1,0 +1,30 @@
+<div style="margin-top: 10px">
+  <button mat-raised-button color="primary">Add Destination</button>
+</div>
+
+<mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center">
+  FTP-IP:192.168.0.1
+  <button mat-flat-button class="popupButton" color="primary" (click)="openConfig()"><mat-icon class="small">settings</mat-icon></button>
+</mat-card>
+<mat-expansion-panel [expanded]="panelOpenStateConfig" *ngIf="renderButton">
+  <div style="margin-top: 10px" fxLayout="row" fxLayoutAlign="space-between center">
+    <div style="width: 80%" fxLayout="row" fxLayoutAlign="start center">
+      <mat-form-field style="width: 20%">
+        <mat-select #typeOfConfig value="FTP">
+          <mat-option value="FTP">FTP</mat-option>
+          <mat-option value="Local">Local</mat-option>
+          <mat-option value="Rem. Folder">Rem. Folder</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="text" placeholder="IP"></mat-form-field>
+
+      <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="text" placeholder="Login"></mat-form-field>
+
+      <mat-form-field *ngIf="typeOfConfig.value=='FTP'" style="margin-left: 10px"><input matInput type="password" placeholder="Password"></mat-form-field>
+
+      <mat-form-field *ngIf="typeOfConfig.value!='FTP'" style="margin-left: 10px"><input matInput type="password" placeholder="Destination"></mat-form-field>
+    </div>
+    <button fxFlexAlign="end center" mat-raised-button color="primary" (click)="openConfig()">Save</button>
+  </div>
+</mat-expansion-panel>

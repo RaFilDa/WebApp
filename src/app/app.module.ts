@@ -39,6 +39,10 @@ import { GroupCreatePopupComponent } from './_popups/group-create-popup/group-cr
 import { EditClientsPopupComponent } from './_popups/edit-clients-popup/edit-clients-popup.component';
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { AddUserPopupComponent } from './_popups/add-user-popup/add-user-popup.component';
+import { ConfigDestinationContentComponent } from './_popups/config-create-popup/config-destination-content/config-destination-content.component';
+import { CronContentComponent } from './_popups/config-create-popup/frequency-options/cron-content/cron-content.component';
+import { DayInMonthSelectionContentComponent } from './_popups/config-create-popup/frequency-options/day-in-month-selection-content/day-in-month-selection-content.component';
+import { DaySelectionContentComponent } from './_popups/config-create-popup/frequency-options/day-selection-content/day-selection-content.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +59,10 @@ import { AddUserPopupComponent } from './_popups/add-user-popup/add-user-popup.c
     GroupCreatePopupComponent,
     EditClientsPopupComponent,
     AddUserPopupComponent,
+    ConfigDestinationContentComponent,
+    CronContentComponent,
+    DayInMonthSelectionContentComponent,
+    DaySelectionContentComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,

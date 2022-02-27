@@ -28,23 +28,8 @@
   min-width: unset;
 }
 
-.infoButton {
-  margin-bottom: 60px;
-}
-
 .spacing {
   flex: 1 1 auto;
 }
 
-.cron_styling {
-  width: 20%;
-  height: 20%;
-  border: darkgray solid;
-  text-align: center;
-}
-
-.config_card {
-  margin-top: 10px;
-  background-color: whitesmoke;
-}
 

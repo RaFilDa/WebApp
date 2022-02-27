@@ -8,34 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigCreatePopupComponent implements OnInit {
 
-  delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-  }
-
-  renderButton: boolean = false;
-
   constructor() { }
 
   async ngOnInit() {
-    await this.delay(1);
-    this.renderButton = true;
-  }
-  public selectedDays: number[] = [];
-  public days: boolean[] = Array(31).fill(false);
-  public temp: boolean[] = Array(31).fill(false);
-  public panelOpenStateConfig : boolean = false;
-
-  isToggled(index: number) {
-    return this.temp[index];
-  }
-
-  toggleButton(index: number) {
-    this.temp[index] = !this.temp[index];
-    if(this.temp[index])
-      this.selectedDays.push(index+1);
-    else
-      this.selectedDays.splice(this.selectedDays.indexOf(index+1),1);
-    console.log(this.selectedDays)
   }
 
   widthCalc(): number {
@@ -52,8 +27,4 @@ export class ConfigCreatePopupComponent implements OnInit {
     'UTC(+0)','UTC(+1)','UTC(+2)','UTC(+3)','UTC(+4)','UTC(+5)',
     'UTC(+6)','UTC(+7)','UTC(+8)','UTC(+9)','UTC(+10)','UTC(+11)','UTC(+12)','UTC(+13)','UTC(+14)',
     ]
-
-  openConfig() {
-    this.panelOpenStateConfig = !this.panelOpenStateConfig;
-  }
 }

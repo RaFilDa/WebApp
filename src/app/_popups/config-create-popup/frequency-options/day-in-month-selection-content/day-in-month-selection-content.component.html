@@ -1,0 +1,5 @@
+<mat-grid-list cols="7" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let day of days; index as i">
+    <button mat-mini-fab disableRipple class="mat-elevation-z1" [color]="isToggled(i) ? 'primary' : 'accent'" (click)="toggleButton(i)">{{i+1}}</button>
+  </mat-grid-tile>
+</mat-grid-list>
