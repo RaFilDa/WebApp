@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
-import {AddUserPopupComponent} from "../../../_popups/add-user-popup/add-user-popup.component";
+import {AddUserPopupComponent} from "../../../add-user-popup/add-user-popup.component";
 
 export interface UserData {
   name: string;
