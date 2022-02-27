@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
+import {AddUserPopupComponent} from "../../../_popups/add-user-popup/add-user-popup.component";
 
 export interface UserData {
   name: string;
@@ -25,6 +26,10 @@ export class SettingsUsersContentComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  openDialog() {
+    this.dialog.open(AddUserPopupComponent);
   }
 
   displayedColumns: string[] = ['name', 'email'];
