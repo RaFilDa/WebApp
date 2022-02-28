@@ -16,14 +16,14 @@
   </mat-form-field>
 </mat-toolbar>
 
-<mat-grid-list style="margin-top: 60px" cols="{{colCalc()}}" rowHeight="1:1">
+<mat-grid-list cols="{{colCalc()}}" rowHeight="1:1">
   <mat-grid-tile *ngFor="let item of iterator; index as counter">
     <div mat-ripple (click)="openDialog()" class="block_user" fxLayout="column" fxLayoutAlign="space-around center">
-      <div style="margin-top: 10px" class="number_user" fxLayout="column" fxLayoutAlign="center center">
-        <div style="color: black; font-size: xx-large">{{ counter + 1 }}</div>
+      <div class="number_user" fxLayout="column" fxLayoutAlign="center center">
+        <div class="black-largest">{{ counter + 1 }}</div>
       </div>
-      <div style="color: black; font-size: larger">Last Login:</div>
-      <div style="color: black; font-size: larger">6.2.2022|17:04:57</div>
+      <div class="black-large">Last Login:</div>
+      <div class="black-large">6.2.2022|17:04:57</div>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

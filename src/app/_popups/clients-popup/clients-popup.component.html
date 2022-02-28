@@ -3,7 +3,7 @@
 </div>
 
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
-  <p mat-dialog-title style="margin-top: -35px">Client Info</p>
+  <p mat-dialog-title>Client Info</p>
   <p>Name: PC-1</p>
   <p>Last Login: 6.2.2022 16:36:21</p>
   <p>Timezone: CET (+0)</p>
@@ -13,13 +13,13 @@
   <p>Groups: Management: Users</p>
   <p>Configurations: 1-FTP/LOCAL</p>
 
-  <div>
-    <button mat-raised-button color="primary" style="margin-right: 20px" (click)="togglePanelConfigs()">Manage Configurations</button>
+  <div fxLayoutGap="20px">
+    <button mat-raised-button color="primary" (click)="togglePanelConfigs()">Manage Configurations</button>
     <button mat-raised-button color="primary" (click)="togglePanelGroups()">Add to Group</button>
   </div>
 
   <mat-dialog-content *ngIf="renderButton">
-    <mat-expansion-panel style="margin-top: 10px" [expanded]="panelOpenStateConfigs">
+    <mat-expansion-panel [expanded]="panelOpenStateConfigs">
       <div fxLayout="column" fxLayoutAlign="start start">
         <b>Configurations:</b>
         <mat-checkbox color="primary">FTP/Local</mat-checkbox>

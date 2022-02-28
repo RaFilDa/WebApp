@@ -32,4 +32,18 @@
   border-radius: 40px;
   height: 80px;
   width: 80px;
+
+  margin-top: 10px
+}
+
+mat-grid-list {
+  margin-top: 60px;
+}
+
+.black-large {
+  color: black; font-size: larger
+}
+
+.black-largest {
+  color: black; font-size: xx-large;
 }

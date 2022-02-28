@@ -11,3 +11,18 @@
   min-height: unset;
   min-width: unset;
 }
+mat-form-field.select {
+  width: 20%;
+}
+
+mat-form-field {
+  margin-left: 10px;
+}
+
+div.expansion {
+  width: 80%;
+}
+
+div {
+  margin-top: 10px;
+}

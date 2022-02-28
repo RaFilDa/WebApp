@@ -3,3 +3,11 @@
     margin-top: -10px;
     font-weight: normal;
   }
+
+mat-form-field {
+  width: 80%
+}
+
+div {
+  margin-top: 5px;
+}

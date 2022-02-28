@@ -2,3 +2,8 @@ mat-slide-toggle {
   height: 40px;
   margin-left: 10px;
 }
+
+div {
+  background-color: whitesmoke;
+  font-size: large
+}

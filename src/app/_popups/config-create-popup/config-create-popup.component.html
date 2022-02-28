@@ -36,13 +36,13 @@
       <button mat-flat-button class="popupButton" color="primary" style="margin-top: 15px;" mat-dialog-close=""><mat-icon class="small">close</mat-icon></button>
   </mat-toolbar>
 
-  <mat-card style="margin-top: 10px; background-color: whitesmoke;" fxLayout="row" fxLayoutAlign="start stretch" [ngSwitch]="typeOfTiming.value">
+  <mat-card fxLayout="row" fxLayoutAlign="start stretch" [ngSwitch]="typeOfTiming.value">
     <div fxLayout="column" fxLayoutAlign="start start">
       <mat-form-field class="timing-components">
         <mat-select #typeOfTiming value="Daily">
           <mat-option value="Daily">Daily</mat-option>
           <mat-option value="Weekdays">Weekdays</mat-option>
-          <mat-option value="Day in Month">Day in Month</mat-option>
+          <mat-option value="month">Day in Month</mat-option>
           <mat-option value="CRON">CRON</mat-option>
         </mat-select>
       </mat-form-field>
@@ -62,7 +62,7 @@
       <app-day-selection-content></app-day-selection-content>
     </div>
 
-    <div *ngSwitchCase="'Day in Month'" style="width: 350px;">
+    <div *ngSwitchCase="'month'" class="day-month">
       <app-day-in-month-selection-content></app-day-in-month-selection-content>
     </div>
 

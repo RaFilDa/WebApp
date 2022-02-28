@@ -32,4 +32,12 @@
   flex: 1 1 auto;
 }
 
+.day-month {
+  width: 350px;
+}
+
+mat-card {
+  margin-top: 10px;
+  background-color: whitesmoke;
+}
 
