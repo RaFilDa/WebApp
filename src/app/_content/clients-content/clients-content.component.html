@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
   <mat-form-field class="toolbar-components" fxFlexOffset="15px">
-    <input matInput type="text" placeholder="Search">
+    <input matInput type="text" placeholder="Search" [(ngModel)]="searchExpression">
   </mat-form-field>
 
   <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="primary">Inactive Only</mat-slide-toggle>
@@ -17,13 +17,13 @@
 </mat-toolbar>
 
 <mat-grid-list cols="{{colCalc()}}" rowHeight="1:1">
-  <mat-grid-tile *ngFor="let item of iterator; index as counter">
+  <mat-grid-tile *ngFor="let item of filterData()">
     <div mat-ripple (click)="openDialog()" class="block_user" fxLayout="column" fxLayoutAlign="space-around center">
       <div class="number_user" fxLayout="column" fxLayoutAlign="center center">
-        <div class="black-largest">{{ counter + 1 }}</div>
+        <div class="black-largest">{{ item.name }}</div>
       </div>
       <div class="black-large">Last Login:</div>
-      <div class="black-large">6.2.2022|17:04:57</div>
+      <div class="black-large">{{item.login}}</div>
     </div>
   </mat-grid-tile>
 </mat-grid-list>

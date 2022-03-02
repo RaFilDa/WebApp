@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule} from "@angular/material/form-field";
 import { MatSelectModule} from "@angular/material/select";
-import { ReactiveFormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MatInputModule} from '@angular/material/input'
 import { MatSliderModule } from '@angular/material/slider';
 import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
@@ -94,6 +94,7 @@ import { DaySelectionContentComponent } from './_popups/config-create-popup/freq
         MatDatepickerModule,
         MatRippleModule,
         ScrollingModule,
+        FormsModule,
     ],
   providers: [],
   bootstrap: [AppComponent]

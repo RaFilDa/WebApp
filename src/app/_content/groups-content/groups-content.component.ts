@@ -14,6 +14,8 @@ export class GroupsContentComponent implements OnInit {
   'Users', 'Administrators', 'Management',
   ];
 
+  public searchExpression = '';
+
   constructor(
     public dialogConfig: MatDialog,
     public dialogEdit: MatDialog
@@ -30,5 +32,8 @@ export class GroupsContentComponent implements OnInit {
     this.dialogEdit.open(EditClientsPopupComponent, {autoFocus: false, data: name});
   }
 
+  filterData(): string[] {
+    return this.groups.filter(x => x.toLowerCase().includes(this.searchExpression.toLowerCase()))
+  }
 }
 
