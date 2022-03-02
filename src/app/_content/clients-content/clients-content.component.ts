@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.component";
 
+export interface IClient {
+  name: string
+  login: string
+}
+
 @Component({
   selector: 'app-clients-content',
   templateUrl: './clients-content.component.html',
@@ -9,9 +14,17 @@ import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.c
 })
 export class ClientsContentComponent implements OnInit {
 
-  public iterator = Array(50).fill(0)
+  public clients: IClient[] = [];
+  public searchExpression = '';
 
   constructor(public dialog: MatDialog) {}
+
+  ngOnInit(): void {
+    for(let i = 1; i <= 50; i++)
+    {
+      this.clients.push({name: i.toString(), login: '6.2.2022 16:36:21'})
+    }
+  }
 
   openDialog() {
     this.dialog.open(ClientsPopupComponent);
@@ -21,7 +34,8 @@ export class ClientsContentComponent implements OnInit {
     return (window.innerWidth - 200) / 190
   }
 
-  ngOnInit(): void {
+  filterData(): IClient[] {
+    return this.clients.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
   }
 
 }

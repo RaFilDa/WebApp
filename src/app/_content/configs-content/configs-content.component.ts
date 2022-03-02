@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { ConfigCreatePopupComponent } from "../../_popups/config-create-popup/config-create-popup.component";
 import {EditClientsPopupComponent} from "../../_popups/edit-clients-popup/edit-clients-popup.component";
+import {IClient} from "../clients-content/clients-content.component";
 
 @Component({
   selector: 'app-configs-content',
@@ -13,6 +14,8 @@ export class ConfigsContentComponent implements OnInit {
   public configs: string[] = [
     'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local',
    ];
+
+  public searchExpression = '';
 
   constructor(
     public dialog: MatDialog,
@@ -30,4 +33,7 @@ export class ConfigsContentComponent implements OnInit {
     this.dialogEdit.open(EditClientsPopupComponent, {autoFocus: false});
   }
 
+  filterData(): string[] {
+    return this.configs.filter(x => x.toLowerCase().includes(this.searchExpression.toLowerCase()))
+  }
 }
