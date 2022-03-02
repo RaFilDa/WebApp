@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 interface IClient {
   name: string
-  class: string
+  selected: boolean
 }
 
 @Component({
@@ -18,11 +18,14 @@ export class EditClientsPopupComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public GroupName: any
   ) { }
 
-  public EditOn : boolean = false;
-
-  public editIterator : IClient[] = Array(100).fill(0).map((value, index) => ({name: (index+1).toString(), class: 'user_circle_not_selected'}));
+  public selection: IClient[] = [];
+  public selected: IClient[] = [];
 
   ngOnInit(): void {
+    for (let i = 1;i <= 100;i++)
+    {
+      this.selection.push({name: 'Testík ' + i, selected: false})
+    }
   }
 
   widthCalc(): number {
@@ -33,40 +36,17 @@ export class EditClientsPopupComponent implements OnInit {
     return (window.innerHeight - (window.innerHeight / 3))
   }
 
-  switchToEdit() {
-    this.EditOn = !this.EditOn;
+  toggleSelect(index: number) {
+    this.selection[index].selected = !this.selection[index].selected;
   }
 
-  SaveChanges() {
-    this.EditOn = !this.EditOn;
-    this.editIterator = this.editIterator.map(value => (value.class == 'user_circle_add' || value.class == 'user_circle') ? ({name: value.name, class: 'user_circle'}) : ({name: value.name, class: 'user_circle_not_selected'}));
-    console.log(this.editIterator)
+  setSelection() {
+    this.selected = this.selection.filter(x => x.selected).slice();
+    this.selection = this.selection.filter(x => !x.selected).slice();
   }
 
   colCalc(): number {
     return (7)
-  }
-
-  getSelected() {
-    return this.editIterator.filter(value => value.class == 'user_circle');
-  }
-
-  toggleClient(index: number) {
-    switch (this.editIterator[index].class)
-    {
-      case('user_circle_not_selected'):
-        this.editIterator[index].class = 'user_circle_add';
-        break;
-      case('user_circle_add'):
-        this.editIterator[index].class = 'user_circle_not_selected';
-        break;
-      case('user_circle'):
-        this.editIterator[index].class = 'user_circle_remove';
-        break;
-      case('user_circle_remove'):
-        this.editIterator[index].class = 'user_circle';
-        break;
-    }
   }
 
 }

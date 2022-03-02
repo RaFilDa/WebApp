@@ -1,40 +1,32 @@
-<!--TODO Změnit na dva sloupce s překlikáváním, nebo tažením-->
+<!--TODO Přidávat do pole nikoliv mazat, a resetovat selection při každém pohybu-->
 
 <div [style]="'width: ' + widthCalc() + 'px;' + 'height: ' + heightCalc() + 'px;'" fxLayout="column" fxLayoutAlign="space-between start" fxFlexFill>
-  <div *ngIf="!EditOn" class="main_divs">
+  <div class="main_divs">
     <div fxLayout="row" fxLayoutAlign="space-between center">
-      <b style="font-size: large" >Group: {{GroupName}}</b>
-      <button mat-flat-button class="smallButton_popup" color="primary" style="margin-top: 15px;" mat-dialog-close=""><mat-icon class="small_popup">close</mat-icon></button>
+      <b>Group: {{GroupName}}</b>
+      <button mat-flat-button class="smallButton_popup" color="primary" mat-dialog-close=""><mat-icon class="small_popup">close</mat-icon></button>
     </div>
 
-    <div class="user_card">
-      <mat-grid-list cols="{{colCalc()}}" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let item of getSelected()">
-          <div class="user_circle" fxLayout="row" fxLayoutAlign="center center">
-            <div style="font-size: x-large">{{ item.name }}</div>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
+    <mat-divider></mat-divider>
+
+    <div class="selection-board">
+      <div *ngFor="let item of selection;index as i" [class]="item.selected ? 'selected' : ''" (click)="toggleSelect(i)">
+        <span>{{item.name}}</span>
+        <mat-divider></mat-divider>
+      </div>
     </div>
+
+    <div class="set-buttons" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px">
+      <button mat-flat-button color="primary" (click)="setSelection()"> Set -> </button>
+      <button mat-flat-button color="primary"> <- Unset </button>
+    </div>
+
+    <div class="selected-board">
+      <div *ngFor="let item of selected;index as i"  (click)="toggleSelect(i)">
+        <span>{{item.name}}</span>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+
   </div>
-
-  <div *ngIf="EditOn" class="main_divs">
-    <div fxLayout="row" fxLayoutAlign="space-between center">
-      <b style="font-size: large" >Group: {{GroupName}}</b>
-      <button mat-flat-button class="smallButton_popup" color="primary" style="margin-top: 15px;" mat-dialog-close=""><mat-icon class="small_popup">close</mat-icon></button>
-    </div>
-
-    <div class="user_card">
-      <mat-grid-list cols="{{colCalc()}}" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let item of editIterator; index as counter">
-          <div class="{{item.class}}" (click)="toggleClient(counter)" style="cursor:pointer;" fxLayout="row" fxLayoutAlign="center center">
-            <div style="font-size: x-large">{{ counter + 1 }}</div>
-          </div>
-        </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-  </div>
-
-  <button *ngIf="!EditOn" style="margin-top: -20px" mat-raised-button color="primary" (click)="switchToEdit()">Edit</button>
-  <button *ngIf="EditOn" style="margin-top: -36px" mat-raised-button color="primary" (click)="SaveChanges()">Save</button>
 </div>
