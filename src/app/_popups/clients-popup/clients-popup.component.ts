@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {ConfirmationPopupComponent} from "../confirmation-popup/confirmation-popup.component";
 
 @Component({
   selector: 'app-clients-popup',
@@ -7,6 +9,9 @@ import {Component, OnInit} from '@angular/core';
 })
 
 export class ClientsPopupComponent implements OnInit{
+
+  constructor(public dialog: MatDialog) {
+  }
 
   renderButton: boolean = false;
 
@@ -37,6 +42,10 @@ export class ClientsPopupComponent implements OnInit{
       this.panelOpenStateConfigs = !this.panelOpenStateConfigs
     }
     this.panelOpenStateGroups = !this.panelOpenStateGroups
+  }
+
+  openConfirmationDialog() {
+    this.dialog.open(ConfirmationPopupComponent);
   }
 }
 

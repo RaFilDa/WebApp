@@ -7,13 +7,11 @@ export interface UserData {
   email: string;
 }
 
-
 const USER_DATA: UserData[] = [
   {name: 'admin', email: 'admin@email.com'},
   {name: 'foo', email: 'foo@email.com'},
   {name: 'admin3', email: 'admin3@email.com'},
 ];
-
 
 @Component({
   selector: 'app-settings-users-content',
@@ -34,5 +32,4 @@ export class SettingsUsersContentComponent implements OnInit {
 
   displayedColumns: string[] = ['name', 'email'];
   dataSource = USER_DATA;
-
 }

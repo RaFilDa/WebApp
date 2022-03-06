@@ -5,6 +5,7 @@ import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.c
 export interface IClient {
   name: string
   login: string
+  activity: string
 }
 
 @Component({
@@ -14,7 +15,7 @@ export interface IClient {
 })
 export class ClientsContentComponent implements OnInit {
 
-  public clients: IClient[] = [];
+  clients: IClient[] = [];
   public searchExpression = '';
 
   constructor(public dialog: MatDialog) {}
@@ -22,7 +23,7 @@ export class ClientsContentComponent implements OnInit {
   ngOnInit(): void {
     for(let i = 1; i <= 50; i++)
     {
-      this.clients.push({name: i.toString(), login: '6.2.2022 16:36:21'})
+      this.clients.push({name: 'User' + i.toString(), login: 'azhwdgbwad', activity: 'OFFLINE'})
     }
   }
 
@@ -37,5 +38,4 @@ export class ClientsContentComponent implements OnInit {
   filterData(): IClient[] {
     return this.clients.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
   }
-
 }

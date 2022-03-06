@@ -18,3 +18,41 @@
 mat-card {
   margin-top: 40px;
 }
+
+.table_users {
+  margin-top: 70px;
+  margin-left: 10px;
+  width: calc(100% - 20px);
+  border: darkgray solid;
+  font-size: large;
+}
+
+.mat-header-cell {
+  font-size: large;
+}
+
+.mat-cell {
+  width: 10%;
+  font-size: large;
+}
+
+mat-icon.small {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  z-index: 25;
+}
+
+button.smallButton {
+  margin: auto;
+  position: relative;
+  left: 10%;
+  top: 0px;
+  z-index: 20;
+
+  width: 25px;
+  height: 30px;
+  min-height: unset;
+  min-width: unset;
+}
+

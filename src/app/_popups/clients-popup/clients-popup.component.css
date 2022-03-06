@@ -8,5 +8,10 @@ mat-expansion-panel {
 }
 
 p.mat-dialog-title {
-  margin-top: -35px
+  margin-top: -35px;
+}
+
+.checkboxes {
+  max-height: 200px;
+  overflow: auto;
 }

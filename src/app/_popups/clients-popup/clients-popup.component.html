@@ -16,12 +16,21 @@
   <div fxLayoutGap="20px">
     <button mat-raised-button color="primary" (click)="togglePanelConfigs()">Manage Configurations</button>
     <button mat-raised-button color="primary" (click)="togglePanelGroups()">Add to Group</button>
+    <button mat-raised-button color="warn" (click)="openConfirmationDialog()">Ban User</button>
   </div>
 
   <mat-dialog-content *ngIf="renderButton">
     <mat-expansion-panel [expanded]="panelOpenStateConfigs">
-      <div fxLayout="column" fxLayoutAlign="start start">
+      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">
         <b>Configurations:</b>
+        <mat-checkbox color="primary">FTP/Local</mat-checkbox>
+        <mat-checkbox color="primary">Local</mat-checkbox>
+        <mat-checkbox color="primary">Rem. Folder</mat-checkbox>
+        <mat-checkbox color="primary">Local/Rem.Folder/Local</mat-checkbox>
+        <mat-checkbox color="primary">FTP/Local</mat-checkbox>
+        <mat-checkbox color="primary">Local</mat-checkbox>
+        <mat-checkbox color="primary">Rem. Folder</mat-checkbox>
+        <mat-checkbox color="primary">Local/Rem.Folder/Local</mat-checkbox>
         <mat-checkbox color="primary">FTP/Local</mat-checkbox>
         <mat-checkbox color="primary">Local</mat-checkbox>
         <mat-checkbox color="primary">Rem. Folder</mat-checkbox>
@@ -31,7 +40,7 @@
     </mat-expansion-panel>
 
     <mat-expansion-panel [expanded]="panelOpenStateGroups">
-      <div fxLayout="column" fxLayoutAlign="start start">
+      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">
         <b>Groups:</b>
         <mat-checkbox color="primary">Users</mat-checkbox>
         <mat-checkbox color="primary">Administrators</mat-checkbox>
