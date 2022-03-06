@@ -12,6 +12,11 @@
   font-weight: normal;
 }
 
+.lower-bar {
+  position: relative;
+  top: 80px;
+}
+
 .timing-components {
   font-size: small;
   margin-top: 5px;

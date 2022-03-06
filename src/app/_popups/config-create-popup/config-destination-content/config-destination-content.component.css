@@ -11,6 +11,12 @@
   min-height: unset;
   min-width: unset;
 }
+
+.destinations {
+  height: 25%;
+  overflow: auto;
+}
+
 mat-form-field.select {
   width: 20%;
 }
@@ -26,3 +32,4 @@ div.expansion {
 div {
   margin-top: 10px;
 }
+
