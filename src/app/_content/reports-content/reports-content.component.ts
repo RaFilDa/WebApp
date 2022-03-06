@@ -20,6 +20,10 @@ export interface UserData {
 export class ReportsContentComponent implements OnInit {
 
   public searchExpression = '';
+  public errorOnly = false;
+  public backupType = '';
+
+  public filteredData: UserData[] = [];
 
   public USER_DATA: UserData[] = [];
 
@@ -43,12 +47,36 @@ export class ReportsContentComponent implements OnInit {
         button: ':)',
       })
     }
+
+    for (let i = 51; i <= 100; i++) {
+      this.USER_DATA.push({
+        date: i.toString() + '.3.2022',
+        time: (i-1).toString() + ':25:25',
+        name: 'User' + i.toString(),
+        mac: 'A5:5B:CC:1A:23',
+        backup: 'Local',
+        state: i % 2 == 0,
+        button: ':)',
+      })
+    }
   }
 
   dataSource = this.USER_DATA;
   displayedColumns: string[] = ['date', 'time', 'name', 'mac', 'backup', 'state', 'button'];
 
   filterData(): UserData[] {
-    return this.USER_DATA.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
+    this.filteredData = this.USER_DATA.filter(x =>
+      x.name.toLowerCase().includes(this.searchExpression.toLowerCase()) ||
+      x.date.includes(this.searchExpression) ||
+      x.time.includes(this.searchExpression) ||
+      x.mac.includes(this.searchExpression)
+    );
+    if(this.errorOnly)
+      this.filteredData = this.filteredData.filter(x => !x.state);
+
+    if(this.backupType != '')
+      this.filteredData = this.filteredData.filter(x => x.backup == this.backupType)
+
+    return this.filteredData;
   }
 }
