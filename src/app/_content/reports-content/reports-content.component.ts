@@ -23,8 +23,6 @@ export class ReportsContentComponent implements OnInit {
   public errorOnly = false;
   public backupType = '';
 
-  public filteredData: UserData[] = [];
-
   public USER_DATA: UserData[] = [];
 
   public iterator = Array(20).fill(0);
@@ -65,18 +63,18 @@ export class ReportsContentComponent implements OnInit {
   displayedColumns: string[] = ['date', 'time', 'name', 'mac', 'backup', 'state', 'button'];
 
   filterData(): UserData[] {
-    this.filteredData = this.USER_DATA.filter(x =>
+    let filteredData = this.USER_DATA.filter(x =>
       x.name.toLowerCase().includes(this.searchExpression.toLowerCase()) ||
       x.date.includes(this.searchExpression) ||
       x.time.includes(this.searchExpression) ||
       x.mac.includes(this.searchExpression)
     );
     if(this.errorOnly)
-      this.filteredData = this.filteredData.filter(x => !x.state);
+      filteredData = filteredData.filter(x => !x.state);
 
     if(this.backupType != '')
-      this.filteredData = this.filteredData.filter(x => x.backup == this.backupType)
+      filteredData = filteredData.filter(x => x.backup == this.backupType)
 
-    return this.filteredData;
+    return filteredData;
   }
 }
