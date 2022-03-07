@@ -5,7 +5,8 @@ import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.c
 export interface IClient {
   name: string
   login: string
-  activity: string
+  activity: boolean
+  groups: string[]
 }
 
 @Component({
@@ -16,14 +17,19 @@ export interface IClient {
 export class ClientsContentComponent implements OnInit {
 
   clients: IClient[] = [];
+
+  public groupsList: string[] = ['Users', 'Administrators', 'Management'];
+
   public searchExpression = '';
+  public isInactive = false;
+  public filterGroup = '';
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
     for(let i = 1; i <= 50; i++)
     {
-      this.clients.push({name: 'User' + i.toString(), login: 'azhwdgbwad', activity: 'OFFLINE'})
+      this.clients.push({name: 'User' + i.toString(), login: '12.5.2022', activity: i % 2 == 0, groups: i % 2 == 0 ? ['Users'] : ['Management']})
     }
   }
 
@@ -36,6 +42,13 @@ export class ClientsContentComponent implements OnInit {
   }
 
   filterData(): IClient[] {
-    return this.clients.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
+    let filteredData = this.clients.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
+    if(this.isInactive)
+      filteredData = filteredData.filter(x => x.activity);
+
+    if(this.filterGroup != '')
+      filteredData = filteredData.filter(x => x.groups.includes(this.filterGroup));
+
+    return filteredData
   }
 }
