@@ -29,7 +29,7 @@ export class ClientsContentComponent implements OnInit {
   ngOnInit(): void {
     for(let i = 1; i <= 50; i++)
     {
-      this.clients.push({name: 'User' + i.toString(), login: '12.5.2022', activity: i % 2 == 0, groups: i % 2 == 0 ? ['Users'] : ['Management']})
+      this.clients.push({name: 'PC-' + i.toString(), login: '12.5.2022', activity: i % 2 == 0, groups: i % 2 == 0 ? ['Users'] : ['Management']})
     }
   }
 
@@ -42,13 +42,16 @@ export class ClientsContentComponent implements OnInit {
   }
 
   filterData(): IClient[] {
-    let filteredData = this.clients.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
+    let filteredData: IClient[] = this.clients;
+
     if(this.isInactive)
       filteredData = filteredData.filter(x => x.activity);
 
     if(this.filterGroup != '')
       filteredData = filteredData.filter(x => x.groups.includes(this.filterGroup));
 
-    return filteredData
+    filteredData = filteredData.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
+
+    return filteredData;
   }
 }

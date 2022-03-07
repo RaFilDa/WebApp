@@ -63,18 +63,21 @@ export class ReportsContentComponent implements OnInit {
   displayedColumns: string[] = ['date', 'time', 'name', 'mac', 'backup', 'state', 'button'];
 
   filterData(): UserData[] {
-    let filteredData = this.USER_DATA.filter(x =>
-      x.name.toLowerCase().includes(this.searchExpression.toLowerCase()) ||
-      x.date.includes(this.searchExpression) ||
-      x.time.includes(this.searchExpression) ||
-      x.mac.includes(this.searchExpression)
-    );
+
+    let filteredData: UserData[] = this.USER_DATA;
+
     if(this.errorOnly)
       filteredData = filteredData.filter(x => !x.state);
 
     if(this.backupType != '')
       filteredData = filteredData.filter(x => x.backup == this.backupType)
 
+    filteredData = filteredData.filter(x =>
+      x.name.toLowerCase().includes(this.searchExpression.toLowerCase()) ||
+      x.date.includes(this.searchExpression) ||
+      x.time.includes(this.searchExpression) ||
+      x.mac.includes(this.searchExpression)
+    );
     return filteredData;
   }
 }
