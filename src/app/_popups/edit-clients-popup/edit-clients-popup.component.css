@@ -11,7 +11,7 @@ b {
   float: left;
   margin-top: 1%;
   width: 35%;
-  height: 95%;
+  height: 85%;
 
   border-radius: 1%;
 
@@ -24,7 +24,7 @@ b {
   float: right;
   margin-top: 1%;
   width: 35%;
-  height: 95%;
+  height: 85%;
 
   border-radius: 1%;
 
@@ -34,7 +34,7 @@ b {
 }
 
 div.selected {
-  background-color: lightslategray;
+  background-color: mediumpurple;
 }
 
 span {
@@ -54,7 +54,7 @@ span {
 
 div.set-buttons {
   width: 30%;
-  height: 95%;
+  height: 85%;
   float: left;
 }
 
@@ -76,34 +76,7 @@ button.smallButton_popup {
   overflow: auto;
 }
 
-.user_circle {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  background-color: mediumpurple;
-  border-color: mediumpurple;
-}
-
-.user_circle_not_selected {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  background-color: gray;
-  border-color: gray;
-}
-
-.user_circle_remove {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  background-color: orangered;
-  border-color: orangered;
-}
-
-.user_circle_add {
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  background-color: lightgreen;
-  border-color: lightgreen;
+.headers {
+  width: 100%;
+  height: 10%;
 }
