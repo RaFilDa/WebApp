@@ -12,10 +12,18 @@ export class ConfigSourceContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    for(let i = 0; i < 20; i++)
+    for(let i = 0; i < 5; i++)
     {
       this.sources.push('C:\\Users\\user1\\Documents')
     }
+  }
+
+  delete(index: number): void {
+    this.sources = this.sources.filter((x, i) => i != index);
+  }
+
+  add(path: string): void {
+    this.sources = [path].concat(this.sources);
   }
 
 }

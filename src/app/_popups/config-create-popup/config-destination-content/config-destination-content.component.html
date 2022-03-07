@@ -1,10 +1,15 @@
 <div>
-  <button mat-raised-button color="primary">Add Destination</button>
+  <button mat-raised-button color="primary" (click)="add()">Add Destination</button>
 </div>
 
 <div class="destinations">
-  <mat-expansion-panel *ngFor="let destination of destinations">
-    <mat-expansion-panel-header>{{destination.type}}</mat-expansion-panel-header>
+  <mat-expansion-panel *ngFor="let destination of destinations; index as i" hideToggle>
+    <mat-expansion-panel-header>
+      <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{destination.type}} - {{destination.type == 'FTP' ? destination.ip : destination.path}}</span>
+        <button mat-flat-button class="popupButton" color="warn" (click)="delete(i)"><mat-icon class="small">delete</mat-icon></button>
+      </div>
+    </mat-expansion-panel-header>
     <div fxLayout="row" fxLayoutAlign="space-between center">
       <div class="expansion" fxLayout="row" fxLayoutAlign="start center">
         <mat-form-field [style.width.%]="28" [style.margin-left]="'0px'" class="select">
@@ -21,7 +26,7 @@
 
         <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.password" type="password" placeholder="Password"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value!='FTP'"><input matInput [(ngModel)]="destination.path" type="password" placeholder="Destination"></mat-form-field>
+        <mat-form-field *ngIf="typeOfConfig.value!='FTP'"><input matInput [(ngModel)]="destination.path" type="text" placeholder="Destination"></mat-form-field>
       </div>
     </div>
   </mat-expansion-panel>

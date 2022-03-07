@@ -5,6 +5,8 @@
 
 .popupButton {
   z-index: 20;
+  bottom: 5px;
+
 
   width: 25px;
   height: 30px;

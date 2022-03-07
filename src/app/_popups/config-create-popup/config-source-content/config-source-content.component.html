@@ -1,10 +1,13 @@
 <div>
-  <button mat-raised-button color="primary">Add Source</button>
+  <button mat-raised-button color="primary" (click)="add(path.value);path.value=''">Add Source</button>
+  <mat-form-field>
+    <input matInput [style.width.%]="100" #path placeholder="Path" value="">
+  </mat-form-field>
 </div>
 
 <div class="sources">
-  <mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let source of sources">
-    {{source}}
-    <button mat-flat-button class="popupButton" color="primary"><mat-icon class="small">remove</mat-icon></button>
+  <mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let source of sources;index as i">
+    <span>{{source}}</span>
+    <button mat-flat-button class="popupButton" color="warn" (click)="delete(i)"><mat-icon class="small">delete</mat-icon></button>
   </mat-card>
 </div>

@@ -21,3 +21,9 @@ div.sources {
   height: 48px;
   background-color: whitesmoke;
 }
+
+mat-form-field {
+  margin-left: 15px;
+  width: 65%;
+  height: 10px;
+}

@@ -35,4 +35,12 @@ export class ConfigDestinationContentComponent implements OnInit {
     this.destinations.push({type: 'Remote', path: 'C:/Users/user/documents/backup'});
   }
 
+  delete(index: number): void {
+    this.destinations = this.destinations.filter((x, i) => i != index);
+  }
+
+  add(): void {
+    this.destinations = [{type: 'FTP'}].concat(this.destinations);
+  }
+
 }
