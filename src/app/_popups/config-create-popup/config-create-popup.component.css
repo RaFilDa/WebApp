@@ -47,3 +47,9 @@ mat-card {
   background-color: whitesmoke;
 }
 
+.destinations {
+  width: 50%;
+  height: 35%;
+  display: inline-block;
+}
+

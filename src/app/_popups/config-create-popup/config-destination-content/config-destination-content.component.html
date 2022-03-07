@@ -2,31 +2,28 @@
   <button mat-raised-button color="primary">Add Destination</button>
 </div>
 
-
 <div class="destinations">
-  <mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center">
-    FTP-IP:192.168.0.1
-    <button mat-flat-button class="popupButton" color="primary" (click)="openConfig()"><mat-icon class="small">settings</mat-icon></button>
-  </mat-card>
-  <mat-expansion-panel [expanded]="panelOpenStateConfig" *ngIf="renderButton">
+  <mat-expansion-panel *ngFor="let destination of destinations">
+    <mat-expansion-panel-header>{{destination.type}}</mat-expansion-panel-header>
     <div fxLayout="row" fxLayoutAlign="space-between center">
       <div class="expansion" fxLayout="row" fxLayoutAlign="start center">
-        <mat-form-field class="select">
-          <mat-select #typeOfConfig value="FTP">
+        <mat-form-field [style.width.%]="28" [style.margin-left]="'0px'" class="select">
+          <mat-select #typeOfConfig [(ngModel)]="destination.type" value="FTP">
             <mat-option value="FTP">FTP</mat-option>
             <mat-option value="Local">Local</mat-option>
-            <mat-option value="Rem. Folder">Rem. Folder</mat-option>
+            <mat-option value="Remote">Rem. Folder</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value=='FTP'"><input matInput type="text" placeholder="IP"></mat-form-field>
+        <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.ip" type="text" placeholder="IP"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value=='FTP'"><input matInput type="text" placeholder="Login"></mat-form-field>
+        <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.login" type="text" placeholder="Login"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value=='FTP'"><input matInput type="password" placeholder="Password"></mat-form-field>
+        <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.password" type="password" placeholder="Password"></mat-form-field>
 
-        <mat-form-field *ngIf="typeOfConfig.value!='FTP'"><input matInput type="password" placeholder="Destination"></mat-form-field>
+        <mat-form-field *ngIf="typeOfConfig.value!='FTP'"><input matInput [(ngModel)]="destination.path" type="password" placeholder="Destination"></mat-form-field>
       </div>
     </div>
   </mat-expansion-panel>
 </div>
+

@@ -44,6 +44,7 @@ import { CronContentComponent } from './_popups/config-create-popup/frequency-op
 import { DayInMonthSelectionContentComponent } from './_popups/config-create-popup/frequency-options/day-in-month-selection-content/day-in-month-selection-content.component';
 import { DaySelectionContentComponent } from './_popups/config-create-popup/frequency-options/day-selection-content/day-selection-content.component';
 import { ConfirmationPopupComponent } from './_popups/confirmation-popup/confirmation-popup.component';
+import { ConfigSourceContentComponent } from './_popups/config-create-popup/config-source-content/config-source-content.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import { ConfirmationPopupComponent } from './_popups/confirmation-popup/confirm
     DayInMonthSelectionContentComponent,
     DaySelectionContentComponent,
     ConfirmationPopupComponent,
+    ConfigSourceContentComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,

@@ -1,0 +1,10 @@
+<div>
+  <button mat-raised-button color="primary">Add Source</button>
+</div>
+
+<div class="sources">
+  <mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let source of sources">
+    {{source}}
+    <button mat-flat-button class="popupButton" color="primary"><mat-icon class="small">remove</mat-icon></button>
+  </mat-card>
+</div>
