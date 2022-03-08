@@ -2,14 +2,14 @@
     <mat-form-field class="toolbar-components" fxFlexOffset="15px">
       <input matInput type="text" placeholder="Search" [(ngModel)]="searchExpression">
     </mat-form-field>
-    <button mat-raised-button color="primary" (click)="openDialog()">New Config</button>
+    <button mat-raised-button color="primary" (click)="openDialog(-1)">New Config</button>
 </mat-toolbar>
 
 <mat-card>
   <mat-list>
-      <mat-list-item *ngFor="let item of filterData()">{{ item }}
+      <mat-list-item *ngFor="let item of filterData()">{{ item.name }}
         <div fxLayout="row" fxLayoutAlign="space-between center">
-          <button mat-flat-button class="smallButton" color="primary" (click)="openDialog()"><mat-icon class="small">settings</mat-icon></button>
+          <button mat-flat-button class="smallButton" color="primary" (click)="openDialog(item.id)"><mat-icon class="small">settings</mat-icon></button>
           <button mat-flat-button class="smallButtonOffset" color="primary" (click)="openEditDialog()"><mat-icon class="small">person_add</mat-icon></button>
           <mat-divider></mat-divider>
         </div>

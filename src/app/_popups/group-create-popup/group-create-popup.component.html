@@ -2,7 +2,7 @@
     <div fxLayout="row" fxLayoutAlign="space-between center">
         <div class="components">
             <mat-form-field>
-                <input matInput type="text" placeholder="Name">
+                <input matInput type="text" placeholder="Name" [(ngModel)]="detail.name">
             </mat-form-field>
         </div>
         <div fxLayout="row" fxLayoutAlign="end center">
@@ -12,11 +12,8 @@
 
 
     <b>Add default backups for this group:</b>
-        <mat-checkbox color="primary">FTP/Local</mat-checkbox>
-        <mat-checkbox color="primary">Local</mat-checkbox>
-        <mat-checkbox color="primary">Rem. Folder</mat-checkbox>
-        <mat-checkbox color="primary">Local/Rem.Folder/Local</mat-checkbox>
+        <mat-checkbox color="primary" (change)="toggle(config)" [checked]="check(config)" *ngFor="let config of configsService.configs">{{config.name}}</mat-checkbox>
         <div fxLayout="row">
-            <button mat-raised-button color="primary" mat-dialog-close="">Save</button>
+            <button mat-raised-button color="primary" mat-dialog-close="" (click)="saveChanges()">Save</button>
         </div>
 </div>

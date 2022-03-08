@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {IConfigDetail, ConfigsServiceService} from "../../services/configs-service.service";
 
 @Component({
   selector: 'app-config-create-popup',
@@ -8,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigCreatePopupComponent implements OnInit {
 
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService) { }
 
-  async ngOnInit() {
+  public temp: IConfigDetail = {
+    name: '',
+    intensity: 'Full',
+    retention: 3,
+    type: '',
+    cron: '',
+    timezone: 'UTC(+0)',
+    destinations: [],
+    sources: [],
+  }
+
+  ngOnInit() {
+    if(this.idDetail != -1)
+      this.temp = Object.assign({}, this.configService.getDetail(this.idDetail));
   }
 
   widthCalc(): number {
@@ -19,6 +33,15 @@ export class ConfigCreatePopupComponent implements OnInit {
 
   heightCalc(): number {
     return (window.innerHeight - (window.innerHeight / 5))
+  }
+
+  saveChanges(): void {
+    if(this.idDetail == -1) {
+      this.configService.configDetails.push(this.temp);
+      this.configService.configs.push({id: this.configService.configs.length, name: this.temp.name})
+    }
+
+    this.configService.configDetails[this.idDetail] = this.temp;
   }
 
   public Timezones: string[] = [

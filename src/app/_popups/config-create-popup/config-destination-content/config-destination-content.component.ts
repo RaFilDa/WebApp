@@ -1,12 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
-export interface IDestination {
-  type: string,
-  path?: string,
-  ip?: string,
-  login?: string,
-  password?: string,
-}
+import {Component, Output, EventEmitter, Input, OnInit} from '@angular/core';
+import { IDestination} from "../../../services/configs-service.service";
 
 @Component({
   selector: 'app-config-destination-content',
@@ -21,26 +14,23 @@ export class ConfigDestinationContentComponent implements OnInit {
 
   renderButton: boolean = false;
 
-  public destinations: IDestination[] = []
+  @Input() destinations: IDestination[] = [];
+  @Output() destinationsChange = new EventEmitter<IDestination[]>();
 
   constructor() { }
 
   async ngOnInit() {
     await this.delay(1);
     this.renderButton = true;
-
-    this.destinations.push({type: 'FTP', ip: '192.25.25.254', login: 'username', password: 'secret'});
-    this.destinations.push({type: 'FTP', ip: '192.25.25.252', login: 'username2', password: 'secret'});
-    this.destinations.push({type: 'Local', path: 'C:/Users/user/documents/backup'});
-    this.destinations.push({type: 'Remote', path: 'C:/Users/user/documents/backup'});
   }
 
   delete(index: number): void {
     this.destinations = this.destinations.filter((x, i) => i != index);
+    this.destinationsChange.emit(this.destinations);
   }
 
   add(): void {
     this.destinations = [{type: 'FTP'}].concat(this.destinations);
+    this.destinationsChange.emit(this.destinations);
   }
-
 }

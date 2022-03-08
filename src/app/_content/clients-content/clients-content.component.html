@@ -9,7 +9,7 @@
     <mat-label>Group Filter</mat-label>
     <mat-select [(ngModel)]="filterGroup">
       <mat-option [value]="''">None</mat-option>
-      <mat-option *ngFor="let group of groupsList" [value]="group">{{group}}</mat-option>
+      <mat-option *ngFor="let group of groupsList" [value]="group.id">{{group.name}}</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-toolbar>
@@ -19,7 +19,7 @@
     <mat-list-item *ngFor="let item of filterData(); even as e; index as i">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <span>{{item.name}}</span>
-        <button mat-flat-button class="smallButton" color="primary" (click)="openDialog()"><mat-icon class="small">info</mat-icon></button>
+        <button mat-flat-button class="smallButton" color="primary" (click)="openDialog(item.id)"><mat-icon class="small">info</mat-icon></button>
       </div>
       <mat-divider></mat-divider>
     </mat-list-item>

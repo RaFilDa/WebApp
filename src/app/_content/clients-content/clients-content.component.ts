@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.component";
-
-export interface IClient {
-  name: string
-  login: string
-  activity: boolean
-  groups: string[]
-}
+import { IClient, ClientsServiceService} from "../../services/clients-service.service";
+import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
 
 @Component({
   selector: 'app-clients-content',
@@ -16,25 +11,19 @@ export interface IClient {
 })
 export class ClientsContentComponent implements OnInit {
 
-  clients: IClient[] = [];
-
-  public groupsList: string[] = ['Users', 'Administrators', 'Management'];
+  public groupsList: IGroup[] = this.groupService.groups;
 
   public searchExpression = '';
   public isInactive = false;
   public filterGroup = '';
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public groupService: GroupsServiceService) {}
 
   ngOnInit(): void {
-    for(let i = 1; i <= 50; i++)
-    {
-      this.clients.push({name: 'PC-' + i.toString(), login: '12.5.2022', activity: i % 2 == 0, groups: i % 2 == 0 ? ['Users'] : ['Management']})
-    }
   }
 
-  openDialog() {
-    this.dialog.open(ClientsPopupComponent);
+  openDialog(id: number) {
+    this.dialog.open(ClientsPopupComponent, {data: id});
   }
 
   colCalc(): number {
@@ -42,13 +31,13 @@ export class ClientsContentComponent implements OnInit {
   }
 
   filterData(): IClient[] {
-    let filteredData: IClient[] = this.clients;
+    let filteredData: IClient[] = this.clientService.getClients();
 
     if(this.isInactive)
-      filteredData = filteredData.filter(x => x.activity);
+      filteredData = filteredData.filter(x => !x.active);
 
-    if(this.filterGroup != '')
-      filteredData = filteredData.filter(x => x.groups.includes(this.filterGroup));
+    if(this.filterGroup !== '')
+      filteredData = filteredData.filter(x => x.groups.some(x => x.id.toString() == this.filterGroup));
 
     filteredData = filteredData.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
 

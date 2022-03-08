@@ -1,7 +1,7 @@
 <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="20px" fxFlexFill>
   <p>Are you sure you want to proceed with this action?</p>
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
-    <button mat-raised-button color="primary" mat-dialog-close="">Yes</button>
+    <button mat-raised-button color="primary" (click)="confirm()">Yes</button>
     <button mat-raised-button mat-dialog-close="">No</button>
   </div>
 </div>

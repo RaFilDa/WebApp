@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {ISource} from "../../../services/configs-service.service";
 
 @Component({
   selector: 'app-config-source-content',
@@ -7,23 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfigSourceContentComponent implements OnInit {
 
-  public sources: string[] = [];
+  @Input() sources: ISource[] = [];
+  @Output() sourcesChange = new EventEmitter<ISource[]>();
 
   constructor() { }
 
   ngOnInit(): void {
-    for(let i = 0; i < 5; i++)
-    {
-      this.sources.push('C:\\Users\\user1\\Documents')
-    }
   }
 
   delete(index: number): void {
     this.sources = this.sources.filter((x, i) => i != index);
+    this.sourcesChange.emit(this.sources);
   }
 
   add(path: string): void {
-    this.sources = [path].concat(this.sources);
+    this.sources = [{path: path}].concat(this.sources);
+    this.sourcesChange.emit(this.sources);
   }
 
 }

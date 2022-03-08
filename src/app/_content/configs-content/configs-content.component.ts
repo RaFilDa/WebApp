@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from "@angular/material/dialog";
 import { ConfigCreatePopupComponent } from "../../_popups/config-create-popup/config-create-popup.component";
 import {EditClientsPopupComponent} from "../../_popups/edit-clients-popup/edit-clients-popup.component";
+import {ConfigsServiceService, IConfig} from "../../services/configs-service.service";
 
 @Component({
   selector: 'app-configs-content',
@@ -10,29 +11,26 @@ import {EditClientsPopupComponent} from "../../_popups/edit-clients-popup/edit-c
 })
 export class ConfigsContentComponent implements OnInit {
 
-  public configs: string[] = [
-    'FTP/LOCAL', 'LOCAL', 'Rem. Folder', 'Local/Rem.Folder/Local',
-   ];
-
   public searchExpression = '';
 
   constructor(
     public dialog: MatDialog,
-    public dialogEdit: MatDialog
+    public dialogEdit: MatDialog,
+    public configService: ConfigsServiceService
   ) { }
 
   ngOnInit(): void {
   }
 
-  openDialog() {
-    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false});
+  openDialog(id: number) {
+    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false, data: id});
   }
 
   openEditDialog() {
     this.dialogEdit.open(EditClientsPopupComponent, {autoFocus: false});
   }
 
-  filterData(): string[] {
-    return this.configs.filter(x => x.toLowerCase().includes(this.searchExpression.toLowerCase()))
+  filterData(): IConfig[] {
+    return this.configService.configs.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
   }
 }

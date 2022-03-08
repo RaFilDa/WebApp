@@ -2,12 +2,12 @@
   <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="left space-evenly center">
 
     <mat-form-field class="toolbar-components">
-      <input matInput type="text" placeholder="Name">
+      <input matInput type="text" placeholder="Name" [(ngModel)]="temp.name">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Intensity</mat-label>
-      <mat-select #typeOfBackup value="Full">
+      <mat-select [(ngModel)]="temp.intensity">
         <mat-option value="Full">Full</mat-option>
         <mat-option value="Differential">Differential</mat-option>
         <mat-option value="Incremental">Incremental</mat-option>
@@ -16,19 +16,19 @@
 
     <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Retention</mat-label>
-      <input matInput type="number" min="1" max="30" [defaultValue]="3">
+      <input matInput type="number" min="1" max="30" [defaultValue]="3" [(ngModel)]="temp.retention">
     </mat-form-field>
 
-    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="typeOfBackup.value!=='Full'">
+    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="temp.intensity!=='Full'" [(ngModel)]="temp.package">
       <mat-label>Packages</mat-label>
       <input matInput type="number" min="1" max="30" [defaultValue]="3">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Backup Type</mat-label>
-      <mat-select>
-        <mat-option value="Plain Text">Plain Text</mat-option>
-        <mat-option value="Archive">Archive</mat-option>
+      <mat-select [(ngModel)]="temp.type">
+        <mat-option value="raw">Plain Text</mat-option>
+        <mat-option value="zip">Archive</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -52,7 +52,7 @@
       </mat-form-field>
 
       <mat-form-field class="timing-components">
-        <mat-select value="UTC(+0)" placeholder="Timezone">
+        <mat-select [(ngModel)]="temp.timezone" placeholder="Timezone">
           <mat-option *ngFor="let timezone of Timezones" [value]="timezone">{{timezone}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -71,10 +71,10 @@
     </div>
   </mat-card>
 
-  <app-config-destination-content class="destinations"></app-config-destination-content>
-  <app-config-source-content class="destinations"></app-config-source-content>
+  <app-config-destination-content class="destinations" [(destinations)]="temp.destinations"></app-config-destination-content>
+  <app-config-source-content class="destinations" [(sources)]="temp.sources"></app-config-source-content>
 
   <mat-dialog-actions align="end">
-    <button mat-raised-button color="primary" mat-dialog-close="">Save</button>
+    <button mat-raised-button color="primary" mat-dialog-close="" (click)="saveChanges()">Save</button>
   </mat-dialog-actions>
 </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialogRef} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-confirmation-popup',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmationPopupComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialogRef: MatDialogRef<ConfirmationPopupComponent>) { }
 
   ngOnInit(): void {
   }
 
+  confirm(): void {
+    this.dialogRef.close(true)
+  }
 
 
 }

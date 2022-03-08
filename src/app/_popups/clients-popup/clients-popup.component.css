@@ -13,5 +13,10 @@ p.mat-dialog-title {
 
 .checkboxes {
   max-height: 200px;
+  margin-bottom: 10px;
   overflow: auto;
+}
+
+button {
+  padding-bottom: 0px;
 }
