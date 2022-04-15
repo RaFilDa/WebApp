@@ -25,12 +25,8 @@ export class ConfigDestinationContentComponent implements OnInit {
   }
 
   delete(index: number): void {
-    this.destinations = this.destinations.filter((x, i) => i != index);
-    this.destinationsChange.emit(this.destinations);
   }
 
   add(): void {
-    this.destinations = [{type: 'FTP'}].concat(this.destinations);
-    this.destinationsChange.emit(this.destinations);
   }
 }

@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
-import {IConfigDetail, ConfigsServiceService} from "../../services/configs-service.service";
+import {ConfigsServiceService, IConfig, IDestination, ISource} from "../../services/configs-service.service";
 
 @Component({
   selector: 'app-config-create-popup',
@@ -11,20 +11,29 @@ export class ConfigCreatePopupComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService) { }
 
-  public temp: IConfigDetail = {
+  public config: IConfig = {
+    id: 0,
     name: '',
-    intensity: 'Full',
-    retention: 3,
-    type: '',
+    userID: 1,
+    backupFrequency: 'd',
+    retentionSize: 3,
+    packageSize: 3,
+    backupType: 1,
+    fileType: false,
     cron: '',
-    timezone: 'UTC(+0)',
-    destinations: [],
-    sources: [],
+    timeZone: 'UTC(+0)'
   }
+
+  public destinations: IDestination[] = []
+  public sources: ISource[] = []
 
   ngOnInit() {
     if(this.idDetail != -1)
-      this.temp = Object.assign({}, this.configService.getDetail(this.idDetail));
+    {
+      this.configService.GetConfig(this.idDetail).subscribe(x => this.config = x)
+      this.configService.getDestinations(this.idDetail).subscribe(x => this.destinations = x)
+      this.configService.getSources(this.idDetail).subscribe(x => this.sources = x)
+    }
   }
 
   widthCalc(): number {
@@ -36,12 +45,6 @@ export class ConfigCreatePopupComponent implements OnInit {
   }
 
   saveChanges(): void {
-    if(this.idDetail == -1) {
-      this.configService.configDetails.push(this.temp);
-      this.configService.configs.push({id: this.configService.configs.length, name: this.temp.name})
-    }
-
-    this.configService.configDetails[this.idDetail] = this.temp;
   }
 
   public Timezones: string[] = [

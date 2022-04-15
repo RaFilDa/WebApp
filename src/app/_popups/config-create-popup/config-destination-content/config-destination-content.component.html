@@ -16,14 +16,14 @@
           <mat-form-field [style.width.%]="28" [style.margin-left]="'0px'" class="select">
             <mat-select #typeOfConfig [(ngModel)]="destination.type" value="FTP">
               <mat-option value="FTP">FTP</mat-option>
-              <mat-option value="Local">Local</mat-option>
-              <mat-option value="Remote">Rem. Folder</mat-option>
+              <mat-option value="Loc">Local</mat-option>
+              <mat-option value="Rem">Rem. Folder</mat-option>
             </mat-select>
           </mat-form-field>
 
           <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.ip" type="text" placeholder="IP"></mat-form-field>
 
-          <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.login" type="text" placeholder="Login"></mat-form-field>
+          <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.username" type="text" placeholder="Login"></mat-form-field>
 
           <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.password" type="password" placeholder="Password"></mat-form-field>
 

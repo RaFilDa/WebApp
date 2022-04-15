@@ -12,6 +12,7 @@ import {ConfigsServiceService, IConfig} from "../../services/configs-service.ser
 export class ConfigsContentComponent implements OnInit {
 
   public searchExpression = '';
+  public configs: IConfig[] = [];
 
   constructor(
     public dialog: MatDialog,
@@ -20,6 +21,7 @@ export class ConfigsContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.configService.GetConfigs().subscribe(x => this.configs = x);
   }
 
   openDialog(id: number) {
@@ -31,6 +33,6 @@ export class ConfigsContentComponent implements OnInit {
   }
 
   filterData(): IConfig[] {
-    return this.configService.configs.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
+    return this.configs.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
   }
 }

@@ -1,33 +1,33 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 export interface IConfig {
-  id: number,
+  id: number
   name: string
-}
-
-export interface IConfigDetail {
-  name: string
-  intensity: string
-  retention: number
-  package?: number
-  type: string
+  userID: 1,
+  backupFrequency: string
+  retentionSize: number
+  packageSize?: number
+  backupType: number
+  fileType: boolean
   cron: string
-  timezone: string
-  destinations: IDestination[]
-  sources: ISource[]
+  timeZone: string
 }
 
 export interface IDestination {
-  id?: number
+  id: number
+  configID: number
   type: string,
   path?: string,
   ip?: string,
-  login?: string,
+  username?: string,
   password?: string,
 }
 
 export interface ISource {
-  id?: number
+  id: number
+  configID: number
   path: string
 }
 
@@ -36,79 +36,22 @@ export interface ISource {
 })
 export class ConfigsServiceService {
 
-  public configs = [
-    {id: 0, name: 'FTP'},
-    {id: 1, name: 'Documents Backup Local'},
-    {id: 2, name: 'Remote System'},
-    {id: 3, name: 'FTP/Local Hybrid'}
-  ]
+  constructor(private http:HttpClient) { }
 
-  public configDetails: IConfigDetail[] = [
-    {
-      name: this.configs[0].name,
-      intensity: 'Full',
-      retention: 5,
-      type: 'raw',
-      cron: '10/10/10',
-      timezone: 'UTC(+0)',
-      destinations: [
-        {type: 'FTP', ip: '192.25.25.1'}
-      ],
-      sources: [
-        {path: 'C:\\'},
-        {path: 'D:\\'},
-      ],
-    },
-    {
-      name: this.configs[1].name,
-      intensity: 'Incremental',
-      retention: 12,
-      package: 5,
-      type: 'zip',
-      cron: '10/10/10',
-      timezone: 'UTC(+1)',
-      destinations: [
-        {type: 'FTP', ip: '192.25.25.1'},
-        {type: 'Local', path: 'C:\\Backup'}
-      ],
-      sources: [
-        {path: 'C:\\'}
-      ],
-    },
-    {
-      name: this.configs[2].name,
-      intensity: 'Full',
-      retention: 5,
-      type: 'raw',
-      cron: '10/10/10',
-      timezone: 'UTC(+2)',
-      destinations: [
-        {type: 'FTP', ip: '192.25.25.1'}
-      ],
-      sources: [
-        {path: 'C:\\'}
-      ],
-    },
-    {
-      name: this.configs[3].name,
-      intensity: 'Full',
-      retention: 5,
-      type: 'raw',
-      cron: '10/10/10',
-      timezone: 'UTC(+3)',
-      destinations: [
-        {type: 'FTP', ip: '192.25.25.1'}
-      ],
-      sources: [
-        {path: 'C:\\'}
-      ],
-    },
-  ]
-
-  getDetail(id: number): IConfigDetail {
-    return this.configDetails[id];
+  GetConfigs(): Observable<IConfig[]> {
+    return this.http.get<IConfig[]>('https://localhost:5001/Configs');
   }
 
-  constructor() { }
+  GetConfig(id: number): Observable<IConfig> {
+    return this.http.get<IConfig>('https://localhost:5001/Configs/' + id);
+  }
+
+  getDestinations(id: number): Observable<IDestination[]> {
+    return this.http.get<IDestination[]>('https://localhost:5001/Configs/Destination/' + id);
+  }
+
+  getSources(id: number): Observable<ISource[]> {
+    return this.http.get<ISource[]>('https://localhost:5001/Configs/Source/' + id);
+  }
 
 }

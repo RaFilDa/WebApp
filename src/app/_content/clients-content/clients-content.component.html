@@ -18,7 +18,7 @@
 <mat-card class="users">
   <mat-list>
     <mat-list-item *ngFor="let item of filterData(); even as e; index as i">
-      <div fxLayout="row" fxLayoutAlign="space-between center" style="color: {{item.active ? 'black' : 'red; font-weight: bolder;'}}">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
         <span>{{item.name}}</span>
         <button mat-flat-button class="smallButton" color="primary" (click)="openDialog(item.id)"><mat-icon class="small">info</mat-icon></button>
       </div>

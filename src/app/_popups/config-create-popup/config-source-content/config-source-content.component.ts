@@ -17,13 +17,9 @@ export class ConfigSourceContentComponent implements OnInit {
   }
 
   delete(index: number): void {
-    this.sources = this.sources.filter((x, i) => i != index);
-    this.sourcesChange.emit(this.sources);
   }
 
   add(path: string): void {
-    this.sources = [{path: path}].concat(this.sources);
-    this.sourcesChange.emit(this.sources);
   }
 
 }

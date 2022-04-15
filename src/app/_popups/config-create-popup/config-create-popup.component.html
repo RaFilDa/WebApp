@@ -2,33 +2,33 @@
   <mat-toolbar class="toolbar" fxLayout="row" fxLayoutAlign="left space-evenly center">
 
     <mat-form-field class="toolbar-components">
-      <input matInput type="text" placeholder="Name" [(ngModel)]="temp.name">
+      <input matInput type="text" placeholder="Name" [(ngModel)]="config.name">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Intensity</mat-label>
-      <mat-select [(ngModel)]="temp.intensity">
-        <mat-option value="Full">Full</mat-option>
-        <mat-option value="Differential">Differential</mat-option>
-        <mat-option value="Incremental">Incremental</mat-option>
+      <mat-select [(ngModel)]="config.backupType">
+        <mat-option [value]="1">Full</mat-option>
+        <mat-option [value]="2">Differential</mat-option>
+        <mat-option [value]="3">Incremental</mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Retention</mat-label>
-      <input matInput type="number" min="1" max="30" [defaultValue]="3" [(ngModel)]="temp.retention">
+      <input matInput type="number" min="1" max="30" [(ngModel)]="config.retentionSize">
     </mat-form-field>
 
-    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="temp.intensity!=='Full'" [(ngModel)]="temp.package">
+    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="config.backupType != 1">
       <mat-label>Packages</mat-label>
-      <input matInput type="number" min="1" max="30" [defaultValue]="3">
+      <input matInput type="number" min="1" max="30" [(ngModel)]="config.packageSize">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Backup Type</mat-label>
-      <mat-select [(ngModel)]="temp.type">
-        <mat-option value="raw">Plain Text</mat-option>
-        <mat-option value="zip">Archive</mat-option>
+      <mat-select [(ngModel)]="config.fileType">
+        <mat-option [value]="true">Plain Text</mat-option>
+        <mat-option [value]="false">Archive</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -39,11 +39,11 @@
   <mat-card fxLayout="row" fxLayoutAlign="start stretch" [ngSwitch]="typeOfTiming.value">
     <div fxLayout="column" fxLayoutAlign="start start">
       <mat-form-field class="timing-components">
-        <mat-select #typeOfTiming value="Daily">
-          <mat-option value="Daily">Daily</mat-option>
-          <mat-option value="Weekdays">Weekdays</mat-option>
-          <mat-option value="month">Day in Month</mat-option>
-          <mat-option value="CRON">CRON</mat-option>
+        <mat-select #typeOfTiming [(ngModel)]="config.backupFrequency">
+          <mat-option value="d">Daily</mat-option>
+          <mat-option value="w">Weekdays</mat-option>
+          <mat-option value="m">Day in Month</mat-option>
+          <mat-option value="c">CRON</mat-option>
         </mat-select>
       </mat-form-field>
 
@@ -52,7 +52,7 @@
       </mat-form-field>
 
       <mat-form-field class="timing-components">
-        <mat-select [(ngModel)]="temp.timezone" placeholder="Timezone">
+        <mat-select [(ngModel)]="config.timeZone" placeholder="Timezone">
           <mat-option *ngFor="let timezone of Timezones" [value]="timezone">{{timezone}}</mat-option>
         </mat-select>
       </mat-form-field>
@@ -71,8 +71,8 @@
     </div>
   </mat-card>
 
-  <app-config-destination-content class="destinations" [(destinations)]="temp.destinations"></app-config-destination-content>
-  <app-config-source-content class="destinations" [(sources)]="temp.sources"></app-config-source-content>
+  <app-config-destination-content class="destinations" [(destinations)]="destinations"></app-config-destination-content>
+  <app-config-source-content class="destinations" [(sources)]="sources"></app-config-source-content>
 
   <mat-dialog-actions align="end">
     <button mat-raised-button color="primary" mat-dialog-close="" (click)="saveChanges()">Save</button>
