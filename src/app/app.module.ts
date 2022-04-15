@@ -45,6 +45,7 @@ import { DayInMonthSelectionContentComponent } from './_popups/config-create-pop
 import { DaySelectionContentComponent } from './_popups/config-create-popup/frequency-options/day-selection-content/day-selection-content.component';
 import { ConfirmationPopupComponent } from './_popups/confirmation-popup/confirmation-popup.component';
 import { ConfigSourceContentComponent } from './_popups/config-create-popup/config-source-content/config-source-content.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -99,6 +100,7 @@ import { ConfigSourceContentComponent } from './_popups/config-create-popup/conf
         MatRippleModule,
         ScrollingModule,
         FormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]

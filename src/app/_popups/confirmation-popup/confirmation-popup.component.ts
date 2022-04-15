@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {MatDialogRef} from "@angular/material/dialog";
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {ClientsServiceService} from "../../services/clients-service.service";
 
 @Component({
   selector: 'app-confirmation-popup',
@@ -8,14 +9,13 @@ import {MatDialogRef} from "@angular/material/dialog";
 })
 export class ConfirmationPopupComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<ConfirmationPopupComponent>) { }
+  constructor(public dialogRef: MatDialogRef<ConfirmationPopupComponent>, @Inject(MAT_DIALOG_DATA) public id: any, private clientservice:ClientsServiceService) { }
 
   ngOnInit(): void {
   }
 
   confirm(): void {
-    this.dialogRef.close(true)
+    this.dialogRef.close(true);
   }
-
 
 }

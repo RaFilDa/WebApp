@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
-import { IClientDetail, ClientsServiceService } from "../../services/clients-service.service";
+import {ClientsServiceService, IClient} from "../../services/clients-service.service";
 import {ConfirmationPopupComponent} from "../confirmation-popup/confirmation-popup.component";
 import {ConfigsServiceService, IConfig} from "../../services/configs-service.service";
 import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
@@ -13,15 +13,12 @@ import {GroupsServiceService, IGroup} from "../../services/groups-service.servic
 
 export class ClientsPopupComponent implements OnInit{
 
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public idDetail: any, public clientService: ClientsServiceService,
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public idDetail: {id: number, clients: IClient[] }, public clientService: ClientsServiceService,
               public dialogRef: MatDialogRef<ClientsPopupComponent>, public configService: ConfigsServiceService,
               public groupService: GroupsServiceService) {
   }
 
-  detail: IClientDetail = this.clientService.getDetail(this.idDetail);
-
-  public configs: IConfig[] = Object.assign([],this.detail.configs)
-  public groups: IGroup[] = Object.assign([],this.detail.groups)
+  info: IClient = {id: 0,name: 'placeholder',lastseen: '1-1-2002',ip: '1.1.1.1',mac: '1111'};
 
   renderButton: boolean = false;
 
@@ -30,6 +27,7 @@ export class ClientsPopupComponent implements OnInit{
   }
 
   async ngOnInit() {
+    this.clientService.getClient(this.idDetail.id).subscribe(x => this.info = x)
     await this.delay(1);
     this.renderButton = true;
   }
@@ -58,43 +56,33 @@ export class ClientsPopupComponent implements OnInit{
       console.log(result)
       if(result)
       {
-        this.dialogRef.close();
-        this.clientService.remove(this.idDetail);
+        this.clientService.remove(this.idDetail.id);
+        this.dialogRef.close(this.idDetail.id);
       }
     })
   }
 
   checkConfig(config: IConfig): boolean {
-    return this.configs.some(x => x === config)
+    return true;
   }
 
   toggleConfig(config: IConfig): void {
-    if(this.checkConfig(config)) {
-      this.configs = this.configs.filter(x => x !== config)
-    } else {
-      this.configs.push(config)
-    }
+
   }
 
   saveChangesConfig() {
-    this.clientService.clientDetails[this.idDetail].configs = this.configs
+
   }
 
   checkGroups(config: IGroup): boolean {
-    return this.groups.some(x => x === config)
+    return false;
   }
 
   toggleGroups(config: IGroup): void {
-    if(this.checkGroups(config)) {
-      this.groups = this.groups.filter(x => x !== config)
-    } else {
-      this.groups.push(config)
-    }
+
   }
 
   saveChangesGroups() {
-    this.clientService.clientDetails[this.idDetail].groups = this.groups
-    this.clientService.clients[this.idDetail].groups = this.groups
   }
 }
 

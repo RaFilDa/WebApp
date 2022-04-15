@@ -11,19 +11,28 @@ import {GroupsServiceService, IGroup} from "../../services/groups-service.servic
 })
 export class ClientsContentComponent implements OnInit {
 
-  public groupsList: IGroup[] = this.groupService.groups;
+  public groupsList: IGroup[] = [];
+  public clients: IClient[] = []
 
   public searchExpression = '';
-  public isInactive = false;
   public filterGroup = '';
 
   constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public groupService: GroupsServiceService) {}
 
   ngOnInit(): void {
+    this.refresh();
   }
 
   openDialog(id: number) {
-    this.dialog.open(ClientsPopupComponent, {data: id});
+    let dialogRef = this.dialog.open(ClientsPopupComponent, {data: {id: id, clients: this.clients}});
+    dialogRef.afterClosed().subscribe(x => this.clients = this.clients.filter(y => y.id != x));
+  }
+
+  refresh(): void {
+    this.clientService.getClients().subscribe(x => this.clients = x);
+    this.groupService.getGroups().subscribe(x => this.groupsList = x);
+    this.filterGroup = '';
+    this.searchExpression = '';
   }
 
   colCalc(): number {
@@ -31,16 +40,11 @@ export class ClientsContentComponent implements OnInit {
   }
 
   filterData(): IClient[] {
-    let filteredData: IClient[] = this.clientService.getClients();
+    let filtered: IClient[] = this.clients.slice();
 
-    if(this.isInactive)
-      filteredData = filteredData.filter(x => !x.active);
+    filtered = filtered.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
+    filtered
 
-    if(this.filterGroup !== '')
-      filteredData = filteredData.filter(x => x.groups.some(x => x.id.toString() == this.filterGroup));
-
-    filteredData = filteredData.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
-
-    return filteredData;
+    return filtered;
   }
 }

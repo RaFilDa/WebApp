@@ -4,14 +4,10 @@
 
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
   <p mat-dialog-title>Client Info</p>
-  <p>Name: {{detail.name}}</p>
-  <p>Last Login: {{detail.login}}</p>
-  <p>Timezone: {{detail.timezone}}</p>
-  <p>Country: {{detail.country}}</p>
-  <p>IP Address: {{detail.ip}}</p>
-  <p>MAC: {{detail.mac}}</p>
-<!--  <p>Groups: {{detail.groups}}</p>-->
-<!--  <p>Configurations: {{detail.configs}}</p>-->
+  <p>Name: {{info.name}}</p>
+  <p>Last Login: {{info.lastseen}}</p>
+  <p>IP Address: {{info.ip}}</p>
+  <p>MAC: {{info.mac}}</p>
 
   <div fxLayoutGap="20px">
     <button mat-raised-button color="primary" (click)="togglePanelConfigs()">Manage Configurations</button>
@@ -19,21 +15,21 @@
     <button mat-raised-button color="warn" (click)="openConfirmationDialog()">Ban User</button>
   </div>
 
-  <mat-dialog-content *ngIf="renderButton">
-    <mat-expansion-panel [expanded]="panelOpenStateConfigs">
-      <b>Configurations:</b>
-      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">
-        <mat-checkbox color="primary" (change)="toggleConfig(config)" [checked]="checkConfig(config)" *ngFor="let config of this.configService.configs">{{config.name}}</mat-checkbox>
-      </div>
-      <button mat-raised-button color="primary" (click)="saveChangesConfig(); panelOpenStateConfigs = false">Save</button>
-    </mat-expansion-panel>
+<!--  <mat-dialog-content *ngIf="renderButton">-->
+<!--    <mat-expansion-panel [expanded]="panelOpenStateConfigs">-->
+<!--      <b>Configurations:</b>-->
+<!--      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">-->
+<!--        <mat-checkbox color="primary" (change)="toggleConfig(config)" [checked]="checkConfig(config)" *ngFor="let config of this.configService.configs">{{config.name}}</mat-checkbox>-->
+<!--      </div>-->
+<!--      <button mat-raised-button color="primary" (click)="saveChangesConfig(); panelOpenStateConfigs = false">Save</button>-->
+<!--    </mat-expansion-panel>-->
 
-    <mat-expansion-panel [expanded]="panelOpenStateGroups">
-      <b>Groups:</b>
-      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">
-        <mat-checkbox color="primary"(change)="toggleGroups(group)" [checked]="checkGroups(group)" *ngFor="let group of this.groupService.groups">{{group.name}}</mat-checkbox>
-      </div>
-      <button mat-raised-button color="primary" (click)="saveChangesGroups(); panelOpenStateGroups = false">Save</button>
-    </mat-expansion-panel>
-  </mat-dialog-content>
+<!--    <mat-expansion-panel [expanded]="panelOpenStateGroups">-->
+<!--      <b>Groups:</b>-->
+<!--      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">-->
+<!--        <mat-checkbox color="primary"(change)="toggleGroups(group)" [checked]="checkGroups(group)" *ngFor="let group of this.groupService.groups">{{group.name}}</mat-checkbox>-->
+<!--      </div>-->
+<!--      <button mat-raised-button color="primary" (click)="saveChangesGroups(); panelOpenStateGroups = false">Save</button>-->
+<!--    </mat-expansion-panel>-->
+<!--  </mat-dialog-content>-->
 </div>

@@ -3,7 +3,7 @@
     <input matInput type="text" placeholder="Search" [(ngModel)]="searchExpression">
   </mat-form-field>
 
-  <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="primary" [(ngModel)]="isInactive">Inactive Only</mat-slide-toggle>
+<!--  <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="primary" [(ngModel)]="isInactive">Inactive Only</mat-slide-toggle>-->
 
   <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
     <mat-label>Group Filter</mat-label>
@@ -12,6 +12,7 @@
       <mat-option *ngFor="let group of groupsList" [value]="group.id">{{group.name}}</mat-option>
     </mat-select>
   </mat-form-field>
+  <button mat-flat-button class="refresh" color="primary" (click)="refresh()"><mat-icon class="small">refresh</mat-icon></button>
 </mat-toolbar>
 
 <mat-card class="users">

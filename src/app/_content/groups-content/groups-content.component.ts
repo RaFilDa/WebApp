@@ -11,6 +11,7 @@ import {GroupsServiceService, IGroup} from "../../services/groups-service.servic
 })
 export class GroupsContentComponent implements OnInit {
 
+  public groups: IGroup[] = []
   public searchExpression = '';
 
   constructor(
@@ -20,10 +21,17 @@ export class GroupsContentComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.refresh();
+  }
+
+  refresh(): void {
+    this.groupsService.getGroups().subscribe(x => this.groups = x )
+    this.searchExpression = '';
   }
 
   openDialogConfig(id: number) {
-    this.dialogConfig.open(GroupCreatePopupComponent, {autoFocus: false, data: id});
+    let dialog = this.dialogConfig.open(GroupCreatePopupComponent, {autoFocus: false, data: id});
+    dialog.afterClosed().subscribe(x => {if(x) this.refresh()})
   }
 
   openDialogEdit() {
@@ -31,7 +39,7 @@ export class GroupsContentComponent implements OnInit {
   }
 
   filterData(): IGroup[] {
-    return this.groupsService.groups.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
+    return this.groups.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()))
   }
 }
 
