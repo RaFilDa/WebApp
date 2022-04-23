@@ -46,6 +46,12 @@ import { DaySelectionContentComponent } from './_popups/config-create-popup/freq
 import { ConfirmationPopupComponent } from './_popups/confirmation-popup/confirmation-popup.component';
 import { ConfigSourceContentComponent } from './_popups/config-create-popup/config-source-content/config-source-content.component';
 import { HttpClientModule } from '@angular/common/http'
+import {JwtModule} from "@auth0/angular-jwt";
+
+function tokenGetter() {
+  console.log('xxx');
+  return sessionStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
@@ -100,7 +106,12 @@ import { HttpClientModule } from '@angular/common/http'
         MatRippleModule,
         ScrollingModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        JwtModule.forRoot({
+              config: {
+                tokenGetter: tokenGetter
+              },
+            }),
     ],
   providers: [],
   bootstrap: [AppComponent]
