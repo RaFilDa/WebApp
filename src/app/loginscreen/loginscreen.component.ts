@@ -23,6 +23,7 @@ export class LoginscreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.IsLogging = false;
+    this.WrongCredentials = false;
   this.form = this.fb.group({
         login: [ '', Validators.required ],
         password: [ '', Validators.required ],
