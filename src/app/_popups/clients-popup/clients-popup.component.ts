@@ -19,6 +19,9 @@ export class ClientsPopupComponent implements OnInit{
   }
 
   info: IClient = {id: 0,name: 'placeholder',lastseen: '1-1-2002',ip: '1.1.1.1',mac: '1111'};
+  configs: IConfig[] = []
+  selectedConfigs: IConfig[] = []
+  tmpSelectedConfigs: IConfig[] = []
 
   renderButton: boolean = false;
 
@@ -28,6 +31,8 @@ export class ClientsPopupComponent implements OnInit{
 
   async ngOnInit() {
     this.clientService.getClient(this.idDetail.id).subscribe(x => this.info = x)
+    this.configService.GetConfigs().subscribe(x => this.configs = x)
+    this.configService.getConfigsForComputer(this.idDetail.id).subscribe(x => this.selectedConfigs = x, null, () => this.tmpSelectedConfigs = this.selectedConfigs.slice())
     await this.delay(1);
     this.renderButton = true;
   }
@@ -63,15 +68,33 @@ export class ClientsPopupComponent implements OnInit{
   }
 
   checkConfig(config: IConfig): boolean {
-    return true;
+    return this.tmpSelectedConfigs.filter(x => x.id == config.id).length == 1
   }
 
   toggleConfig(config: IConfig): void {
-
+    if(!this.checkConfig(config))
+    {
+      this.tmpSelectedConfigs.push(config)
+    }
+    else
+      this.tmpSelectedConfigs = this.tmpSelectedConfigs.filter(x => x.id != config.id)
   }
 
   saveChangesConfig() {
 
+    console.log(this.selectedConfigs)
+    console.log(this.tmpSelectedConfigs)
+
+    let delConfig = this.selectedConfigs.filter(x => this.tmpSelectedConfigs.filter(y => y.id == x.id).length == 0)
+    let addConfig = this.tmpSelectedConfigs.filter(x => this.selectedConfigs.filter(y => y.id == x.id).length == 0)
+
+    console.log(delConfig)
+    console.log(addConfig)
+
+    for(let conf of delConfig)
+      this.configService.delConfigForComputer(this.idDetail.id, conf.id)
+    for(let conf of addConfig)
+      this.configService.addConfigForComputer(this.idDetail.id, conf.id)
   }
 
   checkGroups(config: IGroup): boolean {
