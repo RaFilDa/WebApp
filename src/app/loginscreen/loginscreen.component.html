@@ -1,4 +1,4 @@
-<<div fxFill fxLayout="row" fxLayoutAlign="center center">
+<div fxFill fxLayout="row" fxLayoutAlign="center center">
   <mat-card fxFlex="30%" class="login_card">
     <mat-toolbar color="primary">Login</mat-toolbar>
 
@@ -17,5 +17,15 @@
   </mat-card>
 </div>
 
+<div class="info_card_container" *ngIf="WrongCredentials">
+    <p>You entered wrong username or password!</p>
+</div>
+
 <img src="\assets\Logo.png" class="image_login" width="200" height="200" />
->
+
+<div *ngIf="IsLogging" class="spinner_bg"></div>
+
+<div *ngIf="IsLogging" fxFill fxLayout="row" fxLayoutAlign="center center" class="spinner_container">
+  <mat-spinner class="spinner"></mat-spinner>
+</div>
+
