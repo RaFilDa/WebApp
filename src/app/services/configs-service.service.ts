@@ -19,7 +19,7 @@ export interface IDestination {
   id: number
   configID: number
   type: string,
-  path?: string,
+  path: string,
   ip?: string,
   username?: string,
   password?: string,
@@ -75,7 +75,7 @@ export class ConfigsServiceService {
   }
 
   delDestination(dest: IDestination): void {
-    this.http.delete('https://localhost:5001/Configs/RemoveDestinationFromConfig?DestinationId=' + dest.id).subscribe();
+    this.http.delete('https://localhost:5001/Configs/RemoveDestinationFromConfig?destId=' + dest.id).subscribe();
   }
 
   getSources(id: number): Observable<ISource[]> {
@@ -90,8 +90,8 @@ export class ConfigsServiceService {
     this.http.delete('https://localhost:5001/Configs/RemoveSourceFromConfig?sourceId=' + source.id).subscribe();
   }
 
-  updateConfig(config: IConfig): void {
-    this.http.put('https://localhost:5001/Configs/UpdateConfig?id=' + config.id, config).subscribe();
+  updateConfig(config: IConfig): Observable<IConfig> {
+    return this.http.put<IConfig>('https://localhost:5001/Configs/UpdateConfig?id=' + config.id, config);
   }
 
 }

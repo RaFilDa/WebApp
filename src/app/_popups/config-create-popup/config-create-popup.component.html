@@ -47,7 +47,7 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="timing-components" *ngIf="typeOfTiming.value!=='CRON'">
+      <mat-form-field class="timing-components" *ngIf="typeOfTiming.value!=='c'">
         <input matInput type="time" [(ngModel)]="time">
       </mat-form-field>
 
