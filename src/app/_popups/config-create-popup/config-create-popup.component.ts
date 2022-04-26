@@ -43,8 +43,8 @@ export class ConfigCreatePopupComponent implements OnInit {
     if(this.idDetail != -1)
     {
       this.configService.GetConfig(this.idDetail).subscribe(x => this.config = x,null, () => this.cronDisassemble())
-      this.configService.getDestinations(this.idDetail).subscribe(x => this.destinations = x,null, () => this.tmpDestinations = JSON.parse(JSON.stringify(this.destinations)) as IDestination[])
-      this.configService.getSources(this.idDetail).subscribe(x => this.sources = x,null, () => this.tmpSource = JSON.parse(JSON.stringify(this.sources)) as ISource[])
+      this.configService.getDestinations(this.idDetail).subscribe(x => this.destinations = x,null, () => this.tmpDestinations = this.destinations.slice())
+      this.configService.getSources(this.idDetail).subscribe(x => this.sources = x,null, () => this.tmpSource = this.sources.slice())
     }
   }
 
@@ -67,20 +67,18 @@ export class ConfigCreatePopupComponent implements OnInit {
   cronAssemble(): void {
     if(this.config.backupFrequency == 'c')
     {
-      this.config.cron = '0 ' + this.minutes + ' ' + this.hours + ' ' + this.cdays + ' ' + this.months + ' ' + this.cweekdays
+      this.config.cron = '* ' + this.minutes + ' ' + this.hours + ' ' + this.cdays + ' ' + this.months + ' ' + this.cweekdays
       console.log(this.config.cron)
       return
     }
 
-    let tmp = "0 " + this.time.split(':')[1] + " " + this.time.split(':')[0] + " "
+    let tmp = "* " + this.time.split(':')[1] + " " + this.time.split(':')[0] + " "
     if(this.days.length != 0 && this.config.backupFrequency == "m")
       tmp += this.days.join(',') + " * "
     else
       tmp += "* * "
     if(this.weekdays.length != 0 && this.config.backupFrequency == "w")
       tmp += this.weekdays.join(',')
-    else if(this.config.backupFrequency != "c")
-      tmp += "?"
     else
       tmp += "*"
     this.config.cron = tmp
@@ -111,52 +109,42 @@ export class ConfigCreatePopupComponent implements OnInit {
     }
 
     if(this.config.id != 0)
-      this.configService.updateConfig(config).subscribe(null,null,() => this.addAndDelete(config))
+      this.configService.updateConfig(config)
     else
     {
       this.configService.addConfig(config).subscribe(null, null, () => {
         this.configService.getConfigId(config.name).subscribe(x => config.id = x, null, () => this.addAndDelete(config))
       })
     }
+
+    this.addAndDelete(config)
   }
 
   addAndDelete(config: IConfig) {
-    console.log(this.destinations)
-    console.log(this.tmpDestinations)
-
     let delD: IDestination[] = this.destinations.filter(x => this.tmpDestinations.filter(y => y.path == x.path && x.type == y.type).length == 0)
-    let addD: IDestination[] = this.tmpDestinations.filter(x => this.destinations.filter(y => y.path == x.path && x.type == y.type).length == 0)
+    let addD: IDestination[] = this.tmpDestinations.filter(x => this.destinations.filter(y => y.path == y.path && x.type == y.type).length == 0)
 
     let delS: ISource[] = this.sources.filter(x => this.tmpSource.filter(y => y.path == x.path).length == 0)
     let addS: ISource[] = this.tmpSource.filter(x => this.sources.filter(y => y.path == x.path).length == 0)
 
-    console.log(delD)
-    console.log(addD)
-
-    for (let dest of delD)
-      this.configService.delDestination(dest);
-
-    for (let source of delS)
-      this.configService.delSource(source);
-
     for (let dest of addD)
     {
       dest.configID = config.id
-      dest.id = 0
-      if(dest.path[dest.path.length-1] != '\\')
-        dest.path += '\\'
       console.log(config.id)
       this.configService.addDestination(dest);
     }
 
     for (let source of addS)
     {
-      source.id = 0
       source.configID = config.id
-      if(source.path[source.path.length-1] != '\\')
-        source.path += '\\'
       this.configService.addSource(source);
     }
+
+    for (let dest of delD)
+      this.configService.delDestination(dest);
+
+    for (let source of delS)
+      this.configService.delSource(source);
   }
 
   public Timezones: string[] = [
