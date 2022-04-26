@@ -4,27 +4,27 @@
   </div>
 
   <div fxLayout="column" fxLayoutAlign="space-evenly center">
-    <input matInput [defaultValue]="'*'" type="text" class="cron_styling">
+    <input matInput [(ngModel)]="minutes" (change)="change()" type="text" class="cron_styling">
     <p>Minute</p>
   </div>
 
   <div fxLayout="column" fxLayoutAlign="space-evenly center">
-    <input matInput [defaultValue]="'*'" type="text" class="cron_styling">
+    <input matInput [(ngModel)]="hours" (change)="change()" type="text" class="cron_styling">
     <p>Hour</p>
   </div>
 
   <div fxLayout="column" fxLayoutAlign="space-evenly center">
-    <input matInput [defaultValue]="'*'" type="text" class="cron_styling">
+    <input matInput [(ngModel)]="days" (change)="change()" type="text" class="cron_styling">
     <p>Day (Month)</p>
   </div>
 
   <div fxLayout="column" fxLayoutAlign="space-evenly center">
-    <input matInput [defaultValue]="'*'" type="text" class="cron_styling">
+    <input matInput [(ngModel)]="months" (change)="change()" type="text" class="cron_styling">
     <p>Month</p>
   </div>
 
   <div fxLayout="column" fxLayoutAlign="space-evenly center">
-    <input matInput  [defaultValue]="'*'" type="text" class="cron_styling">
+    <input matInput  [(ngModel)]="weekdays" (change)="change()" type="text" class="cron_styling">
     <p>Day (Week)</p>
   </div>
 </div>

@@ -26,7 +26,6 @@ export class ReportsContentComponent implements OnInit {
     this.reportsService.getReports().subscribe(x => {this.reports = x; console.log(this.reports)})
   }
 
-  dataSource = this.reports;
   displayedColumns: string[] = ['date', 'name', 'mac', 'backup', 'state', 'button'];
 
   filterData(): IReportDetail[] {
@@ -34,10 +33,14 @@ export class ReportsContentComponent implements OnInit {
     let filteredData: IReportDetail[] = this.reports;
 
     if(this.errorOnly)
-      filteredData = filteredData.filter(x => !x.state);
+      filteredData = filteredData.filter(x => x.state);
+
+    if(this.backupType != "")
+      filteredData = filteredData.filter(x => x.backup == this.backupType)
 
     filteredData = filteredData.filter(x =>
-      x.date.includes(this.searchExpression)
+      x.name.toLowerCase().includes(this.searchExpression.toLowerCase()) ||
+      x.mac.toLowerCase().includes(this.searchExpression.toLowerCase())
     );
     return filteredData;
   }
