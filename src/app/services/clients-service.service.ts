@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {SessionsService} from "./sessions.service";
-import {environment} from "../../environments/environment";
 
 export interface IClient {
   id: number
@@ -17,26 +15,18 @@ export interface IClient {
 })
 export class ClientsServiceService {
 
-  constructor(private http:HttpClient, private sessions: SessionsService ) { }
-
-    public get options(): { headers: HttpHeaders}  {
-        return {
-          headers: new HttpHeaders({
-            'Authorization': 'Bearer ' + this.sessions.token
-          })
-        };
-      }
+  constructor(private http:HttpClient) { }
 
   getClients(): Observable<IClient[]> {
-    return this.http.get<IClient[]>(environment.api + '/Computers', this.options);
+    return this.http.get<IClient[]>('https://localhost:5001/Computers');
   }
 
   getClient(id: number): Observable<IClient> {
-    return this.http.get<IClient>(environment.api + '/Computers/' + id, this.options);
+    return this.http.get<IClient>('https://localhost:5001/Computers/' + id);
   }
 
   remove(id: number): void {
-    this.http.delete(environment.api + '/Computers/' + id, this.options)
+    this.http.delete('https://localhost:5001/Computers/' + id)
       .subscribe(x => console.log(x));
   }
 }

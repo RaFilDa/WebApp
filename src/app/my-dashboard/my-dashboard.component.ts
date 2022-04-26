@@ -31,5 +31,4 @@ export class MyDashboardComponent implements OnInit {
   showSettings() {
     this.router.navigate(['settings'], {relativeTo: this.route})
   }
-
 }

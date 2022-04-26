@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {SessionsService} from "./sessions.service";
-import {environment} from "../../environments/environment";
 
 export interface IConfig {
   id: number
@@ -38,30 +36,22 @@ export interface ISource {
 })
 export class ConfigsServiceService {
 
-  constructor(private http:HttpClient, private sessions: SessionsService ) { }
-
-    public get options(): { headers: HttpHeaders}  {
-        return {
-          headers: new HttpHeaders({
-            'Authorization': 'Bearer ' + this.sessions.token
-          })
-        };
-      }
+  constructor(private http:HttpClient) { }
 
   GetConfigs(): Observable<IConfig[]> {
-    return this.http.get<IConfig[]>(environment.api + '/Configs', this.options);
+    return this.http.get<IConfig[]>('https://localhost:5001/Configs');
   }
 
   GetConfig(id: number): Observable<IConfig> {
-    return this.http.get<IConfig>(environment.api + '/Configs/' + id, this.options);
+    return this.http.get<IConfig>('https://localhost:5001/Configs/' + id);
   }
 
   getDestinations(id: number): Observable<IDestination[]> {
-    return this.http.get<IDestination[]>(environment.api + '/Configs/Destination/' + id, this.options);
+    return this.http.get<IDestination[]>('https://localhost:5001/Configs/Destination/' + id);
   }
 
   getSources(id: number): Observable<ISource[]> {
-    return this.http.get<ISource[]>(environment.api + '/Configs/Source/' + id, this.options);
+    return this.http.get<ISource[]>('https://localhost:5001/Configs/Source/' + id);
   }
 
 }

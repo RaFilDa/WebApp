@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {SessionsService} from "./sessions.service";
-import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
 export interface IGroup {
   id: number,
@@ -14,25 +12,17 @@ export interface IGroup {
 })
 export class GroupsServiceService {
 
-  constructor(private http: HttpClient, private sessions: SessionsService) { }
-
-    public get options(): { headers: HttpHeaders }  {
-        return {
-          headers: new HttpHeaders({
-            'Authorization': 'Bearer ' + this.sessions.token
-          })
-        };
-      }
+  constructor(private http: HttpClient) { }
 
   getGroups(): Observable<IGroup[]> {
-    return this.http.get<IGroup[]>(environment.api + '/Groups', this.options);
+    return this.http.get<IGroup[]>('https://localhost:5001/Groups');
   }
 
   getGroup(id: number): Observable<IGroup> {
-    return this.http.get<IGroup>(environment.api + '/Groups/' + id, this.options);
+    return this.http.get<IGroup>('https://localhost:5001/Groups/' + id);
   }
 
   updateGroup(id: number, name: string): Observable<IGroup> {
-    return this.http.put<IGroup>(environment.api + '/Groups/UpdateGroup/' + id, {name: name}, this.options);
+    return this.http.put<IGroup>('https://localhost:5001/Groups/UpdateGroup/' + id, {name: name});
   }
 }
