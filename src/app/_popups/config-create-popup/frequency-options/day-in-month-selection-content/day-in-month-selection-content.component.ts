@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-day-in-month-selection-content',
@@ -10,28 +10,21 @@ export class DayInMonthSelectionContentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.days)
-    for(let day of this.days)
-      this.daysB[day-1] = true;
   }
 
-  @Input() days: number[] = [];
-  @Output() daysChange = new EventEmitter<number[]>()
-  public daysB: boolean[] = Array(31).fill(false);
+  public selectedDays: number[] = [];
+  public days: boolean[] = Array(31).fill(false);
 
   isToggled(index: number) {
-    return this.daysB[index];
+    return this.days[index];
   }
 
   toggleButton(index: number) {
-    this.daysB[index] = !this.daysB[index];
-    if(this.daysB[index])
-      this.days.push(index+1);
+    this.days[index] = !this.days[index];
+    if(this.days[index])
+      this.selectedDays.push(index+1);
     else
-    {
-      this.days.splice(this.days.indexOf(index+1),1);
-      this.daysChange.emit(this.days);
-    }
+      this.selectedDays.splice(this.selectedDays.indexOf(index+1),1);
   }
 
 }

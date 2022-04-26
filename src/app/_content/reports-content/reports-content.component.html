@@ -9,9 +9,9 @@
     <mat-label>Backup Type</mat-label>
     <mat-select [(ngModel)]="backupType">
       <mat-option value="">None</mat-option>
-      <mat-option value="FULL">FULL</mat-option>
-      <mat-option value="DIFF">DIFF</mat-option>
-      <mat-option value="INC">INC</mat-option>
+      <mat-option value="FTP">FTP</mat-option>
+      <mat-option value="Local">Local</mat-option>
+      <mat-option value="Remote Folder">Remote Folder</mat-option>
     </mat-select>
   </mat-form-field>
 </mat-toolbar>
@@ -44,7 +44,7 @@
 
   <ng-container matColumnDef="state">
     <th mat-header-cell *matHeaderCellDef>State</th>
-    <td style="color: {{element.state ? 'red' : 'green'}}" mat-cell *matCellDef="let element"> {{element.state ? 'ERROR' : 'SUCCESS'}}</td>
+    <td style="color: {{element.state ? 'green' : 'red'}}" mat-cell *matCellDef="let element"> {{element.state ? 'SUCCESS' : 'ERROR'}}</td>
   </ng-container>
 
   <ng-container matColumnDef="button">

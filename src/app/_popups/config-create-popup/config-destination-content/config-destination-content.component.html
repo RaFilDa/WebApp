@@ -4,11 +4,11 @@
 
 <div class="destinations">
   <span *ngIf="renderButton">
-    <mat-expansion-panel *ngFor="let destination of destinations" hideToggle>
+    <mat-expansion-panel *ngFor="let destination of destinations; index as i" hideToggle>
       <mat-expansion-panel-header>
         <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
           <span>{{destination.type}} - {{destination.type == 'FTP' ? destination.ip : destination.path}}</span>
-          <button mat-flat-button class="popupButton" color="warn" (click)="delete(destination)"><mat-icon class="small">delete</mat-icon></button>
+          <button mat-flat-button class="popupButton" color="warn" (click)="delete(i)"><mat-icon class="small">delete</mat-icon></button>
         </div>
       </mat-expansion-panel-header>
       <div fxLayout="row" fxLayoutAlign="space-between center">

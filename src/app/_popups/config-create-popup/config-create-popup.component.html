@@ -47,8 +47,8 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="timing-components" *ngIf="typeOfTiming.value!=='c'">
-        <input matInput type="time" [(ngModel)]="time">
+      <mat-form-field class="timing-components" *ngIf="typeOfTiming.value!=='CRON'">
+        <input matInput type="time">
       </mat-form-field>
 
       <mat-form-field class="timing-components">
@@ -58,21 +58,21 @@
       </mat-form-field>
     </div>
 
-    <div *ngSwitchCase="'w'">
-      <app-day-selection-content [(weekdays)]="weekdays"></app-day-selection-content>
+    <div *ngSwitchCase="'Weekdays'">
+      <app-day-selection-content></app-day-selection-content>
     </div>
 
-    <div *ngSwitchCase="'m'" class="day-month">
-      <app-day-in-month-selection-content [(days)]="days"></app-day-in-month-selection-content>
+    <div *ngSwitchCase="'month'" class="day-month">
+      <app-day-in-month-selection-content></app-day-in-month-selection-content>
     </div>
 
-    <div *ngSwitchCase="'c'">
-      <app-cron-content [(weekdays)]="cweekdays" [(days)]="cdays" [(minutes)]="minutes" [(hours)]="hours" [(months)]="months"></app-cron-content>
+    <div *ngSwitchCase="'CRON'">
+      <app-cron-content></app-cron-content>
     </div>
   </mat-card>
 
-  <app-config-destination-content class="destinations" [(destinations)]="tmpDestinations" [configID]="config.id"></app-config-destination-content>
-  <app-config-source-content class="destinations" [(sources)]="tmpSource" [configID]="config.id"></app-config-source-content>
+  <app-config-destination-content class="destinations" [(destinations)]="destinations"></app-config-destination-content>
+  <app-config-source-content class="destinations" [(sources)]="sources"></app-config-source-content>
 
   <mat-dialog-actions align="end">
     <button mat-raised-button color="primary" mat-dialog-close="" (click)="saveChanges()">Save</button>

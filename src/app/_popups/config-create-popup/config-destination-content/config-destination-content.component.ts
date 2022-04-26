@@ -1,5 +1,5 @@
 import {Component, Output, EventEmitter, Input, OnInit} from '@angular/core';
-import {ConfigsServiceService, IDestination} from "../../../services/configs-service.service";
+import { IDestination} from "../../../services/configs-service.service";
 
 @Component({
   selector: 'app-config-destination-content',
@@ -14,8 +14,6 @@ export class ConfigDestinationContentComponent implements OnInit {
 
   renderButton: boolean = false;
 
-  @Input() configID: number = 0;
-
   @Input() destinations: IDestination[] = [];
   @Output() destinationsChange = new EventEmitter<IDestination[]>();
 
@@ -26,22 +24,9 @@ export class ConfigDestinationContentComponent implements OnInit {
     this.renderButton = true;
   }
 
-  delete(dest: IDestination): void {
-    this.destinations = this.destinations.filter(x => x != dest)
-    this.destinationsChange.emit(this.destinations)
+  delete(index: number): void {
   }
 
   add(): void {
-    let dest: IDestination = {
-      id: 0,
-      configID: this.configID,
-      type: "Loc",
-      path: "",
-      username: "",
-      password: "",
-      ip: ""
-    }
-
-    this.destinations.push(dest)
   }
 }

@@ -6,8 +6,8 @@
 </div>
 
 <div class="sources">
-  <mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let source of sources">
+  <mat-card class="config_card" fxLayout="row" fxLayoutAlign="space-between center" *ngFor="let source of sources;index as i">
     <span>{{source.path}}</span>
-    <button mat-flat-button class="popupButton" color="warn" (click)="delete(source)"><mat-icon class="small">delete</mat-icon></button>
+    <button mat-flat-button class="popupButton" color="warn" (click)="delete(i)"><mat-icon class="small">delete</mat-icon></button>
   </mat-card>
 </div>
