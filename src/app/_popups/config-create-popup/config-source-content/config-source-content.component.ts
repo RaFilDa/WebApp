@@ -8,6 +8,8 @@ import {ISource} from "../../../services/configs-service.service";
 })
 export class ConfigSourceContentComponent implements OnInit {
 
+  @Input() configID = 0;
+
   @Input() sources: ISource[] = [];
   @Output() sourcesChange = new EventEmitter<ISource[]>();
 
@@ -16,10 +18,19 @@ export class ConfigSourceContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  delete(index: number): void {
+  delete(source: ISource): void {
+    this.sources = this.sources.filter(x => x != source)
+    this.sourcesChange.emit(this.sources)
   }
 
   add(path: string): void {
+    let tmp: ISource = {
+      id: 0,
+      configID: this.configID,
+      path: path
+    }
+
+    this.sources.push(tmp);
   }
 
 }

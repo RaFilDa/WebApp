@@ -1,9 +1,9 @@
 <div fxLayout="column" fxLayoutAlign="start start">
-  <mat-checkbox color="primary">Monday</mat-checkbox>
-  <mat-checkbox color="primary">Tuesday</mat-checkbox>
-  <mat-checkbox color="primary">Wednesday</mat-checkbox>
-  <mat-checkbox color="primary">Thursday</mat-checkbox>
-  <mat-checkbox color="primary">Friday</mat-checkbox>
-  <mat-checkbox color="primary">Saturday</mat-checkbox>
-  <mat-checkbox color="primary">Sunday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('MON')" (change)="toggle('MON')">Monday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('TUE')" (change)="toggle('TUE')">Tuesday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('WED')" (change)="toggle('WED')">Wednesday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('THU')" (change)="toggle('THU')">Thursday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('FRI')" (change)="toggle('FRI')">Friday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('SAT')" (change)="toggle('SAT')">Saturday</mat-checkbox>
+  <mat-checkbox color="primary" [checked]="isToggled('SUN')" (change)="toggle('SUN')">Sunday</mat-checkbox>
 </div>
