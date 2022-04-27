@@ -74,7 +74,10 @@
   <app-config-destination-content class="destinations" [(destinations)]="tmpDestinations" [configID]="config.id"></app-config-destination-content>
   <app-config-source-content class="destinations" [(sources)]="tmpSource" [configID]="config.id"></app-config-source-content>
 
-  <mat-dialog-actions align="end">
+  <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between' : 'end'" class="bottom_buttons">
+    <button mat-raised-button color="warn" mat-dialog-close="" *ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
     <button mat-raised-button color="primary" mat-dialog-close="" (click)="saveChanges()">Save</button>
-  </mat-dialog-actions>
+  </div>
+
+
 </div>

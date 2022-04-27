@@ -94,6 +94,10 @@ export class ConfigCreatePopupComponent implements OnInit {
     return (window.innerHeight - (window.innerHeight / 5))
   }
 
+  deleteConfig(): void {
+    this.configService.deleteConfig(this.idDetail)
+  }
+
   saveChanges(): void {
     this.cronAssemble()
 

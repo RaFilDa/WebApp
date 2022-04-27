@@ -53,3 +53,13 @@ mat-card {
   display: inline-block;
 }
 
+.save {
+  position: relative;
+  bottom: 36px;
+}
+
+.bottom_buttons {
+  position: relative;
+  bottom: calc(100vh - 105vh);
+}
+
