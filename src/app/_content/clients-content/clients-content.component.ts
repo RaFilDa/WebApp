@@ -16,7 +16,7 @@ export class ClientsContentComponent implements OnInit {
 
   public searchExpression = '';
   public filterGroup = '';
-
+  public IsLoading: boolean = true
   constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public groupService: GroupsServiceService) {}
 
   ngOnInit(): void {
@@ -29,7 +29,8 @@ export class ClientsContentComponent implements OnInit {
   }
 
   refresh(): void {
-    this.clientService.getClients().subscribe(x => this.clients = x);
+    this.IsLoading = true
+    this.clientService.getClients().subscribe(x => this.clients = x, null, () => this.IsLoading = false);
     this.groupService.getGroups().subscribe(x => this.groupsList = x);
     this.filterGroup = '';
     this.searchExpression = '';

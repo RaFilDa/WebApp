@@ -17,7 +17,7 @@ constructor(private router: Router,
   }
 
   ngOnInit(): void {
-      interval(3600000).pipe(
+      interval(1).pipe(
         filter(() => !this.sessions.authenticated),
         tap(() => this.sessions.logout())
       ).subscribe(() => this.router.navigate([ '/login' ]));

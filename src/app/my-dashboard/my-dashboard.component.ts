@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
+import {SessionsService} from "../services/sessions.service";
 
 @Component({
   selector: 'app-my-dashboard',
@@ -8,12 +9,13 @@ import { Router, ActivatedRoute } from '@angular/router'
 })
 export class MyDashboardComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, private sessions: SessionsService) { }
 
   ngOnInit(): void {
   }
 
   goBack() {
+    this.sessions.logout()
     this.router.navigate(['../'], {relativeTo: this.route})
   }
   showClients() {

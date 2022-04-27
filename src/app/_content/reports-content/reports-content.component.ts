@@ -15,6 +15,7 @@ export class ReportsContentComponent implements OnInit {
   public backupType = '';
 
   public reports: IReportDetail[] = [];
+  public IsLoading: boolean = true
 
   constructor(public dialog: MatDialog, private reportsService: ReportsServiceService) {}
 
@@ -23,7 +24,7 @@ export class ReportsContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reportsService.getReports().subscribe(x => {this.reports = x; console.log(this.reports)})
+    this.reportsService.getReports().subscribe(x => this.reports = x, null, () => this.IsLoading)
   }
 
   displayedColumns: string[] = ['date', 'name', 'mac', 'backup', 'state', 'button'];

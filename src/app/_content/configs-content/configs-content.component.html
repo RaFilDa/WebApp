@@ -6,6 +6,9 @@
 </mat-toolbar>
 
 <mat-card>
+  <div *ngIf="IsLoading" style="margin-top: 15px" fxLayout="row" fxLayoutAlign="center">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
   <mat-list>
       <mat-list-item *ngFor="let item of filterData()">{{ item.name }}
         <div fxLayout="row" fxLayoutAlign="space-between center">

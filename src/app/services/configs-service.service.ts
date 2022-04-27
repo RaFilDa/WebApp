@@ -60,6 +60,10 @@ export class ConfigsServiceService {
     return this.http.post<IConfig>(environment.api + '/Configs', conf, this.options);
   }
 
+  deleteConfig(id: number): void {
+    this.http.delete(environment.api + "/Configs/" + id, this.options).subscribe()
+  }
+
   getConfigsForComputer(compID: number): Observable<IConfig[]> {
     return this.http.get<IConfig[]>(environment.api + '/Configs/GetConfigsByCompID/' + compID, this.options)
   }

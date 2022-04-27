@@ -32,10 +32,6 @@ export class LoginscreenComponent implements OnInit {
 
   public login(): void {
     this.IsLogging = true;
-      this.service.login(this.form.value).pipe(
-        filter(result => result === true)
-      ).subscribe(() => this.router.navigate(['/dashboard']));
-      setTimeout(() => {this.IsLogging = false}, 200)
-    this.WrongCredentials = true;
+      this.service.login(this.form.value).subscribe((x) => !x ? this.WrongCredentials = true : this.router.navigate(['/dashboard']),null,() => this.IsLogging = false)
     }
   }

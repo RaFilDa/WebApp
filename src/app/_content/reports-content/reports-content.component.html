@@ -16,6 +16,10 @@
   </mat-form-field>
 </mat-toolbar>
 
+<div *ngIf="IsLoading" style="margin-top: 15px" fxLayout="row" fxLayoutAlign="center">
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>
+
 <table mat-table [dataSource]="filterData()" class="table_users">
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef>Date</th>

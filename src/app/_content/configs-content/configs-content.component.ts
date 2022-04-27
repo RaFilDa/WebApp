@@ -20,8 +20,10 @@ export class ConfigsContentComponent implements OnInit {
     public configService: ConfigsServiceService
   ) { }
 
+  public IsLoading: boolean = true
+
   ngOnInit(): void {
-    this.configService.GetConfigs().subscribe(x => this.configs = x);
+    this.configService.GetConfigs().subscribe(x => this.configs = x, null, () => this.IsLoading = false);
   }
 
   openDialog(id: number) {

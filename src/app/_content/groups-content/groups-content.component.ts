@@ -20,12 +20,14 @@ export class GroupsContentComponent implements OnInit {
     public groupsService: GroupsServiceService
   ) { }
 
+  public IsLoading: boolean = true
+
   ngOnInit(): void {
     this.refresh();
   }
 
   refresh(): void {
-    this.groupsService.getGroups().subscribe(x => this.groups = x )
+    this.groupsService.getGroups().subscribe(x => this.groups = x, null, () => this.IsLoading = false)
     this.searchExpression = '';
   }
 
