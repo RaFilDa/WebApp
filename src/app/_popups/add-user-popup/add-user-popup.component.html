@@ -6,16 +6,16 @@
   <p mat-dialog-title>Add new user</p>
 
   <mat-form-field>
-    <input matInput placeholder="Name">
+    <input matInput [(ngModel)]="username" placeholder="Name">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Password" type="password">
+    <input matInput [(ngModel)]="password" placeholder="Password" type="password">
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Email">
+    <input matInput [(ngModel)]="email" placeholder="Email">
   </mat-form-field>
 
-  <button mat-raised-button color="primary" mat-dialog-close="">Save</button>
+  <button mat-raised-button color="primary" (click)="submit()">Save</button>
 </div>

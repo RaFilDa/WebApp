@@ -13,7 +13,7 @@ export class LoginscreenComponent implements OnInit {
 
   public IsLogging: boolean = false;
 
-  public WrongCredentials: boolean = false;
+  public errorMessage: string = ""
 
   public form: FormGroup;
 
@@ -23,7 +23,6 @@ export class LoginscreenComponent implements OnInit {
 
   ngOnInit(): void {
     this.IsLogging = false;
-    this.WrongCredentials = false;
   this.form = this.fb.group({
         login: [ '', Validators.required ],
         password: [ '', Validators.required ],
@@ -32,6 +31,6 @@ export class LoginscreenComponent implements OnInit {
 
   public login(): void {
     this.IsLogging = true;
-      this.service.login(this.form.value).subscribe((x) => !x ? this.WrongCredentials = true : this.router.navigate(['/dashboard']),null,() => this.IsLogging = false)
+      this.service.login(this.form.value).subscribe(() => this.router.navigate(['/dashboard']),(e) => {this.errorMessage = e.error;this.IsLogging = false;},() => this.IsLogging = false)
     }
   }

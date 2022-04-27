@@ -1,14 +1,23 @@
 <button mat-raised-button color="primary" (click)="openDialog()">Add user</button>
 
-<table mat-table [dataSource]="dataSource" class="table_users">
-  <ng-container matColumnDef="name">
+<div *ngIf="isLoading" fxLayout="row" fxLayoutAlign="center center">
+  <mat-spinner [diameter]="40"></mat-spinner>
+</div>
+
+<table *ngIf="!isLoading" mat-table [dataSource]="dataSource" class="table_users">
+  <ng-container matColumnDef="username">
     <th mat-header-cell *matHeaderCellDef>Name</th>
-    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.username}} </td>
   </ng-container>
 
   <ng-container matColumnDef="email">
     <th mat-header-cell *matHeaderCellDef>Email</th>
-    <td mat-cell *matCellDef="let element"> {{element.email}}</td>
+    <td mat-cell *matCellDef="let element">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        {{element.email}}
+        <button mat-flat-button color="warn" class="smallButtonDelete" (click)="deleteUser(element)"><mat-icon class="small">delete</mat-icon></button>
+      </div>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

@@ -21,8 +21,7 @@ export class SessionsService {
     return this.http.post<string>(environment.api + '/api/Sessions', credentials).pipe(
       tap(token => this.token = token),
       tap(token => this.saveToken(token)),
-      map(token => true),
-      catchError(() => of(false))
+      map(token => true)
     );
   }
 

@@ -17,8 +17,8 @@
   </mat-card>
 </div>
 
-<div class="info_card_container" *ngIf="WrongCredentials">
-    <p>Wrong username or password!</p>
+<div class="info_card_container" *ngIf="errorMessage != ''">
+    <p>{{errorMessage}}</p>
 </div>
 
 <img src="\assets\Logo.png" class="image_login" width="200" height="200" />
