@@ -1,17 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddUserPopupComponent} from "../../../_popups/add-user-popup/add-user-popup.component";
-
-export interface UserData {
-  name: string;
-  email: string;
-}
-
-const USER_DATA: UserData[] = [
-  {name: 'admin', email: 'admin@email.com'},
-  {name: 'foo', email: 'foo@email.com'},
-  {name: 'admin3', email: 'admin3@email.com'},
-];
+import {User, UsersService} from "../../../services/users.service";
 
 @Component({
   selector: 'app-settings-users-content',
@@ -21,15 +11,29 @@ const USER_DATA: UserData[] = [
 
 export class SettingsUsersContentComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(public dialog: MatDialog, private userService: UsersService) { }
+
+  public users: User[] = []
+
+  public isLoading: boolean = true
 
   ngOnInit(): void {
+    this.refresh()
+  }
+
+  refresh(): void {
+    this.userService.GetAll().subscribe(x => this.users = x, null, () => {this.isLoading = false;this.dataSource = this.users;})
   }
 
   openDialog() {
-    this.dialog.open(AddUserPopupComponent);
+    this.dialog.open(AddUserPopupComponent).afterClosed().subscribe(() => {this.isLoading = true;this.refresh()});
   }
 
-  displayedColumns: string[] = ['name', 'email'];
-  dataSource = USER_DATA;
+  deleteUser(user: User) {
+    this.isLoading = true;
+    this.userService.DeleteUser(user.id).subscribe(null, null, () => this.refresh())
+  }
+
+  displayedColumns: string[] = ['username', 'email'];
+  dataSource: User[] = [];
 }

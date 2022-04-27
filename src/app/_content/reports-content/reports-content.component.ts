@@ -24,7 +24,7 @@ export class ReportsContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.reportsService.getReports().subscribe(x => this.reports = x, null, () => this.IsLoading)
+    this.reportsService.getReports().subscribe(x => this.reports = x, null, () => this.IsLoading = false)
   }
 
   displayedColumns: string[] = ['date', 'name', 'mac', 'backup', 'state', 'button'];
