@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.component";
 import { IClient, ClientsServiceService} from "../../services/clients-service.service";
 import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-clients-content',
@@ -17,7 +18,7 @@ export class ClientsContentComponent implements OnInit {
   public searchExpression = '';
   public filterGroup = '';
   public IsLoading: boolean = true
-  constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public groupService: GroupsServiceService) {}
+  constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public groupService: GroupsServiceService, public sessions: SessionsService) {}
 
   ngOnInit(): void {
     this.refresh();

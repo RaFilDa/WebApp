@@ -41,4 +41,14 @@ export class SessionsService {
   private loadToken(): string|null {
     return sessionStorage.getItem('token');
   }
+
+  public loadMode(): boolean {
+    let tmp = localStorage.getItem('darkmode')
+    console.log(tmp)
+    return tmp == null || tmp == 'true'
+  }
+
+  public saveMode(mode: boolean): void {
+    localStorage.setItem('darkmode', String(mode))
+  }
 }

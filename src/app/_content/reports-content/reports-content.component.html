@@ -1,4 +1,4 @@
-<mat-toolbar class="toolbar">
+<mat-toolbar [class]="sessions.loadMode() ? 'toolbar-dark': 'toolbar'">
   <mat-form-field class="toolbar-components" fxFlexOffset="15px">
     <input matInput type="text" [(ngModel)]="searchExpression" placeholder="Search">
   </mat-form-field>

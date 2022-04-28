@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from "@angular/router";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-settings-content',
@@ -8,7 +9,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class SettingsContentComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute) { }
+  constructor(private router: Router, private route: ActivatedRoute, public sessions: SessionsService) { }
 
   ngOnInit(): void {
   }

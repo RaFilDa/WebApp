@@ -4,6 +4,9 @@
 $my_primary: mat.define-palette(mat.$gray-palette, 50);
 $my_accent: mat.define-palette(mat.$gray-palette, 50);
 
+$my_dark_primary: mat.define-palette(mat.$amber-palette, 400);
+$my_dark_accent: mat.define-palette(mat.$gray-palette, 50);
+
 $my-theme: mat.define-light-theme((
   color: (
     primary: $my-primary,
@@ -11,4 +14,15 @@ $my-theme: mat.define-light-theme((
   )
 ));
 
+$my-dark-theme: mat.define-dark-theme((
+    color: (
+    primary: $my-dark_primary,
+    accent: $my-dark_accent,
+    )
+));
+
 @include mat.all-component-themes($my_theme);
+
+.darkMode {
+  @include mat.all-component-colors($my-dark-theme);
+}

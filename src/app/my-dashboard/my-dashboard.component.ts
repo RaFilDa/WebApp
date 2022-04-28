@@ -9,7 +9,7 @@ import {SessionsService} from "../services/sessions.service";
 })
 export class MyDashboardComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, private sessions: SessionsService) { }
+  constructor(private router: Router, private route: ActivatedRoute, public sessions: SessionsService) { }
 
   ngOnInit(): void {
   }

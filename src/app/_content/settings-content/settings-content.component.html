@@ -1,7 +1,7 @@
 <title>Dashboard</title>
 
 <mat-sidenav-container class="dashboard_sidenav">
-  <mat-sidenav mode="side" opened [fixedInViewport]="true">
+  <mat-sidenav [class]="sessions.loadMode() ? 'mat-sidenav-dark' : 'mat-sidenav'" mode="side" opened [fixedInViewport]="true">
 
     <button fxLayoutAlign="center" mat-flat-button (click)="goGeneral()" color="primary" class="menu_button">General</button>
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {SessionsService} from "../../../services/sessions.service";
 
 @Component({
   selector: 'app-settings-general-content',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SettingsGeneralContentComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sessions: SessionsService) { }
+
+  darkMode: boolean = false
 
   ngOnInit(): void {
+    this.darkMode = this.sessions.loadMode()
+  }
+
+  ChangeMode(): void {
+    this.darkMode = !this.darkMode
+    this.sessions.saveMode(this.darkMode)
   }
 
 }

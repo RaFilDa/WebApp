@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {GroupCreatePopupComponent} from "../../_popups/group-create-popup/group-create-popup.component";
 import {EditClientsPopupComponent} from "../../_popups/edit-clients-popup/edit-clients-popup.component";
 import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-groups-content',
@@ -17,7 +18,8 @@ export class GroupsContentComponent implements OnInit {
   constructor(
     public dialogConfig: MatDialog,
     public dialogEdit: MatDialog,
-    public groupsService: GroupsServiceService
+    public groupsService: GroupsServiceService,
+    public sessions: SessionsService
   ) { }
 
   public IsLoading: boolean = true

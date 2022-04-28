@@ -4,6 +4,7 @@ import {ClientsServiceService, IClient} from "../../services/clients-service.ser
 import {ConfirmationPopupComponent} from "../confirmation-popup/confirmation-popup.component";
 import {ConfigsServiceService, IConfig} from "../../services/configs-service.service";
 import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-clients-popup',
@@ -14,8 +15,7 @@ import {GroupsServiceService, IGroup} from "../../services/groups-service.servic
 export class ClientsPopupComponent implements OnInit{
 
   constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public idDetail: {id: number, clients: IClient[] }, public clientService: ClientsServiceService,
-              public dialogRef: MatDialogRef<ClientsPopupComponent>, public configService: ConfigsServiceService,
-              public groupService: GroupsServiceService) {
+              public dialogRef: MatDialogRef<ClientsPopupComponent>, public configService: ConfigsServiceService, public sessions: SessionsService) {
   }
 
   info: IClient = {id: 0,name: 'placeholder',lastseen: '1-1-2002',ip: '1.1.1.1',mac: '1111'};

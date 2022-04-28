@@ -11,12 +11,20 @@
   align-items: center;
 }
 
-mat-sidenav {
+.mat-sidenav {
   width: 200px;
   text-align: center;
   padding: 10px;
   background: White;
   box-shadow: 4px 4px 20px darkgray;
+}
+
+.mat-sidenav-dark {
+  width: 200px;
+  text-align: center;
+  background-color: #404040;
+  padding: 10px;
+  box-shadow: 4px 4px 20px #303030;
 }
 
 mat-divider {

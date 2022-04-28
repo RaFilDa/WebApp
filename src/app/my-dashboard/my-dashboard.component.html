@@ -1,8 +1,8 @@
 <title>Dashboard</title>
 
 <mat-sidenav-container class="dashboard_sidenav">
-  <mat-sidenav mode="side" opened [fixedInViewport]="true">
-    <img src="\assets\Logo.png" class="img_dashboard"/>
+  <mat-sidenav [class]="sessions.loadMode() ? 'mat-sidenav-dark' : 'mat-sidenav'" mode="side" opened [fixedInViewport]="true">
+    <img [src]="sessions.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" class="img_dashboard"/>
 
     <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs()" color="primary" class="menu_button">
       Configs

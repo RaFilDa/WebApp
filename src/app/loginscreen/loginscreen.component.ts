@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, HostBinding, Input, OnInit, Output} from '@angular/core';
 import { Router } from '@angular/router'
 import {filter, timeout} from "rxjs";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SessionsService} from "../services/sessions.service";
 import {HttpErrorResponse} from "@angular/common/http";
+import {AppRoutingModule} from "../app-routing.module";
 
 @Component({
   selector: 'app-loginscreen',
@@ -16,18 +17,25 @@ export class LoginscreenComponent implements OnInit {
 
   public errorMessage: string = ""
 
+  public darkmode: boolean = false;
   public form: FormGroup;
 
   constructor(private router: Router,
               private fb: FormBuilder,
-              private service: SessionsService) { }
+              public service: SessionsService) { }
 
   ngOnInit(): void {
     this.IsLogging = false;
+    this.darkmode = this.service.loadMode()
   this.form = this.fb.group({
         login: [ '', Validators.required ],
         password: [ '', Validators.required ],
       });
+  }
+
+  switch() {
+    this.darkmode = !this.darkmode
+    this.service.saveMode(this.darkmode)
   }
 
   private errorCheck(e: HttpErrorResponse) {

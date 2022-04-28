@@ -21,7 +21,9 @@
     <p>{{errorMessage}}</p>
 </div>
 
-<img src="\assets\Logo.png" class="image_login" width="200" height="200" />
+<img [src]="service.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" class="image_login" width="200" height="200" />
+
+<mat-slide-toggle class="mode-switch" color="primary" [checked]="darkmode" (change)="switch()"></mat-slide-toggle>
 
 <div *ngIf="IsLogging" class="spinner_bg"></div>
 

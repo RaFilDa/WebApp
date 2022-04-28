@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {EventEmitter, Input, NgModule, Output} from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MyDashboardComponent } from './my-dashboard/my-dashboard.component';
 import { LoginscreenComponent } from './loginscreen/loginscreen.component';
@@ -41,7 +41,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
 export const RoutingComponents = [
   MyDashboardComponent,
   LoginscreenComponent,

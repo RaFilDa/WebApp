@@ -3,6 +3,7 @@ import { MatDialog } from "@angular/material/dialog";
 import { ConfigCreatePopupComponent } from "../../_popups/config-create-popup/config-create-popup.component";
 import {EditClientsPopupComponent} from "../../_popups/edit-clients-popup/edit-clients-popup.component";
 import {ConfigsServiceService, IConfig} from "../../services/configs-service.service";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-configs-content',
@@ -17,7 +18,8 @@ export class ConfigsContentComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public dialogEdit: MatDialog,
-    public configService: ConfigsServiceService
+    public configService: ConfigsServiceService,
+    public sessions: SessionsService
   ) { }
 
   public IsLoading: boolean = true

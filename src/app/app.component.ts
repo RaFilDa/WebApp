@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, HostBinding, OnInit} from '@angular/core';
 import {SessionsService} from "./services/sessions.service";
 import {Router} from "@angular/router";
 import {filter, interval, tap} from "rxjs";
+import {OverlayContainer} from "@angular/cdk/overlay";
 
 @Component({
   selector: 'app-root',
@@ -11,9 +12,9 @@ import {filter, interval, tap} from "rxjs";
 export class AppComponent implements OnInit {
   title = "RaFilDa"
 
-
 constructor(private router: Router,
-            private sessions: SessionsService) {
+            private sessions: SessionsService,
+            private overlay: OverlayContainer) {
   }
 
   ngOnInit(): void {
@@ -25,6 +26,16 @@ constructor(private router: Router,
 
 public get authenticated(): boolean {
     return this.sessions.authenticated;
+  }
+
+  getMode(): string {
+    let darkMode = this.sessions.loadMode() ? 'darkMode' : ''
+    if (darkMode) {
+      this.overlay.getContainerElement().classList.add('darkMode');
+    } else {
+      this.overlay.getContainerElement().classList.remove('darkMode');
+    }
+    return darkMode
   }
 
   public logout(): void {

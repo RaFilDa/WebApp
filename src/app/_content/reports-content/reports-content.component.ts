@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import {ReportsPopupComponent} from "../../_popups/reports-popup/reports-popup.component";
 import {IReportDetail, ReportsServiceService} from "../../services/reports-service.service";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-reports-content',
@@ -17,7 +18,7 @@ export class ReportsContentComponent implements OnInit {
   public reports: IReportDetail[] = [];
   public IsLoading: boolean = true
 
-  constructor(public dialog: MatDialog, private reportsService: ReportsServiceService) {}
+  constructor(public dialog: MatDialog, private reportsService: ReportsServiceService, public sessions: SessionsService) {}
 
   openDialog(message: string) {
     this.dialog.open(ReportsPopupComponent, {data: message});

@@ -9,6 +9,17 @@
   border: darkgray solid;
 }
 
+.toolbar-dark {
+  width: calc(100% - 200px);
+  background-color: #303030;
+  display: flex;
+  position: fixed;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 1000;
+  /*border: gray solid;*/
+}
+
 .toolbar-components {
   font-size: medium;
   margin-top: 10px;
