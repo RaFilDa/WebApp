@@ -4,27 +4,27 @@
   <mat-sidenav [class]="sessions.loadMode() ? 'mat-sidenav-dark' : 'mat-sidenav'" mode="side" opened [fixedInViewport]="true">
     <img [src]="sessions.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" class="img_dashboard"/>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs(); toggleConfigs()" color="accent" [ngClass]="{'menu_button_toggled' : ConfigsIsToggled, 'menu_button' : !ConfigsIsToggled}">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs(); toggleConfigs()" color="accent" [ngClass]="{'menu_button_toggled_light' : ConfigsIsToggled, 'menu_button' : !ConfigsIsToggled, 'menu_button_toggled_dark' : ConfigsIsToggled && sessions.loadMode()}">
       Configs
       <mat-icon class="menu_button_icon">build</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showClients(); toggleClients()" color="accent" [ngClass]="{'menu_button_toggled' : ClientsIsToggled, 'menu_button' : !ClientsIsToggled}">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showClients(); toggleClients()" color="accent" [ngClass]="{'menu_button_toggled_light' : ClientsIsToggled, 'menu_button' : !ClientsIsToggled, 'menu_button_toggled_dark' : ClientsIsToggled && sessions.loadMode()}">
       Clients
       <mat-icon class="menu_button_icon">account_box</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showGroups(); toggleGroups()" color="accent" [ngClass]="{'menu_button_toggled' : GroupsIsToggled, 'menu_button' : !GroupsIsToggled}">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showGroups(); toggleGroups()" color="accent" [ngClass]="{'menu_button_toggled_light' : GroupsIsToggled, 'menu_button' : !GroupsIsToggled, 'menu_button_toggled_dark' : GroupsIsToggled && sessions.loadMode()}">
       Groups
       <mat-icon class="menu_button_icon">group</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showReports(); toggleReports()" color="accent" [ngClass]="{'menu_button_toggled' : ReportsIsToggled, 'menu_button' : !ReportsIsToggled}">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showReports(); toggleReports()" color="accent" [ngClass]="{'menu_button_toggled_light' : ReportsIsToggled, 'menu_button' : !ReportsIsToggled, 'menu_button_toggled_dark' : ReportsIsToggled && sessions.loadMode()}">
       Reports
       <mat-icon class="menu_button_icon">assignment</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showSettings(); toggleSettings()" color="accent" [ngClass]="{'menu_button_toggled' : SettingsIsToggled, 'menu_button' : !SettingsIsToggled}">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showSettings(); toggleSettings()" color="accent" [ngClass]="{'menu_button_toggled_light' : SettingsIsToggled, 'menu_button' : !SettingsIsToggled, 'menu_button_toggled_dark' : SettingsIsToggled && sessions.loadMode()}">
       Settings
       <mat-icon class="menu_button_icon">settings</mat-icon>
     </button>

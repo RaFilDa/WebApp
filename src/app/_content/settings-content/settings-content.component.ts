@@ -11,7 +11,29 @@ export class SettingsContentComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, public sessions: SessionsService) { }
 
+  public GeneralIsToggled: boolean = false;
+  public LogsIsToggled: boolean = false;
+  public UsersIsToggled: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  toggleGeneral() {
+    this.GeneralIsToggled = true;
+    this.LogsIsToggled = false;
+    this.UsersIsToggled = false;
+  }
+
+  toggleLogs() {
+    this.GeneralIsToggled = false;
+    this.LogsIsToggled = true;
+    this.UsersIsToggled = false;
+  }
+
+  toggleUsers() {
+    this.GeneralIsToggled = false;
+    this.LogsIsToggled = false;
+    this.UsersIsToggled = true;
   }
 
   goGeneral() {
