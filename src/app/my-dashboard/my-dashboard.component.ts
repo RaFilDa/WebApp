@@ -11,7 +11,53 @@ export class MyDashboardComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, private sessions: SessionsService) { }
 
+  public ConfigsIsToggled: boolean = false;
+  public ClientsIsToggled: boolean = false;
+  public GroupsIsToggled: boolean = false;
+  public ReportsIsToggled: boolean = false;
+  public SettingsIsToggled: boolean = false;
+
   ngOnInit(): void {
+  }
+
+  toggleConfigs() {
+    this.ConfigsIsToggled = true;
+    this.ClientsIsToggled = false;
+    this.GroupsIsToggled = false;
+    this.ReportsIsToggled = false;
+    this.SettingsIsToggled = false;
+  }
+
+  toggleClients() {
+    this.ConfigsIsToggled = false;
+    this.ClientsIsToggled = true;
+    this.GroupsIsToggled = false;
+    this.ReportsIsToggled = false;
+    this.SettingsIsToggled = false;
+  }
+
+  toggleGroups() {
+    this.ConfigsIsToggled = false;
+    this.ClientsIsToggled = false;
+    this.GroupsIsToggled = true;
+    this.ReportsIsToggled = false;
+    this.SettingsIsToggled = false;
+  }
+
+  toggleReports() {
+    this.ConfigsIsToggled = false;
+    this.ClientsIsToggled = false;
+    this.GroupsIsToggled = false;
+    this.ReportsIsToggled = true;
+    this.SettingsIsToggled = false;
+  }
+
+  toggleSettings() {
+    this.ConfigsIsToggled = false;
+    this.ClientsIsToggled = false;
+    this.GroupsIsToggled = false;
+    this.ReportsIsToggled = false;
+    this.SettingsIsToggled = true;
   }
 
   goBack() {

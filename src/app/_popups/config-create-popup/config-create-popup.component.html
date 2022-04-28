@@ -33,7 +33,7 @@
     </mat-form-field>
 
     <span class="spacing"></span>
-      <button mat-flat-button class="popupButton" color="primary" mat-dialog-close=""><mat-icon class="small">close</mat-icon></button>
+      <button mat-flat-button class="popupButton" color="accent" mat-dialog-close=""><mat-icon class="small">close</mat-icon></button>
   </mat-toolbar>
 
   <mat-card fxLayout="row" fxLayoutAlign="start stretch" [ngSwitch]="typeOfTiming.value">
@@ -76,7 +76,7 @@
 
   <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between' : 'end'" class="bottom_buttons">
     <button mat-flat-button color="warn" mat-dialog-close="" *ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
-    <button mat-flat-button color="primary" mat-dialog-close="" (click)="saveChanges()">Save</button>
+    <button mat-flat-button color="accent" mat-dialog-close="" (click)="saveChanges()">Save</button>
   </div>
 
 

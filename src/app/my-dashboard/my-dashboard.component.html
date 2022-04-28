@@ -4,27 +4,27 @@
   <mat-sidenav mode="side" opened [fixedInViewport]="true">
     <img src="\assets\Logo.png" class="img_dashboard"/>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs()" color="primary" class="menu_button">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs(); toggleConfigs()" color="accent" [ngClass]="{'menu_button_toggled' : ConfigsIsToggled, 'menu_button' : !ConfigsIsToggled}">
       Configs
       <mat-icon class="menu_button_icon">build</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showClients()" color="primary" class="menu_button">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showClients(); toggleClients()" color="accent" [ngClass]="{'menu_button_toggled' : ClientsIsToggled, 'menu_button' : !ClientsIsToggled}">
       Clients
       <mat-icon class="menu_button_icon">account_box</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showGroups()" color="primary" class="menu_button">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showGroups(); toggleGroups()" color="accent" [ngClass]="{'menu_button_toggled' : GroupsIsToggled, 'menu_button' : !GroupsIsToggled}">
       Groups
       <mat-icon class="menu_button_icon">group</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showReports()" color="primary" class="menu_button">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showReports(); toggleReports()" color="accent" [ngClass]="{'menu_button_toggled' : ReportsIsToggled, 'menu_button' : !ReportsIsToggled}">
       Reports
       <mat-icon class="menu_button_icon">assignment</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showSettings()" color="primary" class="menu_button">
+    <button fxLayoutAlign="center" mat-flat-button (click)="showSettings(); toggleSettings()" color="accent" [ngClass]="{'menu_button_toggled' : SettingsIsToggled, 'menu_button' : !SettingsIsToggled}">
       Settings
       <mat-icon class="menu_button_icon">settings</mat-icon>
     </button>

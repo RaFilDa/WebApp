@@ -3,9 +3,9 @@
     <input matInput type="text" placeholder="Search" [(ngModel)]="searchExpression">
   </mat-form-field>
 
-<!--  <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="primary" [(ngModel)]="isInactive">Inactive Only</mat-slide-toggle>-->
+<!--  <mat-slide-toggle class="toolbar-components" fxFlexOffset="20px" color="accent" [(ngModel)]="isInactive">Inactive Only</mat-slide-toggle>-->
 
-  <button mat-flat-button class="refresh" color="primary" (click)="refresh()"><mat-icon class="small">refresh</mat-icon></button>
+  <button mat-flat-button class="refresh" color="accent" (click)="refresh()"><mat-icon class="small">refresh</mat-icon></button>
 </mat-toolbar>
 
 <mat-card class="users">
@@ -16,7 +16,7 @@
     <mat-list-item *ngFor="let item of filterData(); even as e; index as i">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <span>{{item.name}}</span>
-        <button mat-flat-button class="smallButton" color="primary" (click)="openDialog(item.id)"><mat-icon class="small">info</mat-icon></button>
+        <button mat-flat-button class="smallButton" color="accent" (click)="openDialog(item.id)"><mat-icon class="small">info</mat-icon></button>
       </div>
       <mat-divider></mat-divider>
     </mat-list-item>
