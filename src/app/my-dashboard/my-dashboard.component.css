@@ -11,18 +11,23 @@
   width: 100%;
 }
 
+.menu_button_icon {
+  margin-bottom: 5px;
+}
+
 .menu_button {
   margin-top: 15px;
   width: 100%;
   display: flex;
   align-items: center;
+  font-size: large;
 }
 
 mat-sidenav {
   width: 200px;
   text-align: center;
   padding: 10px;
-  background: White;
+  background-color: #F8fafc;
   box-shadow: 4px 4px 20px darkgray;
 }
 
@@ -30,3 +35,4 @@ mat-divider {
   margin-top: 10px;
   background-color: whitesmoke;
 }
+
