@@ -4,9 +4,9 @@
   border: darkgray solid;
 }
 
-.mat-column-name {
+.mat-column-username {
   font-size: large;
-  width: calc(100% / 8);
+  width: calc(100% / 5);
   border-right: darkgray solid;
 }
 

@@ -4,19 +4,34 @@
   <mat-sidenav mode="side" opened [fixedInViewport]="true">
     <img src="\assets\Logo.png" class="img_dashboard"/>
 
-    <button fxLayoutAlign="center" mat-raised-button (click)="showConfigs()" color="primary" class="menu_button">Configs</button>
+    <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs()" color="primary" class="menu_button">
+      Configs
+      <mat-icon class="menu_button_icon">build</mat-icon>
+    </button>
 
-    <button fxLayoutAlign="center" mat-raised-button (click)="showClients()" color="primary" class="menu_button">Clients</button>
+    <button fxLayoutAlign="center" mat-flat-button (click)="showClients()" color="primary" class="menu_button">
+      Clients
+      <mat-icon class="menu_button_icon">account_box</mat-icon>
+    </button>
 
-    <button fxLayoutAlign="center" mat-raised-button (click)="showGroups()" color="primary" class="menu_button">Groups</button>
+    <button fxLayoutAlign="center" mat-flat-button (click)="showGroups()" color="primary" class="menu_button">
+      Groups
+      <mat-icon class="menu_button_icon">group</mat-icon>
+    </button>
 
-    <button fxLayoutAlign="center" mat-raised-button (click)="showReports()" color="primary" class="menu_button">Reports</button>
+    <button fxLayoutAlign="center" mat-flat-button (click)="showReports()" color="primary" class="menu_button">
+      Reports
+      <mat-icon class="menu_button_icon">assignment</mat-icon>
+    </button>
 
-    <mat-divider></mat-divider>
+    <button fxLayoutAlign="center" mat-flat-button (click)="showSettings()" color="primary" class="menu_button">
+      Settings
+      <mat-icon class="menu_button_icon">settings</mat-icon>
+    </button>
 
-    <button fxLayoutAlign="center" mat-raised-button (click)="showSettings()" color="primary" class="menu_button">Settings</button>
-
-    <button fxLayoutAlign="center" mat-raised-button (click)="goBack()" color="warn" class="menu_button">Sign Out</button>
+    <button fxLayoutAlign="center" mat-flat-button (click)="goBack()" color="warn" class="menu_button">
+      Sign Out
+    </button>
 
   </mat-sidenav>
 
