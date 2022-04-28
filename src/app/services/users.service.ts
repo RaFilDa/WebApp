@@ -44,11 +44,11 @@ export class UsersService {
   }
 
   public findById(id: number): Observable<User> {
-    return this.http.get<User>(environment.api + '/Users' + id, this.options);
+    return this.http.get<User>(environment.api + '/Users/' + id, this.options);
   }
 
   public save(user: User): Observable<User> {
-    return this.http.put<User>(environment.api + '/Users' + user.id, user, this.options);
+    return this.http.post<User>(environment.api + '/Users', user, this.options);
   }
 
   private unauthenticated(err: any): void {
