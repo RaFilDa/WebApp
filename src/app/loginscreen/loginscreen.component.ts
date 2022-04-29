@@ -13,6 +13,10 @@ import {AppRoutingModule} from "../app-routing.module";
 })
 export class LoginscreenComponent implements OnInit {
 
+  public AlfredCounter: number = 0;
+
+  public ShowAlfred: boolean = false;
+
   public IsLogging: boolean = false;
 
   public errorMessage: string = ""
@@ -31,6 +35,17 @@ export class LoginscreenComponent implements OnInit {
         login: [ '', Validators.required ],
         password: [ '', Validators.required ],
       });
+  }
+
+  addCounter() {
+    if (this.AlfredCounter == 5)
+    {
+      this.ShowAlfred = true;
+    }
+    else
+    {
+      this.AlfredCounter += 1;
+    }
   }
 
   switch() {

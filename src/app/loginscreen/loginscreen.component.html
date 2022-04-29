@@ -21,7 +21,7 @@
     <p>{{errorMessage}}</p>
 </div>
 
-<img [src]="service.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" class="image_login" width="200" height="200" />
+<img [src]="service.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" (click)="addCounter()" class="image_login" width="200" height="200" />
 
 <mat-slide-toggle class="mode-switch" color="primary" [checked]="darkmode" (change)="switch()"></mat-slide-toggle>
 
@@ -30,4 +30,6 @@
 <div *ngIf="IsLogging" fxFill fxLayout="row" fxLayoutAlign="center center" class="spinner_container">
   <mat-spinner [diameter]="40"></mat-spinner>
 </div>
+
+<img src="./assets/alfred.jpg" class="alfred" *ngIf="ShowAlfred">
 

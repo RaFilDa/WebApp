@@ -11,6 +11,10 @@ export class MyDashboardComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute, public sessions: SessionsService) { }
 
+  public AlfredCounter: number = 0;
+
+  public ShowAlfred: boolean = false;
+
   public ConfigsIsToggled: boolean = false;
   public ClientsIsToggled: boolean = false;
   public GroupsIsToggled: boolean = false;
@@ -18,6 +22,18 @@ export class MyDashboardComponent implements OnInit {
   public SettingsIsToggled: boolean = false;
 
   ngOnInit(): void {
+    this.toggleClients();
+  }
+
+  addCounter() {
+    if (this.AlfredCounter == 5)
+    {
+      this.ShowAlfred = true;
+    }
+    else
+    {
+      this.AlfredCounter += 1;
+    }
   }
 
   toggleConfigs() {

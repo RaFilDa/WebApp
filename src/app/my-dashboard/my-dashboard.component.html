@@ -2,7 +2,7 @@
 
 <mat-sidenav-container class="dashboard_sidenav">
   <mat-sidenav [class]="sessions.loadMode() ? 'mat-sidenav-dark' : 'mat-sidenav'" mode="side" opened [fixedInViewport]="true">
-    <img [src]="sessions.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" class="img_dashboard"/>
+    <img [src]="sessions.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" (click)="addCounter()" class="img_dashboard"/>
 
     <button fxLayoutAlign="center" mat-flat-button (click)="showConfigs(); toggleConfigs()" color="accent" [ngClass]="{'menu_button_toggled_light' : ConfigsIsToggled, 'menu_button' : !ConfigsIsToggled, 'menu_button_toggled_dark' : ConfigsIsToggled && sessions.loadMode()}">
       Configs
@@ -41,3 +41,6 @@
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+<img src="./assets/alfred.jpg" class="alfred" *ngIf="ShowAlfred">
+
