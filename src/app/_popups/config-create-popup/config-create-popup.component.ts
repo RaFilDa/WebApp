@@ -1,6 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ConfigsServiceService, IConfig, IDestination, ISource} from "../../services/configs-service.service";
+import {SessionsService} from "../../services/sessions.service";
 
 @Component({
   selector: 'app-config-create-popup',
@@ -9,7 +10,7 @@ import {ConfigsServiceService, IConfig, IDestination, ISource} from "../../servi
 })
 export class ConfigCreatePopupComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService, public sessions: SessionsService) { }
 
   public config: IConfig = {
     id: 0,

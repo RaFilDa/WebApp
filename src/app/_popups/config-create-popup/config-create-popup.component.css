@@ -1,10 +1,20 @@
-.toolbar {
+.toolbar_light {
   background-color: white;
   display: flex;
   position: -webkit-sticky;
   z-index: 1000;
   border: darkgray solid;
 }
+
+.toolbar_dark {
+  background-color: #404040;
+  display: flex;
+  position: -webkit-sticky;
+  z-index: 1000;
+  border: #404040 solid;
+}
+
+
 
 .toolbar-components {
   font-size: small;
