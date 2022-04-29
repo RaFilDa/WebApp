@@ -6,7 +6,6 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ClientsContentComponent } from './_content/clients-content/clients-content.component';
 import { ConfigsContentComponent } from "./_content/configs-content/configs-content.component";
 import { ReportsContentComponent } from "./_content/reports-content/reports-content.component";
-import { GroupsContentComponent } from "./_content/groups-content/groups-content.component";
 import { SettingsContentComponent } from "./_content/settings-content/settings-content.component";
 import { SettingsGeneralContentComponent } from "./_content/settings-content/settings-general-content/settings-general-content.component";
 import { SettingsLogsContentComponent } from "./_content/settings-content/settings-logs-content/settings-logs-content.component";
@@ -22,7 +21,6 @@ const routes: Routes = [
       {path: 'clients', component: ClientsContentComponent},
       {path: 'configs', component: ConfigsContentComponent},
       {path: 'reports', component: ReportsContentComponent},
-      {path: 'groups', component: GroupsContentComponent},
       {path: 'settings', component: SettingsContentComponent,
         children: [
         {path: 'general', component: SettingsGeneralContentComponent},
@@ -48,7 +46,6 @@ export const RoutingComponents = [
   ClientsContentComponent,
   PageNotFoundComponent,
   ReportsContentComponent,
-  GroupsContentComponent,
   SettingsContentComponent,
   ConfigsContentComponent,
 ]

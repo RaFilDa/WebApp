@@ -21,7 +21,6 @@ import { FlexModule } from "@angular/flex-layout";
 import { MatListModule } from "@angular/material/list";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatGridListModule} from "@angular/material/grid-list";
-import { GroupsContentComponent } from './_content/groups-content/groups-content.component';
 import { SettingsContentComponent } from './_content/settings-content/settings-content.component';
 import { SettingsGeneralContentComponent } from './_content/settings-content/settings-general-content/settings-general-content.component';
 import { SettingsLogsContentComponent } from './_content/settings-content/settings-logs-content/settings-logs-content.component';
@@ -35,8 +34,6 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
 import { ConfigCreatePopupComponent } from './_popups/config-create-popup/config-create-popup.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRippleModule} from "@angular/material/core";
-import { GroupCreatePopupComponent } from './_popups/group-create-popup/group-create-popup.component';
-import { EditClientsPopupComponent } from './_popups/edit-clients-popup/edit-clients-popup.component';
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import { AddUserPopupComponent } from './_popups/add-user-popup/add-user-popup.component';
 import { ConfigDestinationContentComponent } from './_popups/config-create-popup/config-destination-content/config-destination-content.component';
@@ -57,7 +54,6 @@ function tokenGetter() {
   declarations: [
     AppComponent,
     RoutingComponents,
-    GroupsContentComponent,
     SettingsContentComponent,
     SettingsGeneralContentComponent,
     SettingsLogsContentComponent,
@@ -65,8 +61,6 @@ function tokenGetter() {
     ReportsPopupComponent,
     ClientsPopupComponent,
     ConfigCreatePopupComponent,
-    GroupCreatePopupComponent,
-    EditClientsPopupComponent,
     AddUserPopupComponent,
     ConfigDestinationContentComponent,
     CronContentComponent,

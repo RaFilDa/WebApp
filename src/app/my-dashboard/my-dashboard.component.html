@@ -14,11 +14,6 @@
       <mat-icon class="menu_button_icon">account_box</mat-icon>
     </button>
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="showGroups(); toggleGroups()" color="accent" [ngClass]="{'menu_button_toggled_light' : GroupsIsToggled, 'menu_button' : !GroupsIsToggled, 'menu_button_toggled_dark' : GroupsIsToggled && sessions.loadMode()}">
-      Groups
-      <mat-icon class="menu_button_icon">group</mat-icon>
-    </button>
-
     <button fxLayoutAlign="center" mat-flat-button (click)="showReports(); toggleReports()" color="accent" [ngClass]="{'menu_button_toggled_light' : ReportsIsToggled, 'menu_button' : !ReportsIsToggled, 'menu_button_toggled_dark' : ReportsIsToggled && sessions.loadMode()}">
       Reports
       <mat-icon class="menu_button_icon">assignment</mat-icon>
