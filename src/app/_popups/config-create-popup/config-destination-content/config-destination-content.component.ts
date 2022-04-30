@@ -1,5 +1,6 @@
 import {Component, Output, EventEmitter, Input, OnInit} from '@angular/core';
 import {ConfigsServiceService, IDestination} from "../../../services/configs-service.service";
+import {SessionsService} from "../../../services/sessions.service";
 
 @Component({
   selector: 'app-config-destination-content',
@@ -19,7 +20,7 @@ export class ConfigDestinationContentComponent implements OnInit {
   @Input() destinations: IDestination[] = [];
   @Output() destinationsChange = new EventEmitter<IDestination[]>();
 
-  constructor() { }
+  constructor(public sessions: SessionsService) { }
 
   async ngOnInit() {
     await this.delay(1);

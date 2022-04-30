@@ -22,6 +22,8 @@ constructor(private router: Router,
         filter(() => !this.sessions.authenticated),
         tap(() => this.sessions.logout())
       ).subscribe(() => this.router.navigate([ '/login' ]));
+      if(this.sessions.authenticated)
+        this.router.navigate(['/dashboard']);
     }
 
 public get authenticated(): boolean {

@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ISource} from "../../../services/configs-service.service";
+import {SessionsService} from "../../../services/sessions.service";
 
 @Component({
   selector: 'app-config-source-content',
@@ -13,7 +14,7 @@ export class ConfigSourceContentComponent implements OnInit {
   @Input() sources: ISource[] = [];
   @Output() sourcesChange = new EventEmitter<ISource[]>();
 
-  constructor() { }
+  constructor(public sessions: SessionsService) { }
 
   ngOnInit(): void {
   }

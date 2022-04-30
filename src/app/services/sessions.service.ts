@@ -44,7 +44,6 @@ export class SessionsService {
 
   public loadMode(): boolean {
     let tmp = localStorage.getItem('darkmode')
-    console.log(tmp)
     return tmp == null || tmp == 'true'
   }
 

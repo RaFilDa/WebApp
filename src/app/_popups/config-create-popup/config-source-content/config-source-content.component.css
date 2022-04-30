@@ -18,8 +18,13 @@ div.sources {
 }
 
 .config_card {
-  height: 48px;
+  height: 49px;
   background-color: whitesmoke;
+}
+
+.config_card-dark {
+  height: 49px;
+  background-color: #404040;
 }
 
 mat-form-field {
