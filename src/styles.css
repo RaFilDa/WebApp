@@ -98,7 +98,11 @@ button.smallButtonDelete {
   min-width: unset;
 }
 
-.mat-expansion-panel-body {
+.light .mat-expansion-panel-body {
+  background-color: lightgray;
+}
+
+.dark .mat-expansion-panel-body {
   background-color: #505050;
 }
 

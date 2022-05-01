@@ -4,7 +4,7 @@
 
 <div class="destinations">
   <span *ngIf="renderButton">
-    <mat-expansion-panel *ngFor="let destination of destinations" hideToggle>
+    <mat-expansion-panel *ngFor="let destination of destinations" hideToggle [class]="sessions.loadMode() ? 'dark' : 'light'">
       <mat-expansion-panel-header [style]="sessions.loadMode() ? 'background-color: #404040' : ''">
         <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
           <span>{{destination.type}} - {{destination.type == 'FTP' ? destination.ip : destination.path}}</span>

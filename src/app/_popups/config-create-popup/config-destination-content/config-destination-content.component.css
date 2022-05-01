@@ -36,10 +36,6 @@ div {
   margin-top: 10px;
 }
 
-.mat-expansion-panel-body {
-  background-color: gray;
-}
-
 mat-expansion-panel {
   background-color: whitesmoke;
 }
