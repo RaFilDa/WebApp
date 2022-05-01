@@ -7,7 +7,6 @@ import {environment} from "../../environments/environment";
 export interface IConfig {
   id: number
   name: string
-  userID: 1,
   backupFrequency: string
   retentionSize: number
   packageSize?: number

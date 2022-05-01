@@ -24,6 +24,10 @@ button:hover {
   color: white !important;
 }
 
+.mat-mini-fab {
+  transition: none !important;
+}
+
 html {
   background: whitesmoke;
   width: 100%;
