@@ -15,7 +15,6 @@ export class ConfigCreatePopupComponent implements OnInit {
   public config: IConfig = {
     id: 0,
     name: '',
-    userID: 1,
     backupFrequency: 'd',
     retentionSize: 3,
     packageSize: 3,
@@ -105,7 +104,6 @@ export class ConfigCreatePopupComponent implements OnInit {
     let config: IConfig = {
       id: this.config.id,
       name: this.config.name,
-      userID: this.config.userID,
       backupFrequency: this.config.backupFrequency,
       retentionSize: this.config.retentionSize,
       packageSize: this.config.packageSize,
