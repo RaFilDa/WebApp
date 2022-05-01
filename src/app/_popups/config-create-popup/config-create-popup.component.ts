@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ConfigsServiceService, IConfig, IDestination, ISource} from "../../services/configs-service.service";
 import {SessionsService} from "../../services/sessions.service";
 
@@ -10,7 +10,7 @@ import {SessionsService} from "../../services/sessions.service";
 })
 export class ConfigCreatePopupComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService, public sessions: SessionsService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService, public sessions: SessionsService, private ref: MatDialogRef<ConfigCreatePopupComponent>) { }
 
   public config: IConfig = {
     id: 0,
@@ -121,6 +121,8 @@ export class ConfigCreatePopupComponent implements OnInit {
         this.configService.getConfigId(config.name).subscribe(x => config.id = x, null, () => this.addAndDelete(config))
       })
     }
+
+    this.ref.close()
   }
 
   addAndDelete(config: IConfig) {

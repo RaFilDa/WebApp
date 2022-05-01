@@ -5,7 +5,7 @@
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
   <p mat-dialog-title>Client Info</p>
   <p>Name: {{info.name}}</p>
-  <p>Last Login: {{info.lastseen}}</p>
+  <p>Last Login: {{info.lastSeen}}</p>
   <p>IP Address: {{info.ip}}</p>
   <p>MAC: {{info.mac}}</p>
 
@@ -23,13 +23,5 @@
       </div>
       <button mat-flat-button color="accent" (click)="saveChangesConfig(); panelOpenStateConfigs = false">Save</button>
     </mat-expansion-panel>
-
-<!--    <mat-expansion-panel [expanded]="panelOpenStateGroups">-->
-<!--      <b>Groups:</b>-->
-<!--      <div fxLayout="column" fxLayoutAlign="start start" class="checkboxes">-->
-<!--        <mat-checkbox color="primary"(change)="toggleGroups(group)" [checked]="checkGroups(group)" *ngFor="let group of this.groupService.groups">{{group.name}}</mat-checkbox>-->
-<!--      </div>-->
-<!--      <button mat-flat-button color="primary" (click)="saveChangesGroups(); panelOpenStateGroups = false">Save</button>-->
-<!--    </mat-expansion-panel>-->
   </mat-dialog-content>
 </div>

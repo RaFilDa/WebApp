@@ -5,11 +5,11 @@ import {SessionsService} from "./sessions.service";
 import {environment} from "../../environments/environment";
 
 export interface IClient {
-  id: number
-  name: string
-  ip: string
-  mac: string
-  lastseen: string
+  id: number,
+  name: string,
+  ip: string,
+  mac: string,
+  lastSeen: string
 }
 
 @Injectable({
@@ -17,7 +17,7 @@ export interface IClient {
 })
 export class ClientsServiceService {
 
-  constructor(private http:HttpClient, private sessions: SessionsService ) { }
+  constructor(private http:HttpClient, private sessions: SessionsService) { }
 
     public get options(): { headers: HttpHeaders}  {
         return {

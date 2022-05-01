@@ -24,11 +24,15 @@ export class ConfigsContentComponent implements OnInit {
   public IsLoading: boolean = true
 
   ngOnInit(): void {
+    this.refresh()
+  }
+
+  refresh(): void {
     this.configService.GetConfigs().subscribe(x => this.configs = x, null, () => this.IsLoading = false);
   }
 
   openDialog(id: number) {
-    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false, data: id});
+    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false, data: id}).afterClosed().subscribe(null,null,() => this.refresh());
   }
 
   filterData(): IConfig[] {

@@ -18,7 +18,7 @@ export class ClientsPopupComponent implements OnInit{
               public dialogRef: MatDialogRef<ClientsPopupComponent>, public configService: ConfigsServiceService, public sessions: SessionsService) {
   }
 
-  info: IClient = {id: 0,name: 'placeholder',lastseen: '1-1-2002',ip: '1.1.1.1',mac: '1111'};
+  info: IClient = {id: 0,name: 'placeholder',lastSeen: '',ip: '1.1.1.1',mac: '1111'};
   configs: IConfig[] = []
   selectedConfigs: IConfig[] = []
   tmpSelectedConfigs: IConfig[] = []
