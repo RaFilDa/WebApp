@@ -96,6 +96,7 @@ export class ConfigCreatePopupComponent implements OnInit {
 
   deleteConfig(): void {
     this.configService.deleteConfig(this.idDetail)
+    this.ref.close()
   }
 
   saveChanges(): void {

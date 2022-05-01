@@ -75,7 +75,7 @@
   <app-config-source-content class="destinations" [(sources)]="tmpSource" [configID]="config.id"></app-config-source-content>
 
   <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between' : 'end'" class="bottom_buttons">
-    <button mat-flat-button color="warn" mat-dialog-close="" *ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
+    <button mat-flat-button color="warn"*ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
     <button mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
   </div>
 
