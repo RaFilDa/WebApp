@@ -74,3 +74,9 @@ mat-divider {
   z-index: 1000000;
 }
 
+.mode-switch {
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+}
+

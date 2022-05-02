@@ -7,7 +7,6 @@ import { ClientsContentComponent } from './_content/clients-content/clients-cont
 import { ConfigsContentComponent } from "./_content/configs-content/configs-content.component";
 import { ReportsContentComponent } from "./_content/reports-content/reports-content.component";
 import { SettingsContentComponent } from "./_content/settings-content/settings-content.component";
-import { SettingsGeneralContentComponent } from "./_content/settings-content/settings-general-content/settings-general-content.component";
 import { SettingsLogsContentComponent } from "./_content/settings-content/settings-logs-content/settings-logs-content.component";
 import { SettingsUsersContentComponent } from "./_content/settings-content/settings-users-content/settings-users-content.component";
 
@@ -23,7 +22,6 @@ const routes: Routes = [
       {path: 'reports', component: ReportsContentComponent},
       {path: 'settings', component: SettingsContentComponent,
         children: [
-        {path: 'general', component: SettingsGeneralContentComponent},
         {path: 'logs', component: SettingsLogsContentComponent},
         {path: 'users', component: SettingsUsersContentComponent},
         ]

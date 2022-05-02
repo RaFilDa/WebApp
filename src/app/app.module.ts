@@ -22,7 +22,6 @@ import { MatListModule } from "@angular/material/list";
 import { MatSlideToggleModule } from "@angular/material/slide-toggle";
 import { MatGridListModule} from "@angular/material/grid-list";
 import { SettingsContentComponent } from './_content/settings-content/settings-content.component';
-import { SettingsGeneralContentComponent } from './_content/settings-content/settings-general-content/settings-general-content.component';
 import { SettingsLogsContentComponent } from './_content/settings-content/settings-logs-content/settings-logs-content.component';
 import { SettingsUsersContentComponent } from './_content/settings-content/settings-users-content/settings-users-content.component';
 import { MatTableModule } from "@angular/material/table";
@@ -55,7 +54,6 @@ function tokenGetter() {
     AppComponent,
     RoutingComponents,
     SettingsContentComponent,
-    SettingsGeneralContentComponent,
     SettingsLogsContentComponent,
     SettingsUsersContentComponent,
     ReportsPopupComponent,

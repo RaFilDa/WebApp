@@ -14,6 +14,7 @@ export class MyDashboardComponent implements OnInit {
   public AlfredCounter: number = 0;
 
   public ShowAlfred: boolean = false;
+  public darkmode: boolean = false;
 
   public ConfigsIsToggled: boolean = false;
   public ClientsIsToggled: boolean = false;
@@ -23,6 +24,7 @@ export class MyDashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.toggleClients();
+    this.darkmode = this.sessions.loadMode()
   }
 
   addCounter() {
@@ -34,6 +36,11 @@ export class MyDashboardComponent implements OnInit {
     {
       this.AlfredCounter += 1;
     }
+  }
+
+  switch() {
+    this.darkmode = !this.darkmode
+    this.sessions.saveMode(this.darkmode)
   }
 
   toggleConfigs() {

@@ -3,8 +3,6 @@
 <mat-sidenav-container class="dashboard_sidenav">
   <mat-sidenav [class]="sessions.loadMode() ? 'mat-sidenav-dark' : 'mat-sidenav'" mode="side" opened [fixedInViewport]="true">
 
-    <button fxLayoutAlign="center" mat-flat-button (click)="goGeneral(); toggleGeneral()" color="accent" [ngClass]="{'menu_button_toggled_light' : GeneralIsToggled, 'menu_button' : !GeneralIsToggled, 'menu_button_toggled_dark' : GeneralIsToggled && sessions.loadMode()}">General 	<mat-icon style="margin-bottom: 5px">settings</mat-icon></button>
-
     <button fxLayoutAlign="center" mat-flat-button (click)="goLogs(); toggleLogs()" color="accent" [ngClass]="{'menu_button_toggled_light' : LogsIsToggled, 'menu_button' : !LogsIsToggled, 'menu_button_toggled_dark' : LogsIsToggled && sessions.loadMode()}">Logs <mat-icon style="margin-bottom: 5px">description</mat-icon></button>
 
     <button fxLayoutAlign="center" mat-flat-button (click)="goUsers(); toggleUsers()" color="accent" [ngClass]="{'menu_button_toggled_light' : UsersIsToggled, 'menu_button' : !UsersIsToggled, 'menu_button_toggled_dark' : UsersIsToggled && sessions.loadMode()}">Users 	<mat-icon style="margin-bottom: 5px">supervised_user_circle</mat-icon></button>

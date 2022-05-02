@@ -28,6 +28,15 @@ button:hover {
   transition: none !important;
 }
 
+.mat-icon-button {
+  transition: none !important;
+}
+
+.mat-icon-button:hover {
+  background-color: unset !important;
+  color: unset !important;
+}
+
 html {
   background: whitesmoke;
   width: 100%;

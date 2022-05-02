@@ -28,6 +28,8 @@
       Sign Out
     </button>
 
+    <button class="mode-switch" disableRipple mat-icon-button color="primary" (click)="switch()"><mat-icon>{{sessions.loadMode() ? 'light_mode' : 'dark_mode'}}</mat-icon></button>
+
   </mat-sidenav>
 
   <mat-sidenav-content>

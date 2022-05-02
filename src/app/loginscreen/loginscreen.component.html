@@ -23,9 +23,9 @@
 
 <img [src]="service.loadMode() ? '\\assets\\Logo-dark.png' : '\\assets\\Logo.png'" (click)="addCounter()" class="image_login" width="200" height="200" />
 
-<!--
-<mat-slide-toggle class="mode-switch" color="primary" [checked]="darkmode" (change)="switch()"></mat-slide-toggle>
--->
+
+<button mat-icon-button disableRipple class="mode-switch" color="primary" (click)="switch()"><mat-icon>{{service.loadMode() ? 'light_mode' : 'dark_mode'}}</mat-icon></button>
+
 
 <div *ngIf="IsLogging" class="spinner_bg"></div>
 
