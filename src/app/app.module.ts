@@ -24,6 +24,7 @@ import { MatGridListModule} from "@angular/material/grid-list";
 import { SettingsContentComponent } from './_content/settings-content/settings-content.component';
 import { SettingsLogsContentComponent } from './_content/settings-content/settings-logs-content/settings-logs-content.component';
 import { SettingsUsersContentComponent } from './_content/settings-content/settings-users-content/settings-users-content.component';
+import { SettingsMailsContentComponent } from './_content/settings-content/settings-mails-content/settings-mails-content.component';
 import { MatTableModule } from "@angular/material/table";
 import { ReportsPopupComponent } from "./_popups/reports-popup/reports-popup.component";
 import { MatDialogModule } from "@angular/material/dialog";
@@ -56,6 +57,7 @@ function tokenGetter() {
     SettingsContentComponent,
     SettingsLogsContentComponent,
     SettingsUsersContentComponent,
+    SettingsMailsContentComponent,
     ReportsPopupComponent,
     ClientsPopupComponent,
     ConfigCreatePopupComponent,

@@ -1,0 +1,20 @@
+.log_div {
+  margin-left: 10px;
+  background-color: whitesmoke;
+}
+
+p {
+  font-size: large;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+mat-form-field {
+  width: 30px;
+}
+
+input {
+  font-size: large;
+  text-align: center
+}

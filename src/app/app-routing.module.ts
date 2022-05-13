@@ -9,6 +9,7 @@ import { ReportsContentComponent } from "./_content/reports-content/reports-cont
 import { SettingsContentComponent } from "./_content/settings-content/settings-content.component";
 import { SettingsLogsContentComponent } from "./_content/settings-content/settings-logs-content/settings-logs-content.component";
 import { SettingsUsersContentComponent } from "./_content/settings-content/settings-users-content/settings-users-content.component";
+import { SettingsMailsContentComponent } from "./_content/settings-content/settings-mails-content/settings-mails-content.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch:'full'},
@@ -24,6 +25,7 @@ const routes: Routes = [
         children: [
         {path: 'logs', component: SettingsLogsContentComponent},
         {path: 'users', component: SettingsUsersContentComponent},
+        {path: 'mails', component: SettingsMailsContentComponent},
         ]
       }
       ],

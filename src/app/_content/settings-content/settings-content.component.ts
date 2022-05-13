@@ -13,6 +13,7 @@ export class SettingsContentComponent implements OnInit {
 
   public LogsIsToggled: boolean = false;
   public UsersIsToggled: boolean = false;
+  public MailsIsToggled: boolean = false;
 
   ngOnInit(): void {
   }
@@ -20,17 +21,28 @@ export class SettingsContentComponent implements OnInit {
   toggleLogs() {
     this.LogsIsToggled = true;
     this.UsersIsToggled = false;
+    this.MailsIsToggled = false;
   }
 
   toggleUsers() {
     this.LogsIsToggled = false;
     this.UsersIsToggled = true;
+    this.MailsIsToggled = false;
   }
+
+  toggleMails() {
+      this.LogsIsToggled = false;
+      this.UsersIsToggled = false;
+      this.MailsIsToggled = true;
+    }
 
   goLogs() {
     this.router.navigate(['logs'], {relativeTo: this.route})
   }
   goUsers() {
     this.router.navigate(['users'], {relativeTo: this.route})
+  }
+  goMails() {
+    this.router.navigate(['mails'], {relativeTo: this.route})
   }
 }
