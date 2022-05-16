@@ -18,3 +18,15 @@ input {
   font-size: large;
   text-align: center
 }
+
+.infoButton {
+  margin-bottom: 75px;
+  margin-top: 40px;
+}
+
+.cron_styling {
+  width: 20%;
+  height: 20%;
+  border: darkgray solid;
+  text-align: center;
+}

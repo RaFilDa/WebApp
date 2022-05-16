@@ -12,4 +12,6 @@ export class SettingsMailsContentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  change() {
+  }
 }
