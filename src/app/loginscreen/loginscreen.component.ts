@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {SessionsService} from "../services/sessions.service";
 import {HttpErrorResponse} from "@angular/common/http";
 import {AppRoutingModule} from "../app-routing.module";
+import * as bcrypt from 'bcryptjs';
 
 @Component({
   selector: 'app-loginscreen',
@@ -62,6 +63,6 @@ export class LoginscreenComponent implements OnInit {
 
   public login(): void {
     this.IsLogging = true;
-      this.service.login(this.form.value).subscribe(() => this.router.navigate(['/dashboard']),(e) => {this.errorCheck(e); this.IsLogging = false;},() => this.IsLogging = false)
+    this.service.login(this.form.value).subscribe(() => this.router.navigate(['/dashboard']),(e) => {this.errorCheck(e); this.IsLogging = false;},() => this.IsLogging = false)
   }
 }

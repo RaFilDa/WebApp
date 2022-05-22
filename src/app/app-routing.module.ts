@@ -10,6 +10,7 @@ import { SettingsContentComponent } from "./_content/settings-content/settings-c
 import { SettingsLogsContentComponent } from "./_content/settings-content/settings-logs-content/settings-logs-content.component";
 import { SettingsUsersContentComponent } from "./_content/settings-content/settings-users-content/settings-users-content.component";
 import { SettingsMailsContentComponent } from "./_content/settings-content/settings-mails-content/settings-mails-content.component";
+import {SessionsContentComponent} from "./_content/sessions-content/sessions-content.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch:'full'},
@@ -20,6 +21,7 @@ const routes: Routes = [
       {path: '', redirectTo: '/dashboard/clients', pathMatch:'full'},
       {path: 'clients', component: ClientsContentComponent},
       {path: 'configs', component: ConfigsContentComponent},
+      {path:'sessions', component: SessionsContentComponent},
       {path: 'reports', component: ReportsContentComponent},
       {path: 'settings', component: SettingsContentComponent,
         children: [

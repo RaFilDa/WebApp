@@ -1,0 +1,8 @@
+mat-dialog-content {
+  width: 100%;
+  margin-top: 10px;
+}
+
+p.mat-dialog-title {
+  margin-top: -35px;
+}

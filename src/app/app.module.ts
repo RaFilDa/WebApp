@@ -44,6 +44,9 @@ import { ConfirmationPopupComponent } from './_popups/confirmation-popup/confirm
 import { ConfigSourceContentComponent } from './_popups/config-create-popup/config-source-content/config-source-content.component';
 import { HttpClientModule } from '@angular/common/http'
 import {JwtModule} from "@auth0/angular-jwt";
+import { SessionsContentComponent } from './_content/sessions-content/sessions-content.component';
+import { SessionsPopupComponent } from './_popups/sessions-popup/sessions-popup.component';
+import { SessionsCreatePopupComponent } from './_popups/sessions-create-popup/sessions-create-popup.component';
 
 function tokenGetter() {
   console.log('xxx');
@@ -68,6 +71,9 @@ function tokenGetter() {
     DaySelectionContentComponent,
     ConfirmationPopupComponent,
     ConfigSourceContentComponent,
+    SessionsContentComponent,
+    SessionsPopupComponent,
+    SessionsCreatePopupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,

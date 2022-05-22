@@ -1,0 +1,21 @@
+<mat-toolbar [class]="sessions.loadMode() ? 'toolbar-dark': 'toolbar'" fxLayout="row" fxLayoutAlign="space-between center">
+  <mat-form-field class="toolbar-components" fxFlexOffset="15px">
+    <input matInput type="text" placeholder="Search" [(ngModel)]="searchExpression">
+  </mat-form-field>
+  <button mat-flat-button color="accent" (click)="openEditDialog()">Create</button>
+</mat-toolbar>
+
+<mat-card class="users">
+  <div *ngIf="IsLoading" style="margin-top: 15px" fxLayout="row" fxLayoutAlign="center">
+    <mat-spinner [diameter]="40"></mat-spinner>
+  </div>
+  <mat-list>
+    <mat-list-item *ngFor="let item of filterData(); even as e; index as i">
+      <div fxLayout="row" fxLayoutAlign="space-between center">
+        <span>{{item.name}}</span>
+        <button mat-flat-button class="smallButton" color="accent" (click)="openDialog(item)"><mat-icon class="small">info</mat-icon></button>
+      </div>
+      <mat-divider></mat-divider>
+    </mat-list-item>
+  </mat-list>
+</mat-card>

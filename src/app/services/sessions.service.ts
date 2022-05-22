@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {catchError, map, Observable, of, tap} from "rxjs";
 import {environment} from "../../environments/environment";
 import {JwtHelperService} from "@auth0/angular-jwt";
+
+export interface ISession {
+  id: number
+  name: string
+  token: string
+}
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +22,13 @@ export class SessionsService {
     this.token = this.loadToken();
   }
 
+  public get options(): { headers: HttpHeaders }  {
+    return {
+      headers: new HttpHeaders({
+        'Authorization': 'Bearer ' + this.token
+      })
+    };
+  }
 
   public login(credentials: any): Observable<boolean> {
     return this.http.post<string>(environment.api + '/api/Sessions', credentials).pipe(
@@ -49,5 +62,17 @@ export class SessionsService {
 
   public saveMode(mode: boolean): void {
     localStorage.setItem('darkmode', String(mode))
+  }
+
+  public GetSessions(): Observable<ISession[]> {
+    return this.http.get<ISession[]>(environment.api + '/api/Sessions', this.options)
+  }
+
+  public AddSession(name: string): void {
+    this.http.post(environment.api + '/api/Sessions/add?name=' + name, null, this.options).subscribe()
+  }
+
+  public BanSession(token: string): void {
+    this.http.delete(environment.api + '/api/Sessions?token=' + token, this.options).subscribe()
   }
 }

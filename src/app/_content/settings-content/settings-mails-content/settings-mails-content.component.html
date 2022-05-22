@@ -7,33 +7,33 @@
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput (change)="change()" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="minutes" type="text" class="cron_styling">
         <p>Minute</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput (change)="change()" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="hours" type="text" class="cron_styling">
         <p>Hour</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput (change)="change()" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="days" type="text" class="cron_styling">
         <p>Day (Month)</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput (change)="change()" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="months" type="text" class="cron_styling">
         <p>Month</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput (change)="change()" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="weekdays" type="text" class="cron_styling">
         <p>Day (Week)</p>
       </div>
     </div>
 
   </div>
-  <button mat-flat-button color="accent">Save</button>
+  <button mat-flat-button color="accent" (click)="submit()">Save</button>
 </div>
 
 

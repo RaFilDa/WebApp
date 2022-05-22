@@ -14,6 +14,11 @@
       <mat-icon class="menu_button_icon">account_box</mat-icon>
     </button>
 
+    <button fxLayoutAlign="center" mat-flat-button (click)="showSessions(); toggleSessions()" color="accent" [ngClass]="{'menu_button_toggled_light' : SessionsIsToggled, 'menu_button' : !SessionsIsToggled, 'menu_button_toggled_dark' : SessionsIsToggled && sessions.loadMode()}">
+      Sessions
+      <mat-icon class="menu_button_icon">settings_ethernet</mat-icon>
+    </button>
+
     <button fxLayoutAlign="center" mat-flat-button (click)="showReports(); toggleReports()" color="accent" [ngClass]="{'menu_button_toggled_light' : ReportsIsToggled, 'menu_button' : !ReportsIsToggled, 'menu_button_toggled_dark' : ReportsIsToggled && sessions.loadMode()}">
       Reports
       <mat-icon class="menu_button_icon">assignment</mat-icon>

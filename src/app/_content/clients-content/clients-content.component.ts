@@ -45,7 +45,6 @@ export class ClientsContentComponent implements OnInit {
     let filtered: IClient[] = this.clients.slice();
 
     filtered = filtered.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
-    filtered
 
     return filtered;
   }

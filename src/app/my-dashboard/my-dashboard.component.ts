@@ -18,6 +18,7 @@ export class MyDashboardComponent implements OnInit {
 
   public ConfigsIsToggled: boolean = false;
   public ClientsIsToggled: boolean = false;
+  public SessionsIsToggled: boolean = false
   public GroupsIsToggled: boolean = false;
   public ReportsIsToggled: boolean = false;
   public SettingsIsToggled: boolean = false;
@@ -46,6 +47,7 @@ export class MyDashboardComponent implements OnInit {
   toggleConfigs() {
     this.ConfigsIsToggled = true;
     this.ClientsIsToggled = false;
+    this.SessionsIsToggled = false;
     this.GroupsIsToggled = false;
     this.ReportsIsToggled = false;
     this.SettingsIsToggled = false;
@@ -54,15 +56,16 @@ export class MyDashboardComponent implements OnInit {
   toggleClients() {
     this.ConfigsIsToggled = false;
     this.ClientsIsToggled = true;
+    this.SessionsIsToggled = false;
     this.GroupsIsToggled = false;
     this.ReportsIsToggled = false;
     this.SettingsIsToggled = false;
   }
 
-  toggleGroups() {
+  toggleSessions() {
     this.ConfigsIsToggled = false;
     this.ClientsIsToggled = false;
-    this.GroupsIsToggled = true;
+    this.SessionsIsToggled = true;
     this.ReportsIsToggled = false;
     this.SettingsIsToggled = false;
   }
@@ -70,7 +73,7 @@ export class MyDashboardComponent implements OnInit {
   toggleReports() {
     this.ConfigsIsToggled = false;
     this.ClientsIsToggled = false;
-    this.GroupsIsToggled = false;
+    this.SessionsIsToggled = false;
     this.ReportsIsToggled = true;
     this.SettingsIsToggled = false;
   }
@@ -78,7 +81,7 @@ export class MyDashboardComponent implements OnInit {
   toggleSettings() {
     this.ConfigsIsToggled = false;
     this.ClientsIsToggled = false;
-    this.GroupsIsToggled = false;
+    this.SessionsIsToggled = false;
     this.ReportsIsToggled = false;
     this.SettingsIsToggled = true;
   }
@@ -96,8 +99,8 @@ export class MyDashboardComponent implements OnInit {
   showReports() {
     this.router.navigate(['reports'], {relativeTo: this.route})
   }
-  showGroups() {
-    this.router.navigate(['groups'], {relativeTo: this.route})
+  showSessions() {
+    this.router.navigate(['sessions'], {relativeTo: this.route})
   }
   showSettings() {
     this.router.navigate(['settings'], {relativeTo: this.route})
