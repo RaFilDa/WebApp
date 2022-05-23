@@ -13,7 +13,7 @@ export class SessionsContentComponent implements OnInit {
 
   constructor(public sessions: SessionsService, public dialog: MatDialog) { }
   public searchExpression: string = ""
-  public sessionList: ISession[] = [{id: 0, name: "Office", token:"adadadadadad"}]
+  public sessionList: ISession[] = []
   public IsLoading: boolean = true
 
   ngOnInit(): void {

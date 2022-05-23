@@ -5,6 +5,9 @@
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
   <p mat-dialog-title>Session Info</p>
   <p>Name: {{info.name}}</p>
-  <p>Token: {{info.token}}</p>
-  <button mat-flat-button color="warn" mat-dialog-close="" (click)="ban()">Ban</button>
+  <p (click)="copyToken()" style="cursor: pointer">Token: {{info.token}}</p>
+  <div fxLayout="row" fxLayoutAlign="space-between" fxFlexFill>
+    <button mat-flat-button color="warn" (click)="ban()">Ban</button>
+    <p *ngIf="copied" style="font-size: small">Token copied to clipboard!</p>
+  </div>
 </div>

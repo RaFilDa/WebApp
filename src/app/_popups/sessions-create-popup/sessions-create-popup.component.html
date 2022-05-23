@@ -3,11 +3,14 @@
 </div>
 
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
-  <p mat-dialog-title>Add new user</p>
+  <p mat-dialog-title>Add new session</p>
 
   <mat-form-field>
     <input matInput [(ngModel)]="name" placeholder="Name">
   </mat-form-field>
 
-  <button mat-flat-button color="accent" mat-dialog-close="" (click)="submit()">Save</button>
+  <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-flat-button color="accent" (click)="submit()">Save</button>
+    <p *ngIf="error" style="font-size: small; color: red">Enter valid name</p>
+  </div>
 </div>

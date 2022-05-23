@@ -68,11 +68,11 @@ export class SessionsService {
     return this.http.get<ISession[]>(environment.api + '/api/Sessions', this.options)
   }
 
-  public AddSession(name: string): void {
-    this.http.post(environment.api + '/api/Sessions/add?name=' + name, null, this.options).subscribe()
+  public AddSession(name: string): Observable<ISession> {
+    return this.http.post<ISession>(environment.api + '/api/Sessions/add?name=' + name, null, this.options)
   }
 
-  public BanSession(token: string): void {
-    this.http.delete(environment.api + '/api/Sessions?token=' + token, this.options).subscribe()
+  public BanSession(token: string): Observable<ISession> {
+    return this.http.delete<ISession>(environment.api + '/api/Sessions?token=' + token, this.options)
   }
 }
