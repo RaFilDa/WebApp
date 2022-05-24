@@ -44,25 +44,25 @@
   <p>E-Mail Server Settings</p>
   <div fxLayout="row">
     <mat-form-field class="component" fxLayout="row"  fxLayoutAlign="left space-evenly center">
-      <input matInput type="text" placeholder="Server">
+      <input matInput [(ngModel)]="ip" type="text" placeholder="Server">
     </mat-form-field>
     <mat-form-field class="component" fxLayout="row" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
-      <input matInput type="text" placeholder="Username">
+      <input matInput [(ngModel)]="username" type="text" placeholder="Username">
     </mat-form-field>
   </div>
   <div fxLayout="row">
     <mat-form-field class="component" fxLayoutAlign="left space-evenly center">
-      <input matInput type="text" placeholder="Port">
+      <input matInput [(ngModel)]="port" type="text" placeholder="Port">
     </mat-form-field>
     <mat-form-field class="component" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
-      <input matInput type="password" placeholder="Password">
+      <input matInput [(ngModel)]="password" type="password" placeholder="Password">
     </mat-form-field>
   </div>
   <div fxLayout="row" fxLayoutAlign="left space-evenly center">
-    <mat-slide-toggle color="primary">Enable SSL</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="SSL" color="primary">Enable SSL</mat-slide-toggle>
   </div>
   <br>
-  <button mat-flat-button color="accent">Save</button>
+  <button mat-flat-button color="accent" (click)="submitSmtp()">Save</button>
 </div>
 
 
