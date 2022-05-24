@@ -30,3 +30,9 @@ input {
   border: darkgray solid;
   text-align: center;
 }
+
+.component {
+  font-size: small;
+  margin-top: 5px;
+  font-weight: normal;
+}

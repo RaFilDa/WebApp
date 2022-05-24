@@ -1,6 +1,6 @@
 <div style="background-color: unset" fxLayout="column" fxLayoutAlign="start start" class="log_div">
   <div fxLayout="row" fxLayoutAlign="start center">
-    <p>When to send report emails (CRON): </p>
+    <p>When to send report emails (CRON)</p>
     <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="margin-top: 9px">
       <div class="infoButton" fxLayout="column" fxLayoutAlign="space-evenly left">
         <a mat-icon-button href="https://crontab.guru/" color="primary" target="_blank" ><mat-icon>info</mat-icon></a>
@@ -34,6 +34,35 @@
 
   </div>
   <button mat-flat-button color="accent" (click)="submit()">Save</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!-- na tenhle kod se nekoukejte pls -->
+  <p>E-Mail Server Settings</p>
+  <div fxLayout="row">
+    <mat-form-field class="component" fxLayout="row"  fxLayoutAlign="left space-evenly center">
+      <input matInput type="text" placeholder="Server">
+    </mat-form-field>
+    <mat-form-field class="component" fxLayout="row" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
+      <input matInput type="text" placeholder="Username">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row">
+    <mat-form-field class="component" fxLayoutAlign="left space-evenly center">
+      <input matInput type="text" placeholder="Port">
+    </mat-form-field>
+    <mat-form-field class="component" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
+      <input matInput type="password" placeholder="Password">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="left space-evenly center">
+    <mat-slide-toggle color="primary">Enable SSL</mat-slide-toggle>
+  </div>
+  <br>
+  <button mat-flat-button color="accent">Save</button>
 </div>
 
 
