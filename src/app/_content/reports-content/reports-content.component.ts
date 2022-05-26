@@ -25,6 +25,11 @@ export class ReportsContentComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.refresh()
+  }
+
+  refresh(): void {
+    this.IsLoading = true
     this.reportsService.getReports().subscribe(x => this.reports = x, null, () => this.IsLoading = false)
   }
 

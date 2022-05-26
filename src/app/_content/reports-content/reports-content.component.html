@@ -14,6 +14,8 @@
       <mat-option value="INC">INC</mat-option>
     </mat-select>
   </mat-form-field>
+
+  <button mat-flat-button class="refresh" color="accent" (click)="refresh()"><mat-icon class="small">refresh</mat-icon></button>
 </mat-toolbar>
 
 <div *ngIf="IsLoading" style="margin-top: 70px; z-index: 100" fxLayout="row" fxLayoutAlign="center">
