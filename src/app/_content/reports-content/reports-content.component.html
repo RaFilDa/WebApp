@@ -8,7 +8,7 @@
   <mat-form-field class="toolbar-components" fxFlexOffset="20px">
     <mat-label>Backup Type</mat-label>
     <mat-select [(ngModel)]="backupType">
-      <mat-option value="">None</mat-option>
+      <mat-option value="">All</mat-option>
       <mat-option value="FULL">FULL</mat-option>
       <mat-option value="DIFF">DIFF</mat-option>
       <mat-option value="INC">INC</mat-option>
@@ -25,7 +25,7 @@
 <table mat-table *ngIf="!IsLoading" [dataSource]="filterData()" class="table_users">
   <ng-container matColumnDef="date">
     <th mat-header-cell *matHeaderCellDef>Date</th>
-    <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+    <td mat-cell *matCellDef="let element"> {{element.date | date:'dd/MM/yyyy h:mm:ss a'}} </td>
   </ng-container>
 
   <ng-container matColumnDef="time">
