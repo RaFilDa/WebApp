@@ -38,7 +38,7 @@
 
   <mat-card fxLayout="row" fxLayoutAlign="start stretch" [ngSwitch]="typeOfTiming.value">
     <div fxLayout="column" fxLayoutAlign="start start">
-      <mat-form-field class="timing-components">
+      <mat-form-field class="timing-components" >
         <mat-select #typeOfTiming [(ngModel)]="config.backupFrequency">
           <mat-option value="d">Daily</mat-option>
           <mat-option value="w">Weekdays</mat-option>
@@ -47,9 +47,12 @@
         </mat-select>
       </mat-form-field>
 
-      <mat-form-field class="timing-components" *ngIf="typeOfTiming.value!=='c'">
-        <input matInput type="time" [(ngModel)]="time">
-      </mat-form-field>
+      <div [hidden]="this.config.backupFrequency == 'c'">
+        <mat-form-field class="timing-components">
+          <input matInput type="time" #timer="ngModel" [required]="this.config.backupFrequency != 'c'" [(ngModel)]="time">
+        </mat-form-field>
+      </div>
+
 
       <mat-form-field class="timing-components">
         <mat-select [(ngModel)]="config.timeZone" placeholder="Timezone">
@@ -74,9 +77,9 @@
   <app-config-destination-content class="destinations" [(destinations)]="tmpDestinations" [configID]="config.id"></app-config-destination-content>
   <app-config-source-content class="destinations" [(sources)]="tmpSource" [configID]="config.id"></app-config-source-content>
 
-  <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between end' : 'end end'" style="height: 28%">
-    <button mat-flat-button color="warn"*ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
-    <button [disabled]="name.invalid || retention.invalid || package.invalid || empty()" mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
+  <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between end' : 'end end'" [style.height.%]="height()">
+    <button mat-flat-button color="warn" *ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
+    <button [disabled]="name.invalid || retention.invalid || package.invalid || timer.invalid || (this.time == ':' && this.config.backupFrequency != 'c') || empty()" mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
   </div>
 
 </div>

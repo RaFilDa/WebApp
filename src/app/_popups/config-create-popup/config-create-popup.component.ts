@@ -24,7 +24,7 @@ export class ConfigCreatePopupComponent implements OnInit {
     timeZone: 'UTC(+0)'
   }
 
-  public time = "12:00";
+  public time = "";
   public minutes = "";
   public hours = "";
   public days: number[] = []
@@ -166,6 +166,20 @@ export class ConfigCreatePopupComponent implements OnInit {
 
   empty(): boolean {
     return this.tmpDestinations.length == 0 || this.tmpSource.length == 0
+  }
+
+  height(): number {
+    switch (this.config.backupFrequency)
+    {
+      case "c":
+        return 28;
+      case "d":
+      case "w":
+        return 21.3;
+      case "m":
+        return 11.6;
+    }
+    return 0;
   }
 
   public Timezones: string[] = [
