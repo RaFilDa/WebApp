@@ -14,7 +14,7 @@ export class ConfigCreatePopupComponent implements OnInit {
 
   public config: IConfig = {
     id: 0,
-    name: '',
+    name: 'ConfigName',
     backupFrequency: 'd',
     retentionSize: 3,
     packageSize: 3,
@@ -162,6 +162,10 @@ export class ConfigCreatePopupComponent implements OnInit {
         source.path += '\\'
       this.configService.addSource(source);
     }
+  }
+
+  empty(): boolean {
+    return this.tmpDestinations.length == 0 || this.tmpSource.length == 0
   }
 
   public Timezones: string[] = [

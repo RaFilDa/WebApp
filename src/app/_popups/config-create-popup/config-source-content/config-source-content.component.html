@@ -10,4 +10,5 @@
     <span>{{source.path}}</span>
     <button mat-flat-button class="popupButton" color="warn" (click)="delete(source)"><mat-icon class="small">delete</mat-icon></button>
   </mat-card>
+  <H3 align="center" *ngIf="sources.length == 0">You need to add source</H3>
 </div>

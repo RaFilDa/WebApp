@@ -7,30 +7,31 @@
     <mat-expansion-panel *ngFor="let destination of destinations" hideToggle [class]="sessions.loadMode() ? 'dark' : 'light'">
       <mat-expansion-panel-header [style]="sessions.loadMode() ? 'background-color: #404040' : ''">
         <div fxFill fxLayout="row" fxLayoutAlign="space-between center">
-          <span>{{destination.type}} - {{destination.type == 'FTP' ? destination.ip : destination.path}}</span>
+          <span>{{destination.type}} - {{destination.type == 'FTP' ? destination.ip + destination.path : destination.path}}</span>
           <button mat-flat-button class="popupButton" color="warn" (click)="delete(destination)"><mat-icon class="small">delete</mat-icon></button>
         </div>
       </mat-expansion-panel-header>
-      <div fxLayout="row" fxLayoutAlign="space-between center">
-        <div class="expansion" fxLayout="row" fxLayoutAlign="start center">
+      <div fxLayout="column" fxLayoutAlign="space-between start">
+        <div fxLayout="row" fxLayoutAlign="start center" fxFlexFill>
           <mat-form-field [style.width.%]="28" [style.margin-left]="'0px'" class="select">
-            <mat-select #typeOfConfig [(ngModel)]="destination.type" value="FTP">
+            <mat-select [(ngModel)]="destination.type" value="FTP">
               <mat-option value="FTP">FTP</mat-option>
               <mat-option value="Loc">Local</mat-option>
               <mat-option value="Rem">Rem. Folder</mat-option>
             </mat-select>
           </mat-form-field>
+          <mat-form-field [style.width.%]="67"><input matInput [(ngModel)]="destination.path" type="text" placeholder="Destination"></mat-form-field>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="space-between center" style="margin-left: -10px" *ngIf="destination.type == 'FTP'">
+          <mat-form-field><input matInput [(ngModel)]="destination.ip" type="text" placeholder="IP"></mat-form-field>
 
-          <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.ip" type="text" placeholder="IP"></mat-form-field>
+          <mat-form-field><input matInput [(ngModel)]="destination.username" type="text" placeholder="Login"></mat-form-field>
 
-          <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.username" type="text" placeholder="Login"></mat-form-field>
-
-          <mat-form-field [style.width.%]="30" *ngIf="typeOfConfig.value=='FTP'"><input matInput [(ngModel)]="destination.password" type="password" placeholder="Password"></mat-form-field>
-
-          <mat-form-field *ngIf="typeOfConfig.value!='FTP'"><input matInput [(ngModel)]="destination.path" type="text" placeholder="Destination"></mat-form-field>
+          <mat-form-field><input matInput [(ngModel)]="destination.password" type="password" placeholder="Password"></mat-form-field>
         </div>
       </div>
     </mat-expansion-panel>
   </span>
+  <H3 align="center" *ngIf="destinations.length == 0">You need to add destination</H3>
 </div>
 

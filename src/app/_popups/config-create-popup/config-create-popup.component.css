@@ -73,3 +73,6 @@ mat-card {
   bottom: calc(100vh - 105vh);
 }
 
+.mat-dialog-actions {
+   justify-content: flex-end;
+}

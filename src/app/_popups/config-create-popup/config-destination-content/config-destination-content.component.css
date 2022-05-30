@@ -39,3 +39,9 @@ div {
 mat-expansion-panel {
   background-color: whitesmoke;
 }
+
+span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

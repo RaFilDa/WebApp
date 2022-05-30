@@ -2,7 +2,7 @@
   <mat-toolbar [class]="sessions.loadMode() ? 'toolbar_dark' : 'toolbar_light'" fxLayout="row" fxLayoutAlign="left space-evenly center">
 
     <mat-form-field class="toolbar-components">
-      <input matInput type="text" placeholder="Name" [(ngModel)]="config.name">
+      <input matInput type="text" placeholder="Name" required minlength="3" #name="ngModel" [(ngModel)]="config.name">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
@@ -16,12 +16,12 @@
 
     <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Retention</mat-label>
-      <input matInput type="number" min="1" max="30" [(ngModel)]="config.retentionSize">
+      <input matInput type="number" min="1" max="30" #retention="ngModel" required [(ngModel)]="config.retentionSize">
     </mat-form-field>
 
-    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary" *ngIf="config.backupType != 1">
+    <mat-form-field [style.width.%]="5" class="toolbar-components" fxFlexOffset="20px" color="primary">
       <mat-label>Packages</mat-label>
-      <input matInput type="number" min="1" max="30" [(ngModel)]="config.packageSize">
+      <input matInput type="number" min="1" max="30" #package="ngModel" [required]="config.backupType != 1" [disabled]="config.backupType == 1" [(ngModel)]="config.packageSize">
     </mat-form-field>
 
     <mat-form-field class="toolbar-components" fxFlexOffset="20px" color="primary">
@@ -74,9 +74,9 @@
   <app-config-destination-content class="destinations" [(destinations)]="tmpDestinations" [configID]="config.id"></app-config-destination-content>
   <app-config-source-content class="destinations" [(sources)]="tmpSource" [configID]="config.id"></app-config-source-content>
 
-  <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between' : 'end'" class="bottom_buttons">
+  <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between end' : 'end end'" style="height: 28%">
     <button mat-flat-button color="warn"*ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
-    <button mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
+    <button [disabled]="name.invalid || retention.invalid || package.invalid || empty()" mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
   </div>
 
 </div>
