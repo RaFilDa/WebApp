@@ -22,6 +22,7 @@ export class SettingsMailsContentComponent implements OnInit {
   public ip = "smtp.gmail.com"
   public username = ""
   public SSL = false
+  public ErrorOnly = false
   public password = ""
   public port = "25"
 
@@ -38,7 +39,7 @@ export class SettingsMailsContentComponent implements OnInit {
   }
 
   submitSmtp() {
-    let settings: string[] = [this.ip, this.port, String(this.SSL), this.username, this.password]
+    let settings: string[] = [this.ip, this.port, String(this.SSL), this.username, this.password, String(this.ErrorOnly)]
     this.emailService.UpdateSmtp(settings)
   }
 

@@ -60,6 +60,7 @@
   </div>
   <div fxLayout="row" fxLayoutAlign="left space-evenly center">
     <mat-slide-toggle [(ngModel)]="SSL" color="primary">Enable SSL</mat-slide-toggle>
+    <mat-slide-toggle [(ngModel)]="ErrorOnly" fxFlexOffset="110px" color="primary">Send only error reports</mat-slide-toggle>
   </div>
   <br>
   <button mat-flat-button color="accent" (click)="submitSmtp()">Save</button>
