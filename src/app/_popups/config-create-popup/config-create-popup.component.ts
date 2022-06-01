@@ -2,6 +2,15 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {ConfigsServiceService, IConfig, IDestination, ISource} from "../../services/configs-service.service";
 import {SessionsService} from "../../services/sessions.service";
+import {AbstractControl, FormControl, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+
+export function nameValidator(configs: IConfig[], configName: string): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    console.log(configName)
+    const used = configs.some(x => x.name == control.value && x.name != configName);
+    return used ? {usedName: {value: control.value}} : null;
+  };
+}
 
 @Component({
   selector: 'app-config-create-popup',
@@ -10,7 +19,7 @@ import {SessionsService} from "../../services/sessions.service";
 })
 export class ConfigCreatePopupComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: number, public configService: ConfigsServiceService, public sessions: SessionsService, private ref: MatDialogRef<ConfigCreatePopupComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public idDetail: any, public configService: ConfigsServiceService, public sessions: SessionsService, private ref: MatDialogRef<ConfigCreatePopupComponent>) { }
 
   public config: IConfig = {
     id: 0,
@@ -23,7 +32,6 @@ export class ConfigCreatePopupComponent implements OnInit {
     cron: '* * * * * *',
     timeZone: 'UTC(+0)'
   }
-
   public time = "";
   public minutes = "";
   public hours = "";
@@ -33,6 +41,11 @@ export class ConfigCreatePopupComponent implements OnInit {
   public cweekdays: string = ""
   public months: string = ""
 
+  public nameFormControl = new FormControl(this.config.name, [
+    Validators.required,
+    nameValidator(this.idDetail.configs, this.config.name),
+  ]);
+
   public destinations: IDestination[] = []
   public sources: ISource[] = []
 
@@ -40,12 +53,19 @@ export class ConfigCreatePopupComponent implements OnInit {
   public tmpSource: ISource[] = []
 
   ngOnInit() {
-    if(this.idDetail != -1)
+    if(this.idDetail.id != -1)
     {
-      this.configService.GetConfig(this.idDetail).subscribe(x => this.config = x,null, () => this.cronDisassemble())
-      this.configService.getDestinations(this.idDetail).subscribe(x => this.destinations = x,null, () => this.tmpDestinations = JSON.parse(JSON.stringify(this.destinations)) as IDestination[])
-      this.configService.getSources(this.idDetail).subscribe(x => this.sources = x,null, () => this.tmpSource = JSON.parse(JSON.stringify(this.sources)) as ISource[])
+      this.configService.GetConfig(this.idDetail.id).subscribe(x => {this.config = x; this.refreshValidator()},null, () => this.cronDisassemble())
+      this.configService.getDestinations(this.idDetail.id).subscribe(x => this.destinations = x,null, () => this.tmpDestinations = JSON.parse(JSON.stringify(this.destinations)) as IDestination[])
+      this.configService.getSources(this.idDetail.id).subscribe(x => this.sources = x,null, () => this.tmpSource = JSON.parse(JSON.stringify(this.sources)) as ISource[])
     }
+  }
+
+  refreshValidator() {
+    this.nameFormControl = new FormControl(this.config.name, [
+      Validators.required,
+      nameValidator(this.idDetail.configs, this.config.name),
+    ]);
   }
 
   cronDisassemble(): void {
@@ -95,7 +115,7 @@ export class ConfigCreatePopupComponent implements OnInit {
   }
 
   deleteConfig(): void {
-    this.configService.deleteConfig(this.idDetail)
+    this.configService.deleteConfig(this.idDetail.id)
     this.ref.close()
   }
 

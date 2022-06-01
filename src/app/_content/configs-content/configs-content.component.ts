@@ -32,7 +32,7 @@ export class ConfigsContentComponent implements OnInit {
   }
 
   openDialog(id: number) {
-    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false, data: id}).afterClosed().subscribe(null,null,() => this.refresh());
+    this.dialog.open(ConfigCreatePopupComponent, {autoFocus: false, data: {id: id, configs: this.configs}}).afterClosed().subscribe(null,null,() => this.refresh());
   }
 
   filterData(): IConfig[] {

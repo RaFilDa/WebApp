@@ -14,11 +14,11 @@ import {SessionsService} from "../../services/sessions.service";
 
 export class ClientsPopupComponent implements OnInit{
 
-  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public idDetail: {id: number, clients: IClient[] }, public clientService: ClientsServiceService,
+  constructor(public dialog: MatDialog, @Inject(MAT_DIALOG_DATA) public idDetail: {id: number, client: IClient}, public clientService: ClientsServiceService,
               public dialogRef: MatDialogRef<ClientsPopupComponent>, public configService: ConfigsServiceService, public sessions: SessionsService) {
   }
 
-  info: IClient = {id: 0,name: 'placeholder',lastSeen: '',ip: '1.1.1.1',mac: '1111'};
+  info: IClient = this.idDetail.client;
   configs: IConfig[] = []
   selectedConfigs: IConfig[] = []
   tmpSelectedConfigs: IConfig[] = []
@@ -95,17 +95,6 @@ export class ClientsPopupComponent implements OnInit{
       this.configService.delConfigForComputer(this.idDetail.id, conf.id)
     for(let conf of addConfig)
       this.configService.addConfigForComputer(this.idDetail.id, conf.id)
-  }
-
-  checkGroups(config: IGroup): boolean {
-    return false;
-  }
-
-  toggleGroups(config: IGroup): void {
-
-  }
-
-  saveChangesGroups() {
   }
 }
 

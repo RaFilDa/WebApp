@@ -26,7 +26,7 @@ export class SettingsUsersContentComponent implements OnInit {
   }
 
   openDialog() {
-    this.dialog.open(AddUserPopupComponent).afterClosed().subscribe(() => {this.isLoading = true;this.refresh()});
+    this.dialog.open(AddUserPopupComponent, {data: this.users}).afterClosed().subscribe(() => {this.isLoading = true;this.refresh()});
   }
 
   deleteUser(user: User) {

@@ -25,7 +25,7 @@ export class ClientsContentComponent implements OnInit {
   }
 
   openDialog(id: number) {
-    let dialogRef = this.dialog.open(ClientsPopupComponent, {data: {id: id, clients: this.clients}});
+    let dialogRef = this.dialog.open(ClientsPopupComponent, {data: {id: id, clients: this.clients.find(x => x.id == id)}});
     dialogRef.afterClosed().subscribe(x => this.clients = this.clients.filter(y => y.id != x));
   }
 

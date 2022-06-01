@@ -2,16 +2,21 @@
   <p mat-dialog-title>Add Administrator</p>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="username" placeholder="Name">
+    <input matInput [(ngModel)]="username" [formControl]="nameFormControl" placeholder="Name">
+    <mat-error *ngIf="nameFormControl.hasError('required')">Please enter username</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+    <input matInput [(ngModel)]="password" [formControl]="passwordFormControl" placeholder="Password" type="password">
+    <mat-error *ngIf="passwordFormControl.hasError('required')">Please enter password</mat-error>
+    <mat-error *ngIf="passwordFormControl.hasError('passwordStrength') && !passwordFormControl.hasError('required')">Password is weak</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="email" placeholder="Email">
+    <input matInput [(ngModel)]="email" [formControl]="emailFormControl" placeholder="Email">
+    <mat-error *ngIf="emailFormControl.hasError('required')">Please enter your email</mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('notEmail') && !emailFormControl.hasError('required')">Email does not exist</mat-error>
   </mat-form-field>
 
-  <button mat-flat-button color="accent" (click)="submit()">Save</button>
+  <button mat-flat-button color="accent" (click)="submit()" [disabled]="emailFormControl.invalid || passwordFormControl.invalid || nameFormControl.invalid">Save</button>
 </div>
