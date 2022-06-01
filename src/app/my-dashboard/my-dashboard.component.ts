@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router'
 import {SessionsService} from "../services/sessions.service";
+import {User, UsersService} from "../services/users.service";
+import {MatDialog} from "@angular/material/dialog";
+import {SetupComponent} from "../_popups/setup/setup.component";
 
 @Component({
   selector: 'app-my-dashboard',
@@ -9,12 +12,14 @@ import {SessionsService} from "../services/sessions.service";
 })
 export class MyDashboardComponent implements OnInit {
 
-  constructor(private router: Router, private route: ActivatedRoute, public sessions: SessionsService) { }
+  constructor(private router: Router, private route: ActivatedRoute, public sessions: SessionsService, public userService: UsersService, public dialog: MatDialog) { }
 
   public AlfredCounter: number = 0;
 
   public ShowAlfred: boolean = false;
   public darkmode: boolean = false;
+
+  public users: User[] = []
 
   public ConfigsIsToggled: boolean = false;
   public ClientsIsToggled: boolean = false;
@@ -26,6 +31,10 @@ export class MyDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.toggleClients();
     this.darkmode = this.sessions.loadMode()
+    this.userService.GetAll().subscribe(x => this.users = x, null, () => {
+      if(this.users.length < 1)
+        this.dialog.open(SetupComponent, {disableClose: true})
+    })
   }
 
   addCounter() {

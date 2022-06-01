@@ -19,6 +19,11 @@ export class AddUserPopupComponent implements OnInit {
   }
 
   submit() {
+    let regexp = new RegExp(/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
+    if(!regexp.test(this.email))
+    {
+      return
+    }
     let user: User = {
       id: 0,
       username: this.username,

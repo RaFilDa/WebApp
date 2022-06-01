@@ -1,0 +1,17 @@
+<div fxFill fxLayout="column" fxLayoutAlign="start start">
+  <p mat-dialog-title>Add Administrator</p>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="username" placeholder="Name">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" placeholder="Password" type="password">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="email" placeholder="Email">
+  </mat-form-field>
+
+  <button mat-flat-button color="accent" (click)="submit()">Save</button>
+</div>

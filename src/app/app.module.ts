@@ -47,6 +47,7 @@ import {JwtModule} from "@auth0/angular-jwt";
 import { SessionsContentComponent } from './_content/sessions-content/sessions-content.component';
 import { SessionsPopupComponent } from './_popups/sessions-popup/sessions-popup.component';
 import { SessionsCreatePopupComponent } from './_popups/sessions-create-popup/sessions-create-popup.component';
+import { SetupComponent } from './_popups/setup/setup.component';
 
 function tokenGetter() {
   console.log('xxx');
@@ -74,6 +75,7 @@ function tokenGetter() {
     SessionsContentComponent,
     SessionsPopupComponent,
     SessionsCreatePopupComponent,
+    SetupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,
