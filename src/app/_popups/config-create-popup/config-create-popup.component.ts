@@ -49,6 +49,8 @@ export class ConfigCreatePopupComponent implements OnInit {
   public destinations: IDestination[] = []
   public sources: ISource[] = []
 
+  public invalidCron = false
+
   public tmpDestinations: IDestination[] = []
   public tmpSource: ISource[] = []
 
@@ -103,9 +105,9 @@ export class ConfigCreatePopupComponent implements OnInit {
       tmp += "?"
     else
       tmp += "*"
+
     this.config.cron = tmp
   }
-
   widthCalc(): number {
     return (window.innerWidth - (window.innerWidth / 3))
   }

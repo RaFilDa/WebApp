@@ -71,7 +71,7 @@
     </div>
 
     <div *ngSwitchCase="'c'">
-      <app-cron-content [(weekdays)]="cweekdays" [(days)]="cdays" [(minutes)]="minutes" [(hours)]="hours" [(months)]="months"></app-cron-content>
+      <app-cron-content [(weekdays)]="cweekdays" [(days)]="cdays" [(minutes)]="minutes" [(hours)]="hours" [(months)]="months" [(invalid)]="invalidCron"></app-cron-content>
     </div>
   </mat-card>
 
@@ -80,7 +80,7 @@
 
   <div fxLayout="row" [fxLayoutAlign]="idDetail != -1 ? 'space-between end' : 'end end'" [style.height.%]="height()">
     <button mat-flat-button color="warn" *ngIf="idDetail != -1" (click)="deleteConfig()">Delete</button>
-    <button [disabled]="nameFormControl.invalid || retention.invalid || package.invalid || timer.invalid || ((this.time == ':' || this.time == '*:*') && this.config.backupFrequency != 'c') || empty()" mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
+    <button [disabled]="nameFormControl.invalid || retention.invalid || package.invalid || timer.invalid || (invalidCron && this.config.backupFrequency == 'c') || ((this.time == ':' || this.time == '*:*') && this.config.backupFrequency != 'c') || empty()" mat-flat-button color="accent" (click)="saveChanges()">{{idDetail != -1 ? 'Save' : 'Create'}}</button>
   </div>
 
 </div>

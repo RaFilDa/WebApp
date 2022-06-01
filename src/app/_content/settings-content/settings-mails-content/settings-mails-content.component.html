@@ -7,33 +7,34 @@
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="minutes" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="minutes" (ngModelChange)="checkValid()" type="text" class="cron_styling">
         <p>Minute</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="hours" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="hours" (ngModelChange)="checkValid()" type="text" class="cron_styling">
         <p>Hour</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="days" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="days" (ngModelChange)="checkValid()" type="text" class="cron_styling">
         <p>Day (Month)</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="months" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="months" (ngModelChange)="checkValid()" type="text" class="cron_styling">
         <p>Month</p>
       </div>
 
       <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="weekdays" type="text" class="cron_styling">
+        <input matInput [(ngModel)]="weekdays" (ngModelChange)="checkValid()" type="text" class="cron_styling">
         <p>Day (Week)</p>
       </div>
     </div>
 
   </div>
-  <button mat-flat-button color="accent" (click)="submit()">Save</button>
+  <h3 *ngIf="invalid">Invalid Cron Format</h3>
+  <button mat-flat-button color="accent" (click)="submit()" [disabled]="invalid">Save</button>
   <br>
   <br>
   <br>
