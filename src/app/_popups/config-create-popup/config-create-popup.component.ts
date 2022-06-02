@@ -171,7 +171,7 @@ export class ConfigCreatePopupComponent implements OnInit {
     {
       dest.configID = config.id
       dest.id = 0
-      if(dest.path[dest.path.length-1] != '\\')
+      if(dest.path[dest.path.length-1] != '\\' && dest.path[dest.path.length-1] != '/')
         dest.path += '\\'
       this.configService.addDestination(dest);
     }
