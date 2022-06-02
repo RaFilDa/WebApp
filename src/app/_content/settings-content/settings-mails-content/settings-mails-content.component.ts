@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {environment} from "../../../../environments/environment";
 import {SessionsService} from "../../../services/sessions.service";
 import {EmailServiceService} from "../../../services/email-service.service";
 
@@ -21,6 +19,9 @@ export class SettingsMailsContentComponent implements OnInit {
 
   public invalid: boolean = false
 
+  public savedMail: boolean = false
+  public savedSmtp: boolean = false
+
   public ip = "smtp.gmail.com"
   public username = ""
   public SSL = false
@@ -30,6 +31,10 @@ export class SettingsMailsContentComponent implements OnInit {
 
   cronAssemble(): string {
     return "0 " + this.minutes + " " + this.hours + " " + this.days + " " + this.months + " " + this.weekdays
+  }
+
+  delay(ms: number) {
+    return new Promise( resolve => setTimeout(resolve, ms) );
   }
 
   cronDisassemble(cron: string): void {
@@ -60,11 +65,15 @@ export class SettingsMailsContentComponent implements OnInit {
   submit() {
     let cron = this.cronAssemble()
     this.emailService.UpdateCron(cron);
+    this.savedMail = true
+    this.delay(2000).then(x => this.savedMail = false)
   }
 
   submitSmtp() {
     let settings: string[] = [this.ip, String(this.port), String(this.SSL), this.username, this.password, String(this.ErrorOnly)]
     this.emailService.UpdateSmtp(settings)
+    this.savedSmtp = true
+    this.delay(2000).then(x => this.savedSmtp = false)
   }
 
   checkValid() {

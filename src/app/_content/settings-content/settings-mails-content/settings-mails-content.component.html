@@ -34,7 +34,10 @@
 
   </div>
   <h3 *ngIf="invalid">Invalid Cron Format</h3>
-  <button mat-flat-button color="accent" (click)="submit()" [disabled]="invalid">Save</button>
+  <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 10%">
+    <button mat-flat-button color="accent" (click)="submit()" [style.font-size.px]="savedMail ? 16 : 14" [disabled]="invalid || savedMail">{{savedMail ? 'Saved!' : 'Save'}}</button>
+  </div>
+
   <br>
   <br>
   <br>
@@ -64,7 +67,7 @@
     <mat-slide-toggle [(ngModel)]="ErrorOnly" fxFlexOffset="110px" color="primary">Send only error reports</mat-slide-toggle>
   </div>
   <br>
-  <button mat-flat-button color="accent" (click)="submitSmtp()">Save</button>
+  <button mat-flat-button color="accent" (click)="submitSmtp()" [style.font-size.px]="savedSmtp ? 16 : 14" [disabled]="invalid || savedSmtp">{{savedSmtp ? 'Saved!' : 'Save'}}</button>
 </div>
 
 
