@@ -13,8 +13,13 @@ export class SessionsCreatePopupComponent implements OnInit {
 
   public name: string = ""
   public error: boolean = false;
+  public on: boolean = true;
 
   ngOnInit(): void {
+  }
+
+  unlimitedToggle(): void {
+    this.on = !this.on;
   }
 
   submit(): void {

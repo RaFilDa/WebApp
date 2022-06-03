@@ -9,8 +9,16 @@
     <input matInput [(ngModel)]="name" placeholder="Name">
   </mat-form-field>
 
-  <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between">
-    <button mat-flat-button color="accent" (click)="submit()">Save</button>
-    <p *ngIf="error" style="font-size: small; color: red">Enter valid name</p>
+  <div fxFlexFill fxLayout="column">
+    <div style="padding-bottom: 10px" fxFlexFill fxLayout="row">
+      <mat-form-field style="width: 15%">
+        <input matInput placeholder="Days" [disabled]="!on">
+      </mat-form-field>
+      <mat-checkbox style="margin-top: 10px; margin-left: 10px" color="primary" (change)="unlimitedToggle()">Unlimited</mat-checkbox>
+    </div>
+    <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between">
+      <button mat-flat-button color="accent" (click)="submit()">Save</button>
+      <p *ngIf="error" style="font-size: small; color: red">Enter valid name</p>
+    </div>
   </div>
 </div>
