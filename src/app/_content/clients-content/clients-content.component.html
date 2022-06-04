@@ -10,7 +10,7 @@
     <mat-spinner [diameter]="40"></mat-spinner>
   </div>
   <mat-list>
-    <mat-list-item *ngFor="let item of filterData(); even as e; index as i">
+    <mat-list-item *ngFor="let item of filterData(); even as e; index as i" (click)="openDialog(item.id)">
       <div fxLayout="row" fxLayoutAlign="space-between center">
         <span>{{item.name}}</span>
         <button mat-flat-button class="smallButton" color="accent" (click)="openDialog(item.id)"><mat-icon class="small">info</mat-icon></button>

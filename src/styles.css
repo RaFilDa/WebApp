@@ -110,6 +110,9 @@ button.smallButtonDelete {
   min-height: unset;
   min-width: unset;
 }
+mat-list-item {
+  cursor: pointer;
+}
 
 .light .mat-expansion-panel-body {
   background-color: lightgray;

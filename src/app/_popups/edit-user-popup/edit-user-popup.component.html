@@ -1,0 +1,27 @@
+<div fxLayout="row" fxLayoutAlign="end center">
+  <button mat-flat-button class="smallButton_popup" color="accent" mat-dialog-close=""><mat-icon class="small_popup">clear</mat-icon></button>
+</div>
+
+<div fxFill fxLayout="column" fxLayoutAlign="start start">
+  <p mat-dialog-title>Edit User</p>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="username" [formControl]="nameFormControl" placeholder="Name">
+    <mat-error *ngIf="nameFormControl.hasError('required')">Please enter username</mat-error>
+    <mat-error *ngIf="nameFormControl.hasError('usedName') && !nameFormControl.hasError('required')">Username already exists</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="password" [formControl]="passwordFormControl" placeholder="Password" type="password">
+    <mat-error *ngIf="passwordFormControl.hasError('required')">Please enter password</mat-error>
+    <mat-error *ngIf="passwordFormControl.hasError('passwordStrength') && !passwordFormControl.hasError('required')">Password is weak</mat-error>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="email" [formControl]="emailFormControl" placeholder="Email">
+    <mat-error *ngIf="emailFormControl.hasError('required')">Please enter your email</mat-error>
+    <mat-error *ngIf="emailFormControl.hasError('notEmail') && !emailFormControl.hasError('required')">Email does not exist</mat-error>
+  </mat-form-field>
+
+  <button mat-flat-button color="accent" (click)="submit()" [disabled]="emailFormControl.invalid || passwordFormControl.invalid || nameFormControl.invalid">Save</button>
+</div>

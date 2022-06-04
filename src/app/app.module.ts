@@ -48,6 +48,7 @@ import { SessionsContentComponent } from './_content/sessions-content/sessions-c
 import { SessionsPopupComponent } from './_popups/sessions-popup/sessions-popup.component';
 import { SessionsCreatePopupComponent } from './_popups/sessions-create-popup/sessions-create-popup.component';
 import { SetupComponent } from './_popups/setup/setup.component';
+import { EditUserPopupComponent } from './_popups/edit-user-popup/edit-user-popup.component';
 
 function tokenGetter() {
   console.log('xxx');
@@ -76,6 +77,7 @@ function tokenGetter() {
     SessionsPopupComponent,
     SessionsCreatePopupComponent,
     SetupComponent,
+    EditUserPopupComponent,
   ],
   entryComponents: [
     ReportsPopupComponent,

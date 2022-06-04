@@ -18,3 +18,8 @@
 button {
   margin: 10px 10px
 }
+
+.delete {
+  position: absolute;
+  right: 80px;
+}
