@@ -6,19 +6,18 @@
   <p mat-dialog-title>Add new session</p>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="name" placeholder="Name">
+    <input matInput [(ngModel)]="name" #nameI="ngModel" required placeholder="Name">
   </mat-form-field>
 
   <div fxFlexFill fxLayout="column">
     <div style="padding-bottom: 10px" fxFlexFill fxLayout="row">
       <mat-form-field style="width: 15%">
-        <input matInput placeholder="Days" [disabled]="!on">
+        <input matInput placeholder="Days" min="0" required type="number" #daysI="ngModel" [(ngModel)]="days" [disabled]="unlimited">
       </mat-form-field>
-      <mat-checkbox style="margin-top: 10px; margin-left: 10px" color="primary" (change)="unlimitedToggle()">Unlimited</mat-checkbox>
+      <mat-checkbox style="margin-top: 10px; margin-left: 10px" color="primary" [(ngModel)]="unlimited">Unlimited</mat-checkbox>
     </div>
     <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between">
-      <button mat-flat-button color="accent" (click)="submit()">Save</button>
-      <p *ngIf="error" style="font-size: small; color: red">Enter valid name</p>
+      <button mat-flat-button color="accent" (click)="submit()" [disabled]="nameI.invalid || daysI.invalid">Save</button>
     </div>
   </div>
 </div>

@@ -1,13 +1,13 @@
-<div fxLayout="row" fxLayoutAlign="end center">
+<div fxLayout="row" fxLayoutAlign="end center" style="min-width: 150px">
   <button mat-flat-button class="smallButton_popup" color="accent" mat-dialog-close=""><mat-icon class="small_popup">clear</mat-icon></button>
 </div>
 
 <div fxFill fxLayout="column" fxLayoutAlign="start start">
   <p mat-dialog-title>Session Info</p>
-  <p>Name: {{info.name}}</p>
-  <p (click)="copyToken()" style="cursor: pointer">Token: {{info.token}}</p>
+  <p>Name: {{info.session.name}}</p>
+  <p (click)="info.expired ? '' : copyToken()" [class]="info.expired ? 'expired' : 'cursor'">Token: {{info.expired ? 'Expired!' : info.session.token}}</p>
   <div fxLayout="row" fxLayoutAlign="space-between" fxFlexFill>
-    <button mat-flat-button color="warn" (click)="ban()">Ban</button>
+    <button mat-flat-button color="warn" (click)="ban()">{{info.expired ? 'Delete' : 'Ban'}}</button>
     <p *ngIf="copied" style="font-size: small">Token copied to clipboard!</p>
   </div>
 </div>

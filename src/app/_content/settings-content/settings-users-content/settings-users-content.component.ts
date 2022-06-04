@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {AddUserPopupComponent} from "../../../_popups/add-user-popup/add-user-popup.component";
 import {User, UsersService} from "../../../services/users.service";
+import {ConfirmationPopupComponent} from "../../../_popups/confirmation-popup/confirmation-popup.component";
 
 @Component({
   selector: 'app-settings-users-content',
@@ -30,8 +31,12 @@ export class SettingsUsersContentComponent implements OnInit {
   }
 
   deleteUser(user: User) {
-    this.isLoading = true;
-    this.userService.DeleteUser(user.id).subscribe(null, null, () => this.refresh())
+    this.dialog.open(ConfirmationPopupComponent).afterClosed().subscribe(result => {
+      if(!result)
+        return
+      this.isLoading = true;
+      this.userService.DeleteUser(user.id).subscribe(null, null, () => this.refresh())
+    })
   }
 
   displayedColumns: string[] = ['username', 'email'];

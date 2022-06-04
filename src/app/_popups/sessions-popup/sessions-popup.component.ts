@@ -1,5 +1,5 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
-import {ISession, SessionsService} from "../../services/sessions.service";
+import {ISession, ISessionInfo, SessionsService} from "../../services/sessions.service";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 @Component({
@@ -9,7 +9,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class SessionsPopupComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public info: ISession, public sessions: SessionsService, public matRef: MatDialogRef<SessionsPopupComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public info: ISessionInfo, public sessions: SessionsService, public matRef: MatDialogRef<SessionsPopupComponent>) { }
 
   ngOnInit(): void {
 
@@ -18,12 +18,12 @@ export class SessionsPopupComponent implements OnInit {
   copied: boolean = false;
 
   ban(): void {
-    this.sessions.BanSession(this.info.token).subscribe(null, null, () => this.matRef.close());
+    this.sessions.BanSession(this.info.session.token).subscribe(null, null, () => this.matRef.close());
   }
 
   copyToken(): void {
     const selbox = document.createElement('textarea');
-    selbox.value = this.info.token;
+    selbox.value = this.info.session.token;
     document.body.appendChild(selbox);
     selbox.focus();
     selbox.select();

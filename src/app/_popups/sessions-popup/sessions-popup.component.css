@@ -6,3 +6,12 @@ mat-dialog-content {
 p.mat-dialog-title {
   margin-top: -35px;
 }
+
+p.cursor {
+  cursor: pointer;
+}
+
+p.expired {
+  cursor: auto;
+  color: red;
+}

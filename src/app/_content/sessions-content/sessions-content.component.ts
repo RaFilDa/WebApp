@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ISession, SessionsService} from 'src/app/services/sessions.service';
+import {ISessionInfo, SessionsService} from 'src/app/services/sessions.service';
 import {MatDialog} from "@angular/material/dialog";
 import {SessionsPopupComponent} from "../../_popups/sessions-popup/sessions-popup.component";
 import {SessionsCreatePopupComponent} from "../../_popups/sessions-create-popup/sessions-create-popup.component";
@@ -13,7 +13,7 @@ export class SessionsContentComponent implements OnInit {
 
   constructor(public sessions: SessionsService, public dialog: MatDialog) { }
   public searchExpression: string = ""
-  public sessionList: ISession[] = []
+  public sessionList: ISessionInfo[] = []
   public IsLoading: boolean = true
 
   ngOnInit(): void {
@@ -25,15 +25,15 @@ export class SessionsContentComponent implements OnInit {
     this.sessions.GetSessions().subscribe(x => this.sessionList = x, null, () => this.IsLoading = false)
   }
 
-  filterData(): ISession[] {
-    let filtered: ISession[] = this.sessionList.slice();
+  filterData(): ISessionInfo[] {
+    let filtered: ISessionInfo[] = this.sessionList.slice();
 
-    filtered = filtered.filter(x => x.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
+    filtered = filtered.filter(x => x.session.name.toLowerCase().includes(this.searchExpression.toLowerCase()));
 
     return filtered;
   }
 
-  openDialog(session: ISession): void {
+  openDialog(session: ISessionInfo): void {
     this.dialog.open(SessionsPopupComponent, {data: session}).afterClosed().subscribe(x => this.refresh());
   }
 

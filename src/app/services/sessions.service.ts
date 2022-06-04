@@ -10,6 +10,11 @@ export interface ISession {
   token: string
 }
 
+export interface ISessionInfo {
+  session: ISession
+  expired: boolean
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -64,12 +69,12 @@ export class SessionsService {
     localStorage.setItem('darkmode', String(mode))
   }
 
-  public GetSessions(): Observable<ISession[]> {
-    return this.http.get<ISession[]>(environment.api + '/api/Sessions', this.options)
+  public GetSessions(): Observable<ISessionInfo[]> {
+    return this.http.get<ISessionInfo[]>(environment.api + '/api/Sessions', this.options)
   }
 
-  public AddSession(name: string): Observable<ISession> {
-    return this.http.post<ISession>(environment.api + '/api/Sessions/add?name=' + name, null, this.options)
+  public AddSession(name: string, days: number, unlimited: boolean): Observable<ISession> {
+    return this.http.post<ISession>(environment.api + '/api/Sessions/add?name=' + name + '&days=' + String(days) + '&unlimited=' + String(unlimited), null, this.options)
   }
 
   public BanSession(token: string): Observable<ISession> {

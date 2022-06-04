@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {ClientsPopupComponent} from "../../_popups/clients-popup/clients-popup.component";
 import { IClient, ClientsServiceService} from "../../services/clients-service.service";
-import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
 import {SessionsService} from "../../services/sessions.service";
 
 @Component({
@@ -12,13 +11,12 @@ import {SessionsService} from "../../services/sessions.service";
 })
 export class ClientsContentComponent implements OnInit {
 
-  public groupsList: IGroup[] = [];
   public clients: IClient[] = []
 
   public searchExpression = '';
   public filterGroup = '';
   public IsLoading: boolean = true
-  constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public groupService: GroupsServiceService, public sessions: SessionsService) {}
+  constructor(public dialog: MatDialog, public clientService: ClientsServiceService, public sessions: SessionsService) {}
 
   ngOnInit(): void {
     this.refresh();
@@ -32,7 +30,6 @@ export class ClientsContentComponent implements OnInit {
   refresh(): void {
     this.IsLoading = true
     this.clientService.getClients().subscribe(x => this.clients = x, null, () => this.IsLoading = false);
-    this.groupService.getGroups().subscribe(x => this.groupsList = x);
     this.filterGroup = '';
     this.searchExpression = '';
   }

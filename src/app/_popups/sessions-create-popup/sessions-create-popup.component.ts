@@ -12,22 +12,13 @@ export class SessionsCreatePopupComponent implements OnInit {
   constructor(public sessions: SessionsService, public matRef: MatDialogRef<SessionsCreatePopupComponent>) { }
 
   public name: string = ""
-  public error: boolean = false;
-  public on: boolean = true;
+  public days: number = 1;
+  public unlimited: boolean = true;
 
   ngOnInit(): void {
   }
 
-  unlimitedToggle(): void {
-    this.on = !this.on;
-  }
-
   submit(): void {
-    if(this.name == "")
-    {
-      this.error = true;
-      return
-    }
-    this.sessions.AddSession(this.name).subscribe(null, null, () => this.matRef.close());
+    this.sessions.AddSession(this.name, this.days, this.unlimited).subscribe(null, null, () => this.matRef.close());
   }
 }

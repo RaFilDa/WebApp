@@ -3,7 +3,6 @@ import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog
 import {ClientsServiceService, IClient} from "../../services/clients-service.service";
 import {ConfirmationPopupComponent} from "../confirmation-popup/confirmation-popup.component";
 import {ConfigsServiceService, IConfig} from "../../services/configs-service.service";
-import {GroupsServiceService, IGroup} from "../../services/groups-service.service";
 import {SessionsService} from "../../services/sessions.service";
 
 @Component({
