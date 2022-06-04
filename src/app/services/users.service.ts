@@ -50,6 +50,9 @@ export class UsersService {
   public save(user: User): Observable<User> {
     return this.http.post<User>(environment.api + '/Users', user, this.options);
   }
+  public update(user: User): Observable<User> {
+    return this.http.put<User>(environment.api + '/Users', user, this.options);
+  }
 
   private unauthenticated(err: any): void {
     if (err.status === 401) {

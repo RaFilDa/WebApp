@@ -3,6 +3,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {AddUserPopupComponent} from "../../../_popups/add-user-popup/add-user-popup.component";
 import {User, UsersService} from "../../../services/users.service";
 import {ConfirmationPopupComponent} from "../../../_popups/confirmation-popup/confirmation-popup.component";
+import {EditUserPopupComponent} from "../../../_popups/edit-user-popup/edit-user-popup.component";
 
 @Component({
   selector: 'app-settings-users-content',
@@ -37,6 +38,10 @@ export class SettingsUsersContentComponent implements OnInit {
       this.isLoading = true;
       this.userService.DeleteUser(user.id).subscribe(null, null, () => this.refresh())
     })
+  }
+
+  editUser(user: User) {
+    this.dialog.open(EditUserPopupComponent, {data: {users: this.users, user: user}}).afterClosed().subscribe(() => {this.isLoading = true;this.refresh()});
   }
 
   displayedColumns: string[] = ['username', 'email'];
