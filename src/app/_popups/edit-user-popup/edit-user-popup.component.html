@@ -23,5 +23,5 @@
     <mat-error *ngIf="emailFormControl.hasError('notEmail') && !emailFormControl.hasError('required')">Email does not exist</mat-error>
   </mat-form-field>
 
-  <button mat-flat-button color="accent" (click)="submit()" [disabled]="emailFormControl.invalid || passwordFormControl.invalid || nameFormControl.invalid">Save</button>
+  <button mat-flat-button color="accent" (click)="submit()" [disabled]="emailFormControl.invalid || passwordFormControl.invalid || nameFormControl.invalid || Saved">Save</button>
 </div>

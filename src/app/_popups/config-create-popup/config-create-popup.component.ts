@@ -40,6 +40,7 @@ export class ConfigCreatePopupComponent implements OnInit {
   public weekdays: string[] = []
   public cweekdays: string = ""
   public months: string = ""
+  public Saved: boolean = false
 
   public nameFormControl = new FormControl(this.config.name, [
     Validators.required,
@@ -136,16 +137,17 @@ export class ConfigCreatePopupComponent implements OnInit {
       timeZone: this.config.timeZone
     }
 
+    this.Saved = true
+
     if(this.config.id != 0)
-      this.configService.updateConfig(config).subscribe(null,null,() => this.addAndDelete(config))
+      this.configService.updateConfig(config).subscribe(null,null,() => {this.addAndDelete(config);this.ref.close()})
     else
     {
       this.configService.addConfig(config).subscribe(null, null, () => {
-        this.configService.getConfigId(config.name).subscribe(x => config.id = x, null, () => this.addAndDelete(config))
+        this.configService.getConfigId(config.name).subscribe(x => config.id = x, null, () => {this.addAndDelete(config)
+        this.ref.close()})
       })
     }
-
-    this.ref.close()
   }
 
   addAndDelete(config: IConfig) {

@@ -14,11 +14,13 @@ export class SessionsCreatePopupComponent implements OnInit {
   public name: string = ""
   public days: number = 1;
   public unlimited: boolean = true;
+  public Saved: boolean = false;
 
   ngOnInit(): void {
   }
 
   submit(): void {
+    this.Saved = true;
     this.sessions.AddSession(this.name, this.days, this.unlimited).subscribe(null, null, () => this.matRef.close());
   }
 }

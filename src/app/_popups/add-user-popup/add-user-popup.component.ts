@@ -50,6 +50,7 @@ export class AddUserPopupComponent implements OnInit {
   username = ""
   password = ""
   email = ""
+  Saved = false
 
   emailFormControl = new FormControl(this.email, [
     Validators.required,
@@ -74,7 +75,7 @@ export class AddUserPopupComponent implements OnInit {
       password: this.password,
       email: this.email
     }
-
+    this.Saved = true;
     this.userService.save(user).subscribe(null,null,() => this.dialogRef.close())
   }
 

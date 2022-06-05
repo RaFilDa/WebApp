@@ -17,7 +17,7 @@
       <mat-checkbox style="margin-top: 10px; margin-left: 10px" color="primary" [(ngModel)]="unlimited">Unlimited</mat-checkbox>
     </div>
     <div fxFlexFill fxLayout="row" fxLayoutAlign="space-between">
-      <button mat-flat-button color="accent" (click)="submit()" [disabled]="nameI.invalid || daysI.invalid">Save</button>
+      <button mat-flat-button color="accent" (click)="submit()" [disabled]="nameI.invalid || daysI.invalid || Saved">Save</button>
     </div>
   </div>
 </div>
