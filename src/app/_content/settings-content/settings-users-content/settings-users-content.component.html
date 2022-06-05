@@ -16,7 +16,7 @@
       <div fxLayout="row" fxLayoutAlign="space-between center">
         {{element.email}}
         <button mat-flat-button color="warn" class="smallButtonDelete delete" (click)="deleteUser(element)" *ngIf="users.length != 1"><mat-icon class="small">delete</mat-icon></button>
-        <button mat-flat-button color="primary" class="smallButtonDelete" (click)="editUser(element)"><mat-icon class="small">settings</mat-icon></button>
+        <button mat-flat-button color="accent" class="smallButtonDelete" (click)="editUser(element)"><mat-icon class="small">settings</mat-icon></button>
       </div>
     </td>
   </ng-container>
