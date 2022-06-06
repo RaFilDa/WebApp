@@ -33,7 +33,7 @@ export class MyDashboardComponent implements OnInit {
     this.darkmode = this.sessions.loadMode()
     this.userService.GetAll().subscribe(x => this.users = x, null, () => {
       if(this.users.length < 1)
-        this.dialog.open(SetupComponent, {disableClose: true})
+        this.dialog.open(SetupComponent, {disableClose: true, autoFocus: false})
     })
   }
 

@@ -1,73 +1,74 @@
 <div style="background-color: unset" fxLayout="column" fxLayoutAlign="start start" class="log_div">
-  <div fxLayout="row" fxLayoutAlign="start center">
-    <p>When to send report emails (CRON)</p>
-    <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="margin-top: 9px">
-      <div class="infoButton" fxLayout="column" fxLayoutAlign="space-evenly left">
-        <a mat-icon-button href="https://crontab.guru/" color="primary" target="_blank" ><mat-icon>info</mat-icon></a>
+  <div style="border: darkgray solid; margin-top: 5px">
+    <div fxLayout="row" fxLayoutAlign="start center">
+      <p>When to send report emails (CRON)</p>
+      <div fxLayout="row" fxLayoutAlign="space-evenly stretch" style="margin-top: 9px">
+        <div class="infoButton" fxLayout="column" fxLayoutAlign="space-evenly left">
+          <a mat-icon-button href="https://crontab.guru/" color="primary" target="_blank" ><mat-icon>info</mat-icon></a>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-evenly center">
+          <input matInput [(ngModel)]="minutes" (ngModelChange)="checkValid()" type="text" class="cron_styling">
+          <p>Minute</p>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-evenly center">
+          <input matInput [(ngModel)]="hours" (ngModelChange)="checkValid()" type="text" class="cron_styling">
+          <p>Hour</p>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-evenly center">
+          <input matInput [(ngModel)]="days" (ngModelChange)="checkValid()" type="text" class="cron_styling">
+          <p>Day (Month)</p>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-evenly center">
+          <input matInput [(ngModel)]="months" (ngModelChange)="checkValid()" type="text" class="cron_styling">
+          <p>Month</p>
+        </div>
+
+        <div fxLayout="column" fxLayoutAlign="space-evenly center">
+          <input matInput [(ngModel)]="weekdays" (ngModelChange)="checkValid()" type="text" class="cron_styling">
+          <p>Day (Week)</p>
+        </div>
       </div>
 
-      <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="minutes" (ngModelChange)="checkValid()" type="text" class="cron_styling">
-        <p>Minute</p>
-      </div>
-
-      <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="hours" (ngModelChange)="checkValid()" type="text" class="cron_styling">
-        <p>Hour</p>
-      </div>
-
-      <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="days" (ngModelChange)="checkValid()" type="text" class="cron_styling">
-        <p>Day (Month)</p>
-      </div>
-
-      <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="months" (ngModelChange)="checkValid()" type="text" class="cron_styling">
-        <p>Month</p>
-      </div>
-
-      <div fxLayout="column" fxLayoutAlign="space-evenly center">
-        <input matInput [(ngModel)]="weekdays" (ngModelChange)="checkValid()" type="text" class="cron_styling">
-        <p>Day (Week)</p>
-      </div>
     </div>
-
+    <h3 *ngIf="invalid" style="padding: 10px">Invalid Cron Format</h3>
+    <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 10%; padding: 10px">
+      <button mat-flat-button color="accent" (click)="submit()" [style.font-size.px]="savedMail ? 16 : 14" [disabled]="invalid || savedMail">{{savedMail ? 'Saved!' : 'Save'}}</button>
+    </div>
   </div>
-  <h3 *ngIf="invalid">Invalid Cron Format</h3>
-  <div fxLayout="row" fxLayoutAlign="space-between center" style="width: 10%">
-    <button mat-flat-button color="accent" (click)="submit()" [style.font-size.px]="savedMail ? 16 : 14" [disabled]="invalid || savedMail">{{savedMail ? 'Saved!' : 'Save'}}</button>
-  </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
 
 <!-- na tenhle kod se nekoukejte pls -->
-  <p>E-Mail Server Settings</p>
-  <div fxLayout="row">
-    <mat-form-field class="component" fxLayout="row"  fxLayoutAlign="left space-evenly center">
-      <input matInput [(ngModel)]="ip" type="text" placeholder="Server">
-    </mat-form-field>
-    <mat-form-field class="component" fxLayout="row" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
-      <input matInput [(ngModel)]="username" type="text" placeholder="Username">
-    </mat-form-field>
+  <div style="border: darkgray solid; margin-top: 10px">
+    <p>E-Mail Server Settings</p>
+    <div fxLayout="row"  style="padding: 10px">
+      <mat-form-field class="component" fxLayout="row"  fxLayoutAlign="left space-evenly center">
+        <input matInput [(ngModel)]="ip" type="text" placeholder="Server">
+      </mat-form-field>
+      <mat-form-field class="component" fxLayout="row" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
+        <input matInput [(ngModel)]="username" type="text" placeholder="Username">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" style="padding: 10px">
+      <mat-form-field class="component" fxLayoutAlign="left space-evenly center">
+        <input matInput [(ngModel)]="port" type="number" placeholder="Port">
+      </mat-form-field>
+      <mat-form-field class="component" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
+        <input matInput [(ngModel)]="password" type="password" placeholder="Password">
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="left space-evenly center" style="padding: 10px">
+      <mat-slide-toggle [(ngModel)]="SSL" color="primary">Enable SSL</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="ErrorOnly" fxFlexOffset="110px" color="primary">Send only error reports</mat-slide-toggle>
+    </div>
+    <br>
+    <div style="padding: 10px">
+      <button mat-flat-button color="accent" (click)="submitSmtp()" [style.font-size.px]="savedSmtp ? 16 : 14" [disabled]="invalid || savedSmtp">{{savedSmtp ? 'Saved!' : 'Save'}}</button>
+    </div>
   </div>
-  <div fxLayout="row">
-    <mat-form-field class="component" fxLayoutAlign="left space-evenly center">
-      <input matInput [(ngModel)]="port" type="number" placeholder="Port">
-    </mat-form-field>
-    <mat-form-field class="component" fxFlexOffset="200px" fxLayoutAlign="left space-evenly center">
-      <input matInput [(ngModel)]="password" type="password" placeholder="Password">
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="left space-evenly center">
-    <mat-slide-toggle [(ngModel)]="SSL" color="primary">Enable SSL</mat-slide-toggle>
-    <mat-slide-toggle [(ngModel)]="ErrorOnly" fxFlexOffset="110px" color="primary">Send only error reports</mat-slide-toggle>
-  </div>
-  <br>
-  <button mat-flat-button color="accent" (click)="submitSmtp()" [style.font-size.px]="savedSmtp ? 16 : 14" [disabled]="invalid || savedSmtp">{{savedSmtp ? 'Saved!' : 'Save'}}</button>
 </div>
 
 
